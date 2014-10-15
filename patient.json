@@ -1,0 +1,158 @@
+{
+  "_id": "54b1a77f60b10a358beeb8d305001cd2",
+  "_rev": "3-24d7258aa284524d083ab1ff2f4bc997",
+  "doc_type": "Person",
+  "surname": "XXX",
+  "otherNames": "XXX",
+  "classification": "Contact",
+  "subClassification": "Complete",
+  "createdDate": "2014-08-18",
+  "address": {
+    "community": "Caldwell",
+    "country": "Liberia",
+    "county": "MONTSERRADO",
+    "zone": "1600 - Paynseville Duport Road"
+  },
+
+  "contact": {
+    "type": "Slept in same house",
+
+    "sourceCases": [{
+      "surname": "XXX",
+      "otherNames": "XXX",
+      "lastContactDate": "2014-08-08"
+    }],
+
+    "followUps": [{
+      "symptoms": {
+        "diarrhoea": false,
+        "haemorrhagic": false,
+        "headache": false,
+        "maculopapular": false,
+        "malaise": false,
+        "musclePain": false,
+        "pharyngitis": false,
+        "temperature": "36.50",
+        "vomiting": false
+      },
+
+      "dateOfVisit": "2014-08-22T13:36:25.263Z",
+
+      "geoInfo": {
+        "timestamp": 1408715750330,
+        "coords": {
+          "speed": null,
+          "heading": null,
+          "altitudeAccuracy": null,
+          "accuracy": 2052,
+          "altitude": null,
+          "longitude": 3.3676124,
+          "latitude": 6.51913
+        }
+
+      },
+      "comment": "She was absent when I visited the home . Mother called to give the temperature.",
+      "interviewer": {
+        "name": "Sokoya"
+      },
+      "deviceId": "e1266ea39ef7ef6c"
+    }]
+  },
+
+  "case": {
+    "id": "case id",
+    "onsetDate": "",
+    "symptoms": {
+      "diarrhoea": false,
+      "haemorrhagic": false,
+      "headache": false,
+      "maculopapular": false,
+      "malaise": false,
+      "musclePain": false,
+      "pharyngitis": false,
+      "temperature": "36.50",
+      "vomiting": false
+    },
+    "geoInfo": {
+      "timestamp": 1408715750330,
+      "coords": {
+        "speed": null,
+        "heading": null,
+        "altitudeAccuracy": null,
+        "accuracy": 2052,
+        "altitude": null,
+        "longitude": 3.3676124,
+        "latitude": 6.51913
+      }
+    },
+
+    "interviewer": {
+      "name": "Sokoya",
+      "phone": ""
+    }
+  },
+
+  "labResults": [{
+  }],
+
+  "source": {
+    "formhub": {
+      "crf": {
+        "residence": {
+          "counties": "MONTSERRADO",
+          "community": "Other",
+          "country": "Liberia",
+          "community_other": "Caldwell",
+          "zones": "1600 - Paynseville Duport Road"
+      },
+      "class": {
+        "crf_sourcedate1": "2014-08-13",
+        "crf_classification": "Contact - Complete",
+        "s1": {
+          "source1": "Duncan",
+          "sourceid1": "76",
+          "name1": "Alex"
+        }
+      },
+      "crf_surname": "XXX",
+      "crf_enterdate": "2014-08-18",
+      "crf_ageunits": "Years",
+      "crf_name": "XXX"
+    },
+    "fh_internal": {
+      "bamboo_dataset_id": "",
+      "tags": [],
+      "xform_id_string": "MCCCF",
+      "geolocation": [
+        null,
+        null
+        ],
+        "status": "submitted_via_web",
+        "uuid": "import-20140929-1603",
+        "attachments": [
+          ],
+          "submission_time": "2014-09-26T15:30:41",
+          "id": 41871
+        },
+        "meta": {
+          "instanceID": "uuid:import-20140929-1603",
+          "deprecatedID": "uuid:import-20140926-1603"
+        },
+        "begin": {
+          "etu": "No",
+          "case": "No",
+          "lab": "No",
+          "contact": "Yes",
+          "burial": "No"
+        },
+        "formhub": {
+          "uuid": "6b9329f2f1934c70bb3293be6f39aadd"
+        },
+        "formhub_couchdb_sync_version": 1
+      },
+      "vhf": {
+        ...
+      }
+    }
+  }
+}
