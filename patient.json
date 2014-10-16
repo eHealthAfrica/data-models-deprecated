@@ -4,6 +4,7 @@
   "doc_type": "Person",
   "surname": "XXX",
   "otherNames": "XXX",
+  "gender": "M/F",
   "classification": "Contact",
   "subClassification": "Complete",
   "createdDate": "2014-08-18",
