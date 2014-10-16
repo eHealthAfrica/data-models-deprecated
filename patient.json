@@ -14,6 +14,14 @@
     "county": "MONTSERRADO",
     "zone": "1600 - Paynseville Duport Road"
   },
+  
+  "changesLog": [
+    {
+      "rev": "21-f0025f84fccdc733532ed53892e2a2bd",
+      "timestamp": 1413456402925,
+      "user": "user_name"
+    }
+  ],
 
   "contact": {
     "type": "Slept in same house",
