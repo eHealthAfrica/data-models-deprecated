@@ -7,7 +7,7 @@
   "gender": "M/F",
   "age": "41|0.6",
   "classification": "Contact",
-  "subClassification": "Complete",
+  "subClassification": "Complete|Active",
   "createdDate": "2014-08-18",
   "address": {
     "community": "Caldwell",
