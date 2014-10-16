@@ -118,6 +118,11 @@
       "class": {
         "crf_sourcedate1": "2014-08-13",
         "crf_classification": "Contact - Complete",
+        "crf_casedate": "2014-05-26",
+        "crf_caseid": "MON-123,
+        "crf_onset": "2014-05-26",
+        "crf_confirmdate": "2014-05-26",
+        "crf_evidence": "...",
         "s1": {
           "source1": "Duncan",
           "sourceid1": "76",
