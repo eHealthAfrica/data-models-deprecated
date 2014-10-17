@@ -17,4 +17,16 @@ method. For example if you want to validate a `Person` object:
 
 If the object is valid, errors should be `null`.
 
+## Validation options
+
+You can optionally specify [jjv validation options][options] as the
+second argument to `validate`:
+
+    dataModel.validate(person, { checkRequired: false });
+
+These options allow for example to ignore the check for required
+properties, or to filter properties which are not in the schema. Check
+the [jjv options doc][options] for more details.
+
 [jjv]: https://github.com/acornejo/jjv
+[options]: https://github.com/acornejo/jjv#validation-options
