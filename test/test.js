@@ -26,4 +26,14 @@ describe('person', function() {
     var errors = dataModel.validate({wrong: 'stuff', doc_type: 'Person'});
     assert.equal(errors.validation.surname.required, true);
   });
+  it('supports validation options', function() {
+    var candidate = { wrong: 'stuff', doc_type: 'Person'};
+    var validationOptions = {
+      checkRequired: false,
+      removeAdditional: true
+    };
+    var errors = dataModel.validate(candidate, validationOptions);
+    assert.equal(errors, null, 'Errors are '+JSON.stringify(errors));
+    assert.equal(candidate.wrong, null);
+  });
 });
