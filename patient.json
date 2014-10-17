@@ -6,6 +6,8 @@
   "otherNames": "XXX",
   "gender": "M/F",
   "age": "41|0.6",
+  "phone": "822212121",
+  "phoneOwner": "Eva, Adam",
   "classification": "Contact",
   "subClassification": "Complete|Active",
   "createdDate": "2014-08-18",
