@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "doc_type": {"type": "string"},
+    "surname": {"type": "string"},
+    "age": {"type": "string"},
+    "classification": {"type": "string"}
+  },
+  "required": [
+    "doc_type",
+    "surname",
+    "age",
+    "classification"
+  ]
+}

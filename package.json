@@ -1,0 +1,24 @@
+{
+  "name": "data-model",
+  "version": "0.0.0",
+  "description": "validation for standard data models",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:danse/data_model.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/danse/data_model/issues"
+  },
+  "dependencies": {
+    "jjv": "~1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "~1.21.5"
+  }
+}
