@@ -1,15 +1,153 @@
 {
   "type": "object",
   "properties": {
-    "doc_type": {"type": "string"},
-    "surname": {"type": "string"},
-    "age": {"type": "string"},
-    "classification": {"type": "string"}
+
+    "doc_type": { "type": "string", "pattern": "^person$" },
+
+    "version": { "type": "string", "format": "semver" },
+    
+    "referenceNumber": { "type": "integer" },
+    
+    "otherIds": { "type": "object" },
+    
+    "surname": { "type": "string" },
+    "otherNames": { "type": "string" },
+
+    "occupation": { "type": "string" },
+
+    "age": { "type": "number" },
+    "gender": { "enum": ["m", "f"] },
+    "status": { "enum": ["alive", "dead"] },
+
+    "classification": { "enum": ["case", "contact"] },
+    "subClassification": { "type": "string" },
+    
+    "phoneNumber": { "type": "string" },
+    "phoneOwner": { "type": "string" },
+
+    "address": { "$ref": "#/definitions/address" },
+
+    "createdDate": { "type": "string", "format": "date-time" },
+    "modifiedDate": { "type": "string", "format": "date-time" },
+
+    "changeLog": { "$ref": "#/definitions/changeLog" },
+    
+    "case": { "$ref": "#/definitions/case" },
+
+    "contact": { "$ref": "#/definitions/contact" },
+
+    "calls": { "type": "array", "items": { "$ref": "#/definitions/call" } },
+
+    "actions": { "type": "array" },
+
+    "comments": { "type": "array", "items": {
+        "type": "object",
+        "properties": {
+          "date": { "type": "string", "format": "date-time" },
+          "text": { "type": "string" }
+        }
+      }
+    },
+    
+    "source": { "type": "object" }
   },
+  
+  "definitions": {
+
+    "address": { "type": "object", "additionalProperties": {
+      "type": ["string", "integer"]
+    }},
+
+    
+    "changeLog": { "type": "array", "items": {
+      "type": "object",
+      "properties": {
+        "rev": { "type": "string" },
+        "timestamp": { "type": "integer" },
+        "user": { "type": "string" }
+      }
+    }},
+
+    
+    "contact": { "type": "object", "properties": {
+      "sourceCases": { "type": "array", "items": {
+        "type": "object",
+        "properties": {
+          "surname": { "type": "string" },
+          "otherNames": { "type": "string" },
+          "lastContactDate": { "type": "string", "format": "date-time" }
+        }
+      }},
+      
+      "followUps": { "type": "array", "items": {
+        "type": "object",
+        "properties": {
+          "dateOfVisit": { "type": "string", "format": "date-time" },
+          "isSymptomatic": { "type": "boolean" },
+          "symptoms": { "$ref": "#/definitions/symptoms" },
+          "geoInfo": { "type": "object", "properties": {
+            "coords": { "type": "object", "properties": {
+              "longitude": { "type": "number" },
+              "latitude": { "type": "number" }
+            }}
+          }}
+        }
+      }}
+    }},
+
+    "case": {"type": "object", "properties": {
+      "onsetDate": { "type": "string", "format": "date-time" },
+      "interviewer": { "type": "object", "properties": {
+        "name": {"type": "string"}
+      }, "required": ["name"] },
+      "hadContactWith": {
+        "deadPerson": { "type": "boolean" },
+        "sickPerson": { "type": "boolean" },
+        "healthWorker": { "type": "boolean" },
+        "homeQuarantine": { "type": "boolean" }
+      },
+      "symptoms": { "$ref": "#/definitions/symptoms" }
+    }},
+
+    "call": { "type": "object", "properties": {
+      "createdBy": { "type": "string" },
+      "createdDate": { "type": "string", "format": "date-time" },
+      "name": { "type": "string" },
+      "address": { "$ref": "#/definitions/address" },
+      "phoneNumber": { "type": "string" },
+      "otherPhoneNumber": { "type": "string" },
+      "callNature": { "enum": ["death",
+                               "suspect",
+                               "sick",
+                               "health information",
+                               "quarantine",
+                               "security threat",
+                               "prank call",
+                               "other"]},
+      "callDetails": { "type": "string" },
+      "isFollowUp": { "type": "boolean" }
+    }},
+    
+    "symptoms": {"type": "object", "properties": {
+      "fever": { "type": "boolean" },
+      "vomiting": { "type": "boolean" },
+      "diarrhea": { "type": "boolean" },
+      "weakness": { "type": "boolean" },
+      "muscleOrJointPain": { "type": "boolean" },
+      "bleeding": { "type": "boolean" },
+      "rash": { "type": "boolean" },
+      "abdominalPain": { "type": "boolean" },
+      "difficultySwallowing": { "type": "boolean" },
+      "headache": { "type": "boolean" },
+      "other": { "type": "string" }
+    }}
+  },
+
+
   "required": [
     "doc_type",
+    "version",
     "surname",
-    "age",
     "classification"
   ]
 }

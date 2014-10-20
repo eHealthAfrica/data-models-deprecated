@@ -1,39 +1,30 @@
-var assert = require('assert'),
-    dataModel = require('../index');
+var assert = require('assert');
+var dataModel = require('../index');
+
+var example1 = require('./examples/person/1.json');
+var example2 = require('./examples/person/2.json');
+var example3 = require('./examples/person/3.json');
+
 
 describe('person', function() {
-  var example;
-  beforeEach(function() {
-    example = require('./examples/person/1.json');
-  });
+  
   it('validates the first example', function() {
-    var errors = dataModel.validate(example);
-    assert.equal(errors, null, 'Errors are '+JSON.stringify(errors));
+    var errors = dataModel.validate(example1);
+    assert.equal(errors, null, JSON.stringify(errors));
   });
-  it('complains when the doc_type is missing', function() {
-    var errors = dataModel.validate({wrong: 'stuff'});
-    assert.equal(
-      errors.dataModel,
-      'the object to be validated is missing a `doc_type` property'
-    );
+  
+  it('validates the second example', function() {
+    var errors = dataModel.validate(example2);
+    assert.equal(errors, null, JSON.stringify(errors));
   });
-  it('complains when the doc_type has an unknown value', function() {
-    assert.throws(function() {
-      dataModel.validate({any: 'shit', doc_type: 'cat'});
-    }, /could not find schema 'cat'/);
+  
+  it('validates the third example', function() {
+    var errors = dataModel.validate(example3);
+    assert.equal(errors, null, JSON.stringify(errors));
   });
-  it('complains when required fields are missing', function() {
-    var errors = dataModel.validate({wrong: 'stuff', doc_type: 'Person'});
-    assert.equal(errors.validation.surname.required, true);
-  });
-  it('supports validation options', function() {
-    var candidate = { wrong: 'stuff', doc_type: 'Person'};
-    var validationOptions = {
-      checkRequired: false,
-      removeAdditional: true
-    };
-    var errors = dataModel.validate(candidate, validationOptions);
-    assert.equal(errors, null, 'Errors are '+JSON.stringify(errors));
-    assert.equal(candidate.wrong, null);
+  
+  it('complains when required properties are missing', function() {
+    var errors = dataModel.validate({});
+    assert(errors && errors.length > 0);
   });
 });

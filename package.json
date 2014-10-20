@@ -1,6 +1,6 @@
 {
   "name": "data-model",
-  "version": "0.0.0",
+  "version": "1.0.0-alpha",
   "description": "validation for standard data models",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,8 @@
     "url": "https://github.com/danse/data_model/issues"
   },
   "dependencies": {
-    "jjv": "~1.0.2"
+    "semver-regex": "^1.0.0",
+    "z-schema": "^3.1.0"
   },
   "devDependencies": {
     "mocha": "~1.21.5"
