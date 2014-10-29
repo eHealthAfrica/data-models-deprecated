@@ -99,7 +99,7 @@
       "onsetDate": { "type": "string", "format": "date-time" },
       "interviewer": { "type": "object", "properties": {
         "name": {"type": "string"}
-      }, "required": ["name"] },
+      }},
       "hadContactWith": {
         "deadPerson": { "type": "boolean" },
         "sickPerson": { "type": "boolean" },
