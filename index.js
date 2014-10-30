@@ -1,22 +1,21 @@
-'use strict'
-var env = require('jjv')();
+'use strict';
 
-[
-  'Person'
-].forEach(function(type) {
-  var schema = require('./schemas/'+type+'.json');
-  env.addSchema(type, schema);
+var semver = require('semver-regex');
+var ZSchema = require('z-schema');
+
+ZSchema.registerFormat('semver', function(str) {
+  return semver().test(str);
 });
 
-// thin wrapper in order to enforce the `doc_type` use
-function validate(candidate, options) {
-  if (candidate.doc_type) {
-    return env.validate(candidate.doc_type, candidate, options);
-  } else {
-    return {
-      dataModel: 'the object to be validated is missing a `doc_type` property'
-    };
-  }
+var validator = new ZSchema();
+var schema = require('./schemas/Person.json');
+
+
+// thin wrapper in order to make validation more convenient
+function validate(candidate) {
+  var valid = validator.validate(candidate, schema);
+  var errors = validator.getLastErrors();
+  return errors;
 }
 
 module.exports = {
