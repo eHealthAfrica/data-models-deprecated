@@ -34,6 +34,8 @@
     
     "case": { "$ref": "#/definitions/case" },
 
+    "labResults": { "type": "array", "items": { "$ref": "#/definitions/labResult" } },
+
     "contact": { "$ref": "#/definitions/contact" },
 
     "calls": { "type": "array", "items": { "$ref": "#/definitions/call" } },
@@ -68,7 +70,7 @@
       }
     }},
 
-    "labResults": { "type": "array", "items": {
+    "labResult": {
       "type": "object",
       "properties": {
         "collectedBy": { "type": "object", "properties": {
@@ -83,7 +85,7 @@
         "importedDate": { "type": "string", "format": "date-time" },
         "result": {"type": "string"}
       }
-    }},
+    },
 
     "contact": { "type": "object", "properties": {
       "sourceCases": { "type": "array", "items": {
