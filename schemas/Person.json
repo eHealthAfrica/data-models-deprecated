@@ -68,7 +68,23 @@
       }
     }},
 
-    
+    "labResults": { "type": "array", "items": {
+      "type": "object",
+      "properties": {
+        "collectedBy": { "type": "object", "properties": {
+          "name": {"type": "string"}
+        }},
+        "labName": {"type": "string"},
+        "caseId": {"type": "string"},
+        "sampleId": {"type": "string"},
+        "sampleType": {"type": "string"},
+        "sampledDate": { "type": "string", "format": "date-time" },
+        "testedDate": { "type": "string", "format": "date-time" },
+        "importedDate": { "type": "string", "format": "date-time" },
+        "result": {"type": "string"}
+      }
+    }},
+
     "contact": { "type": "object", "properties": {
       "sourceCases": { "type": "array", "items": {
         "type": "object",
