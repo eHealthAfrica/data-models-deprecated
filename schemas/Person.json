@@ -51,7 +51,7 @@
       }
     },
     
-    "source": { "type": "object" }
+    "sources": { "type": "array", "items": {"type": "object"} }
   },
   
   "definitions": {
@@ -70,22 +70,36 @@
       }
     }},
 
-    "labResult": {
-      "type": "object",
-      "properties": {
-        "collectedBy": { "type": "object", "properties": {
-          "name": {"type": "string"}
-        }},
+    "labResult": {"type": "object", "properties": {
+        
+        "minRequirementStatus":  { "enum": ["accepted", "pending", "rejected"] },
+
+        "collectedBy": { 
+          "type": "object", "properties": {
+            "persons": { "type": "array", "items": { "type": "object" }},
+            "facilityName": { "type": "string" }
+          }
+        },
+
         "labName": {"type": "string"},
         "caseId": {"type": "string"},
         "sampleId": {"type": "string"},
         "sampleType": {"type": "string"},
         "sampledDate": { "type": "string", "format": "date-time" },
         "testedDate": { "type": "string", "format": "date-time" },
+        "initialSymptomOnsetDate": { "type": "string", "format": "date-time" },
+        "statusAtSampleCollection": { "enum": ["alive", "dead"] },
+        "addressOnset": { "$ref": "#/definitions/address" },
+        "collectionType":  { "enum": ["initial", "repeat"] },
         "importedDate": { "type": "string", "format": "date-time" },
-        "result": {"type": "string"}
+        "result": { "enum": ["positive", "negative", "indeterminate"] },
+        "ctValue": { "type": "string" },
+        "cdcValue": { "type": "string" },
+        "ms2Control": { "type": "string" }
       }
     },
+
+
 
     "contact": { "type": "object", "properties": {
       "sourceCases": { "type": "array", "items": {
