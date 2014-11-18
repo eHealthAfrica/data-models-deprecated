@@ -76,7 +76,8 @@
 
         "collectedBy": { 
           "type": "object", "properties": {
-            "persons": { "type": "array", "items": { "type": "object" }},
+            "contact1": { "type": "object" },
+            "contact2": { "type": "object" },
             "facilityName": { "type": "string" }
           }
         },
