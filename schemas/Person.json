@@ -94,7 +94,7 @@
         "importedDate": { "type": "string", "format": "date-time" },
         "result": { "enum": ["positive", "negative", "indeterminate"] },
         "ctValue": { "type": "string" },
-        "cdcValue": { "type": "string" },
+        "cdcTest": { "type": "string" },
         "ms2Control": { "type": "string" }
       }
     },
