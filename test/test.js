@@ -7,24 +7,30 @@ var example3 = require('./examples/person/3.json');
 
 
 describe('person', function() {
-  
+
   it('validates the first example', function() {
     var errors = dataModel.validate(example1);
     assert.equal(errors, null, JSON.stringify(errors));
   });
-  
+
   it('validates the second example', function() {
     var errors = dataModel.validate(example2);
     assert.equal(errors, null, JSON.stringify(errors));
   });
-  
+
   it('validates the third example', function() {
     var errors = dataModel.validate(example3);
     assert.equal(errors, null, JSON.stringify(errors));
   });
-  
+
   it('complains when required properties are missing', function() {
     var errors = dataModel.validate({});
+    assert(errors && errors.length > 0);
+  });
+
+  it('complains when required property length is not valid', function() {
+    example1.surname = ''; //length is 0
+    var errors = dataModel.validate(example1);
     assert(errors && errors.length > 0);
   });
 });
