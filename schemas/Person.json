@@ -5,12 +5,12 @@
     "doc_type": { "type": "string", "pattern": "^person$" },
 
     "version": { "type": "string", "format": "semver" },
-    
+
     "referenceNumber": { "type": "integer" },
-    
+
     "otherIds": { "type": "object" },
-    
-    "surname": { "type": "string" },
+
+    "surname": { "type": "string", "minLength": 1 },
     "otherNames": { "type": "string" },
 
     "occupation": { "type": "string" },
@@ -21,7 +21,7 @@
 
     "classification": { "enum": ["case", "contact"] },
     "subClassification": { "type": "string" },
-    
+
     "phoneNumber": { "type": "string" },
     "phoneOwner": { "type": "string" },
 
@@ -31,7 +31,7 @@
     "modifiedDate": { "type": "string", "format": "date-time" },
 
     "changeLog": { "$ref": "#/definitions/changeLog" },
-    
+
     "case": { "$ref": "#/definitions/case" },
 
     "contact": { "$ref": "#/definitions/contact" },
@@ -48,17 +48,17 @@
         }
       }
     },
-    
+
     "source": { "type": "object" }
   },
-  
+
   "definitions": {
 
     "address": { "type": "object", "additionalProperties": {
       "type": ["string", "integer"]
     }},
 
-    
+
     "changeLog": { "type": "array", "items": {
       "type": "object",
       "properties": {
@@ -68,7 +68,7 @@
       }
     }},
 
-    
+
     "contact": { "type": "object", "properties": {
       "sourceCases": { "type": "array", "items": {
         "type": "object",
@@ -78,7 +78,7 @@
           "lastContactDate": { "type": "string", "format": "date-time" }
         }
       }},
-      
+
       "followUps": { "type": "array", "items": {
         "type": "object",
         "properties": {
@@ -127,7 +127,7 @@
       "callDetails": { "type": "string" },
       "isFollowUp": { "type": "boolean" }
     }},
-    
+
     "symptoms": {"type": "object", "properties": {
       "fever": { "type": "boolean" },
       "vomiting": { "type": "boolean" },
