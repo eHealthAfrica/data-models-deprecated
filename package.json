@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:danse/data_model.git"
+    "url": "git@github.com:eHealthAfrica/data_model.git"
   },
   "author": "",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/danse/data_model/issues"
+    "url": "https://github.com/eHealthAfrica/data_model/issues"
   },
   "dependencies": {
     "semver-regex": "^1.0.0",
