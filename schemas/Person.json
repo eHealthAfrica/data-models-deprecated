@@ -22,6 +22,8 @@
     "classification": { "enum": ["case", "contact"] },
     "subClassification": { "type": "string" },
 
+    "currentLocation": { "type": "string" },
+
     "phoneNumber": { "type": "string" },
     "phoneOwner": { "type": "string" },
 
