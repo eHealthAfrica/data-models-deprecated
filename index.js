@@ -8,14 +8,23 @@ ZSchema.registerFormat('semver', function(str) {
 });
 
 var validator = new ZSchema();
-var schema = require('./schemas/Person.json');
-
+var schemas = {
+  person: require('./schemas/Person.json'),
+  case: require('./schemas/Call.json')
+};
 
 // thin wrapper in order to make validation more convenient
 function validate(candidate) {
-  var valid = validator.validate(candidate, schema);
-  var errors = validator.getLastErrors();
-  return errors;
+  if (candidate.doc_type) {
+    var schema = schemas[candidate.doc_type];
+    var valid = validator.validate(candidate, schema);
+    var errors = validator.getLastErrors();
+    return errors;
+  } else {
+    return [{
+      dataModel: 'the object to be validated is missing a `doc_type` property'
+    }];
+  }
 }
 
 module.exports = {
