@@ -33,4 +33,16 @@ describe('person', function() {
     var errors = dataModel.validate(example1);
     assert(errors && errors.length > 0);
   });
+
+  it('complains when a key of type number is undefined', function() {
+    example2.age = undefined;
+    var errors = dataModel.validate(example2);
+    assert(errors && errors.length > 0);
+  });
+
+  it('validates if the key of type number is deleted', function() {
+    delete example2.age;
+    var errors = dataModel.validate(example2);
+    assert.equal(errors, null, JSON.stringify(errors));
+  });
 });
