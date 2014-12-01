@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+
+    "doc_type": { "type": "string", "pattern": "^case$" },
+
+    "version": { "type": "string", "format": "semver" },
+
+    "referenceNo": { "type": "string" },
+
+    "changeLog": { "$ref": "#/definitions/changeLog" },
+
+    "contact": { "$ref": "#/definitions/contact" }
+  },
+
+  "definitions": {
+
+    "changeLog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "rev": { "type": "string" },
+          "timestamp": { "type": "integer" },
+          "user": { "type": "string" }
+        }
+      }
+    },
+
+    "contact": {
+      "type": "object"
+    }
+  },
+
+  "required": [
+    "doc_type"
+  ]
+}
