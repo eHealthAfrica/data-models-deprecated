@@ -17,14 +17,14 @@ var schemas = {
 function validate(candidate) {
   if (candidate.doc_type) {
     var schema = schemas[candidate.doc_type];
-    var valid = validator.validate(candidate, schema);
+    validator.validate(candidate, schema);
     var errors = validator.getLastErrors();
     return errors;
-  } else {
-    return [{
-      dataModel: 'the object to be validated is missing a `doc_type` property'
-    }];
   }
+
+  return [{
+    dataModel: 'the object to be validated is missing a `doc_type` property'
+  }];
 }
 
 module.exports = {

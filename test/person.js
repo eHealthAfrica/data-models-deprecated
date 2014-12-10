@@ -1,12 +1,18 @@
+'use strict';
+
 var assert = require('assert');
 var dataModel = require('../index');
 
 var example1 = require('./examples/person/1.json');
 var example2 = require('./examples/person/2.json');
 var example3 = require('./examples/person/3.json');
+
+function clone(doc) {
+  return JSON.parse(JSON.stringify(doc));
+}
+
 var exampleRequiredLength = clone(example1);
 var exampleUndefined = clone(example1);
-
 
 describe('person', function() {
 
@@ -48,7 +54,3 @@ describe('person', function() {
     assert.equal(errors, null, JSON.stringify(errors));
   });
 });
-
-function clone(doc) {
-  return JSON.parse(JSON.stringify(doc));
-}
