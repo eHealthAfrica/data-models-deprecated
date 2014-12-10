@@ -11,7 +11,8 @@ var validator = new ZSchema();
 var schemas = {
   person: require('./schemas/Person.json'),
   case: require('./schemas/Call.json'),
-  driver: require('./schemas/Driver.json')
+  driver: require('./schemas/Driver.json'),
+  deliveryRound: require('./schemas/DeliveryRound.json')
 };
 
 // thin wrapper in order to make validation more convenient
