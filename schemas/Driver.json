@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "doc_type": {
+      "type": "string",
+      "pattern": "^driver$"
+    },
+    "version": {
+      "type": "string",
+      "format": "semver"
+    },
+    "forename": {
+      "type": "string",
+      "minLength": 1
+    },
+    "surname": {
+      "type": "string",
+      "minLength": 1
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string",
+      "format": "phone"
+    }
+  },
+  "required": [
+    "doc_type",
+    "version",
+    "forename",
+    "surname",
+    "email",
+    "phone"
+  ]
+}
