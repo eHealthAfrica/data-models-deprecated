@@ -10,7 +10,8 @@ ZSchema.registerFormat('semver', function(str) {
 var validator = new ZSchema();
 var schemas = {
   person: require('./schemas/Person.json'),
-  case: require('./schemas/Call.json')
+  case: require('./schemas/Call.json'),
+  driver: require('./schemas/Driver.json')
 };
 
 // thin wrapper in order to make validation more convenient

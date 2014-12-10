@@ -22,8 +22,7 @@
       "format": "email"
     },
     "phone": {
-      "type": "string",
-      "format": "phone"
+      "type": "string"
     }
   },
   "required": [
