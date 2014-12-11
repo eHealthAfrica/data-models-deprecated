@@ -15,7 +15,10 @@
 
     "occupation": { "type": "string" },
 
-    "age": { "type": "number" },
+    "age": { "type": "object", "properties": {
+      "years": { "type": "number" },
+      "months": { "type": "number" }
+    }},
     "gender": { "enum": ["m", "f"] },
     "status": { "enum": ["alive", "dead"] },
 
