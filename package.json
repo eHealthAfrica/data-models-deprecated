@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git@github.com:eHealthAfrica/data_model.git"
   },
-  "author": "",
-  "license": "BSD-2-Clause",
+  "author": "eHealth Africa (http://ehealthafrica.org/)",
+  "license": "All rights reserved",
   "bugs": {
     "url": "https://github.com/eHealthAfrica/data_model/issues"
   },
@@ -23,5 +23,14 @@
   "devDependencies": {
     "eslint": "^0.10.1",
     "mocha": "~1.21.5"
-  }
+  },
+  "homepage": "https://github.com/eHealthAfrica/data_model",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "model",
+    "schema",
+    "validation"
+  ]
 }
