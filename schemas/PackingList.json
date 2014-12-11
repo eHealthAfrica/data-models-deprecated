@@ -1,0 +1,38 @@
+
+{
+  "type": "object",
+  "properties": {
+    "doc_type": {
+      "type": "string",
+      "pattern": "^packingList$"
+    },
+    "version": {
+      "type": "string",
+      "format": "semver"
+    },
+    "productType": {
+      "type": "string",
+      "minLength": 1
+    },
+    "expectedQty": {
+      "type": "integer"
+    },
+    "packedQty": {
+      "type": "integer"
+    },
+    "deliveredQty": {
+      "type": "integer"
+    },
+    "adjustmentReason": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "doc_type",
+    "version",
+    "productType",
+    "packedQty",
+    "expectedQty",
+    "deliveredQty"
+  ]
+}

@@ -12,7 +12,10 @@ var schemas = {
   person: require('./schemas/Person.json'),
   case: require('./schemas/Call.json'),
   driver: require('./schemas/Driver.json'),
-  deliveryRound: require('./schemas/DeliveryRound.json')
+  deliveryRound: require('./schemas/DeliveryRound.json'),
+  facilityRound: require('./schemas/FacilityRound.json'),
+  pickedProduct: require('./schemas/PickedProduct.json'),
+  packingList: require('./schemas/PackingList.json')
 };
 
 // thin wrapper in order to make validation more convenient
