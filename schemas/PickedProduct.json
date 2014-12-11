@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "doc_type": {
+      "type": "string",
+      "pattern": "^pickedProduct$"
+    },
+    "version": {
+      "type": "string",
+      "format": "semver"
+    },
+    "expectedQty": {
+      "type": "integer"
+    },
+    "actualQty": {
+      "type": "integer"
+    },
+    "productType": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "doc_type",
+    "version",
+    "expectedQty",
+    "actualQty",
+    "productType"
+  ]
+}

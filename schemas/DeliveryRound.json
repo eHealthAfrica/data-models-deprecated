@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "doc_type": {
+      "type": "string",
+      "pattern": "^deliveryRound$"
+    },
+    "roundCode": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completedOn": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string"
+    },
+    "lag": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "doc_type"
+  ]
+}
