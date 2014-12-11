@@ -19,19 +19,6 @@
     "gender": { "enum": ["m", "f"] },
     "status": { "enum": ["alive", "dead"] },
 
-    "classification": { "type": "object", "oneOf": [
-          {   "type": "object", "properties": {
-              "name": { "enum": ["contact"] },
-              "subClassification": { "enum": ["active", "complete", "lost"] }
-            }
-          },
-          {   "type": "object", "properties": {
-              "name": { "enum": ["case"] },
-              "subClassification": { "enum": ["suspect", "probable", "confirmed", "discarded", "lost"] }
-            }
-          }
-    ] },
-
     "currentLocation": { "type": "string" },
 
     "phoneNumber": { "type": "string" },
@@ -81,6 +68,7 @@
     }},
 
     "contact": { "type": "object", "properties": {
+      "status": { "enum": ["active", "complete", "lost"] },
       "sourceCases": { "type": "array", "items": {
         "type": "object",
         "properties": {
@@ -104,9 +92,12 @@
           }}
         }
       }}
-    }},
+    },
+    "required": ["status"]
+    },
 
     "case": {"type": "object", "properties": {
+      "status": { "enum": ["suspect", "probable", "confirmed", "discarded", "lost"] },
       "onsetDate": { "type": "string", "format": "date-time" },
       "interviewer": { "type": "object", "properties": {
         "name": {"type": "string"}
@@ -119,7 +110,7 @@
       },
       "symptoms": { "$ref": "#/definitions/symptoms" }
     },
-     "required": ["onsetDate"]
+     "required": ["onsetDate", "status"]
     },
 
     "call": { "type": "object", "properties": {
@@ -181,7 +172,6 @@
   "required": [
     "doc_type",
     "version",
-    "surname",
-    "classification"
+    "surname"
   ]
 }
