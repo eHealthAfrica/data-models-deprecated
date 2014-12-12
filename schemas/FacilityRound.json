@@ -1,5 +1,7 @@
-
 {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "FacilityRound",
+  "description": "TODO /cc @jofomah",
   "type": "object",
   "properties": {
     "doc_type": {

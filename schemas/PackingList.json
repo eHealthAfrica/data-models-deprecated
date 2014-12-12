@@ -1,5 +1,7 @@
-
 {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "PackingList",
+  "description": "A list of products due on a delivery round",
   "type": "object",
   "properties": {
     "doc_type": {

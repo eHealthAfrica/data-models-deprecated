@@ -1,4 +1,7 @@
 {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Case",
+  "description": "A person infected with Ebola",
   "type": "object",
   "properties": {
 

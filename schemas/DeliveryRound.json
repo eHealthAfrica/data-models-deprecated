@@ -1,4 +1,7 @@
 {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "DeliveryRound",
+  "description": "A scheduled vaccine delivery to a health facility",
   "type": "object",
   "properties": {
     "doc_type": {

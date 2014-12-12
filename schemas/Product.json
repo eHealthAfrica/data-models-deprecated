@@ -1,4 +1,7 @@
 {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Product",
+  "description": "A vaccine or related medical product",
   "type": "object",
   "properties": {
     "doc_type": {
@@ -13,7 +16,8 @@
       "type": "boolean"
     },
     "baseUOM": {
-      "type": "string"
+      "type": "string",
+      "description": "The standard unit of measurement for this product"
     },
     "code": {
       "type": "string"

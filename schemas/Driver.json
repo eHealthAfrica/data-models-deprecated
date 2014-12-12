@@ -1,4 +1,7 @@
 {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Driver",
+  "description": "A vaccine delivery driver",
   "type": "object",
   "properties": {
     "doc_type": {

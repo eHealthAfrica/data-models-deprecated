@@ -1,4 +1,7 @@
 {
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "PickedProduct",
+  "description": "A specific product within a packing list",
   "type": "object",
   "properties": {
     "doc_type": {
