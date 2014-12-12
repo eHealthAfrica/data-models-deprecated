@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "doc_type": {
+      "type": "string",
+      "pattern": "^product$"
+    },
+    "version": {
+      "type": "string",
+      "format": "semver",
+      "faker": "helpers.randomNumber"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "baseUOM": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "doc_type",
+    "code",
+    "description",
+    "name"
+  ]
+}
