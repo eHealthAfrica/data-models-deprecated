@@ -15,12 +15,12 @@
 
     "occupation": { "type": "string" },
 
-    "age": { "type": "number" },
+    "age": { "type": "object", "properties": {
+      "years": { "type": "number" },
+      "months": { "type": "number" }
+    }},
     "gender": { "enum": ["m", "f"] },
     "status": { "enum": ["alive", "dead"] },
-
-    "classification": { "enum": ["case", "contact"] },
-    "subClassification": { "type": "string" },
 
     "currentLocation": { "type": "string" },
 
@@ -70,8 +70,8 @@
       }
     }},
 
-
     "contact": { "type": "object", "properties": {
+      "status": { "enum": ["unkown", "active", "complete", "lost"] },
       "sourceCases": { "type": "array", "items": {
         "type": "object",
         "properties": {
@@ -95,9 +95,12 @@
           }}
         }
       }}
-    }},
+    },
+    "required": ["status"]
+    },
 
     "case": {"type": "object", "properties": {
+      "status": { "enum": ["unkown", "suspect", "probable", "confirmed", "not a case", "lost"] },
       "onsetDate": { "type": "string", "format": "date-time" },
       "interviewer": { "type": "object", "properties": {
         "name": {"type": "string"}
@@ -109,7 +112,9 @@
         "homeQuarantine": { "type": "boolean" }
       },
       "symptoms": { "$ref": "#/definitions/symptoms" }
-    }},
+    },
+     "required": ["onsetDate", "status"]
+    },
 
     "call": { "type": "object", "properties": {
       "createdBy": { "type": "string" },
@@ -130,26 +135,46 @@
       "isFollowUp": { "type": "boolean" }
     }},
 
+    "symptom": {"type": "object", "properties": {
+      "name": { "enum": [
+          "fever",
+          "vomiting",
+          "diarrhea",
+          "weakness",
+          "muscleOrJointPain",
+          "bleeding",
+          "rash",
+          "abdominalPain",
+          "difficultySwallowing",
+          "headache",
+          "nauseaVomiting",
+          "lossOfAppetite",
+          "intenseFatigue",
+          "muscularPain",
+          "articularPain",
+          "thoracicPain",
+          "difficultyBreathing",
+          "cough",
+          "soreThroat",
+          "hiccup",
+          "unexplainedBleedings"
+        ]},
+      "value": { "type": "boolean" }
+    }},
+
     "symptoms": {"type": "object", "properties": {
-      "fever": { "type": "boolean" },
-      "vomiting": { "type": "boolean" },
-      "diarrhea": { "type": "boolean" },
-      "weakness": { "type": "boolean" },
-      "muscleOrJointPain": { "type": "boolean" },
-      "bleeding": { "type": "boolean" },
-      "rash": { "type": "boolean" },
-      "abdominalPain": { "type": "boolean" },
-      "difficultySwallowing": { "type": "boolean" },
-      "headache": { "type": "boolean" },
-      "other": { "type": "string" }
-    }}
+      "temperature": { "type": "number"},
+      "list": {  "type": "array", "items": { "anyOf": [{ "$ref": "#/definitions/symptom" }] }},
+      "comments": { "type": "string" }
+    },
+      "required": ["list"]
+    }
   },
 
 
   "required": [
     "doc_type",
     "version",
-    "surname",
-    "classification"
+    "surname"
   ]
 }
