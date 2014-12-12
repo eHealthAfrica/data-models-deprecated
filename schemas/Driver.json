@@ -7,8 +7,7 @@
     },
     "version": {
       "type": "string",
-      "format": "semver",
-      "faker": "helpers.randomNumber"
+      "format": "semver"
     },
     "forename": {
       "type": "string",
@@ -23,7 +22,7 @@
     "email": {
       "type": "string",
       "format": "email",
-      "faker": "internet.email"
+      "chance": "email"
     },
     "phone": {
       "type": "string",

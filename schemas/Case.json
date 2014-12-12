@@ -4,7 +4,7 @@
 
     "doc_type": { "type": "string", "pattern": "^case$" },
 
-    "version": { "type": "string", "format": "semver", "faker": "helpers.randomNumber" },
+    "version": { "type": "string", "format": "semver" },
 
     "referenceNo": { "type": "string" },
 

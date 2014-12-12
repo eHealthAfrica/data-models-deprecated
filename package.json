@@ -18,7 +18,7 @@
     "url": "https://github.com/eHealthAfrica/data_model/issues"
   },
   "dependencies": {
-    "json-schema-faker": "^0.1.1",
+    "json-schema-faker": "git+https://github.com/pateketrueke/json-schema-faker.git#92ac981780160131347630adecff224dd525bc18",
     "optionator": "^0.4.0",
     "semver-regex": "^1.0.0",
     "z-schema": "^3.1.0"

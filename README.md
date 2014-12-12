@@ -33,7 +33,7 @@ dataModel.generate('driver', 1);
 // =>
 // { driver:
 //   [ { doc_type: 'driver',
-//       version: 1,
+//       version: '1.0.0',
 //       forename: 'Wade',
 //       surname: 'Jacobi',
 //       email: 'Lexi_Mosciski95@gmail.com',
@@ -56,10 +56,10 @@ Yields:
   "driver": [
     {
       "doc_type": "driver",
-      "version": 0,
+      "version": "1.0.0",
       "forename": "Jeremie",
       "surname": "Bayer",
-      "email": "Daisy98@gmail.com",
+      "email": "epiwam@gmail.com",
       "phone": "(958) 420-7636 x656"
     }
   ]

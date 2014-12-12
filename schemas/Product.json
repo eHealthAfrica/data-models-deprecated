@@ -7,8 +7,7 @@
     },
     "version": {
       "type": "string",
-      "format": "semver",
-      "faker": "helpers.randomNumber"
+      "format": "semver"
     },
     "active": {
       "type": "boolean"
