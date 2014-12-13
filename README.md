@@ -1,6 +1,11 @@
-[![Build Status](https://magnum.travis-ci.com/eHealthAfrica/data_model.svg?token=eprxeztvNYMY2wzhLC7X&branch=master)](https://magnum.travis-ci.com/eHealthAfrica/data_model)
+# data_model
 
-# Standard Data Models
+[![Build Status][travis-image]][travis-url]
+
+[travis-url]: https://magnum.travis-ci.com/eHealthAfrica/data_model
+[travis-image]: https://magnum.travis-ci.com/eHealthAfrica/data_model.svg?token=eprxeztvNYMY2wzhLC7X&branch=master
+
+> Standard Data Models
 
 This repository provides examples and validators for data models that
 we want to share through different eHealth projects
