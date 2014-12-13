@@ -17,20 +17,30 @@
     },
     "baseUOM": {
       "type": "string",
-      "description": "The standard unit of measurement for this product"
+      "description": "The standard unit of measurement for this product",
+      "chance": {
+        "hash": {
+          "length": 32
+        }
+      }
     },
     "code": {
-      "type": "string"
+      "type": "string",
+      "faker": "hacker.abbreviation"
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "faker": "lorem.sentence"
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "faker": "company.catchPhrase"
     }
   },
   "required": [
     "doc_type",
+    "active",
+    "baseUOM",
     "code",
     "description",
     "name"
