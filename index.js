@@ -14,7 +14,13 @@ jsf.formats('semver', function(gen) {
   return gen.randexp(/\d\.\d\.\d/);
 });
 
+var draft = {
+  url: 'http://json-schema.org/draft-04/schema',
+  schema: 'draft-04'
+};
+
 var validator = new ZSchema();
+validator.setRemoteReference(draft.url, schemas[draft.schema]);
 
 /**
  * Thin wrapper to make validation more convenient
