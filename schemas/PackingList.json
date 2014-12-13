@@ -8,8 +8,7 @@
     },
     "version": {
       "type": "string",
-      "format": "semver",
-      "faker": "helpers.randomNumber"
+      "format": "semver"
     },
     "productType": {
       "type": "string",

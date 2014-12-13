@@ -10,6 +10,10 @@ ZSchema.registerFormat('semver', function(str) {
   return semver().test(str);
 });
 
+jsf.formats('semver', function(gen) {
+  return gen.randexp(/\d\.\d\.\d/);
+});
+
 var validator = new ZSchema();
 
 /**
@@ -39,7 +43,8 @@ function validate(candidate) {
  * @return {Object} A map of model-instances
  */
 function generate(model, count) {
-  var factory = {};
+  count = count || 1;
+  var registry = {};
   var models = [];
 
   if (model) {
@@ -48,18 +53,27 @@ function generate(model, count) {
     models = Object.keys(schemas);
   }
 
-  count = count || 1;
-
   function build(model) {
-    var samples = [];
-    for (var i = 0, len = count; i < len; i++) {
-      samples.push(jsf(schemas[model]));
+    var instance = jsf(schemas[model]);
+    var invalid = validate(instance);
+    if (invalid) {
+      var errors = JSON.stringify(invalid, null, 2);
+      throw new Error('Invalid "' + model + '" instance:\n' + errors);
     }
-    factory[model] = samples;
+    return instance;
   }
 
-  models.forEach(build);
-  return factory;
+  function factory(model) {
+    var instances = [];
+    for (var i = 0, len = count; i < len; i++) {
+      var instance = build(model);
+      instances.push(instance);
+    }
+    registry[model] = instances;
+  }
+
+  models.forEach(factory);
+  return registry;
 }
 
 module.exports = {
