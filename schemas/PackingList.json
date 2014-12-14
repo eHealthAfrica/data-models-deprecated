@@ -12,9 +12,13 @@
       "type": "string",
       "format": "semver"
     },
-    "productType": {
+    "productID": {
       "type": "string",
-      "minLength": 1
+      "chance": {
+        "hash": {
+          "length": 32
+        }
+      }
     },
     "expectedQty": {
       "type": "integer"
@@ -32,9 +36,7 @@
   "required": [
     "doc_type",
     "version",
-    "productType",
-    "packedQty",
-    "expectedQty",
-    "deliveredQty"
+    "productID",
+    "expectedQty"
   ]
 }
