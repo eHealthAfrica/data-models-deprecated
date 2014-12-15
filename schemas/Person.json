@@ -19,9 +19,12 @@
     "occupation": { "type": "string" },
 
     "age": { "type": "object", "properties": {
-      "years": { "type": "number" },
-      "months": { "type": "number" }
+      "years": { "type": "number", "minimum": 0 },
+      "months": { "type": "number", "minimum": 0, "maximum": 11 }
     }},
+    "birthDay": { "type": "number", "minimum": 1, "maximum": 31 },
+    "birthMonth": { "type": "number", "minimum": 1, "maximum": 12 },
+    "birthYear": { "type": "number", "minimum": 1900 },
     "gender": { "enum": ["m", "f"] },
     "status": { "enum": ["alive", "dead"] },
 
