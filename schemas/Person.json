@@ -59,9 +59,22 @@
 
   "definitions": {
 
-    "address": { "type": "object", "additionalProperties": {
-      "type": ["string", "integer"]
-    }},
+    "address": {
+      "type": "object",
+      "properties": {
+        "adminDivision1": { "type": ["string", "number"] },
+        "adminDivision2": { "type": ["string", "number"] },
+        "adminDivision3": { "type": ["string", "number"] },
+        "adminDivision4": { "type": ["string", "number"] },
+        "address": { "type": "string" },
+        "countryCode": {
+          "type": "string",
+          "pattern": "^(gn|ml|lr)$",
+          "description": "country code following ISO_3166-1_alpha-2 in lowercase"
+        }
+      },
+      "additionalProperties": false
+    },
 
 
     "changeLog": { "type": "array", "items": {
