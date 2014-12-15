@@ -116,7 +116,7 @@
     },
 
     "case": {"type": "object", "properties": {
-      "status": { "enum": ["unknown", "suspect", "probable", "confirmed", "not a case", "lost"] },
+      "status": { "enum": ["unknown", "suspect", "probable", "confirmed", "not a case"] },
       "onsetDate": { "type": "string", "format": "date-time" },
       "interviewer": { "type": "object", "properties": {
         "name": {"type": "string"}
