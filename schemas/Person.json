@@ -87,7 +87,7 @@
     }},
 
     "contact": { "type": "object", "properties": {
-      "status": { "enum": ["unkown", "active", "complete", "lost"] },
+      "status": { "enum": ["unknown", "active", "complete", "lost"] },
       "sourceCases": { "type": "array", "items": {
         "type": "object",
         "properties": {
@@ -116,7 +116,7 @@
     },
 
     "case": {"type": "object", "properties": {
-      "status": { "enum": ["unkown", "suspect", "probable", "confirmed", "not a case", "lost"] },
+      "status": { "enum": ["unknown", "suspect", "probable", "confirmed", "not a case", "lost"] },
       "onsetDate": { "type": "string", "format": "date-time" },
       "interviewer": { "type": "object", "properties": {
         "name": {"type": "string"}
