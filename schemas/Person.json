@@ -38,6 +38,9 @@
     "createdDate": { "type": "string", "format": "date-time" },
     "modifiedDate": { "type": "string", "format": "date-time" },
 
+    "duplicateOf": { "type": "string" },
+    "duplicates": { "type": "array", "items": { "type": "string" } },
+
     "changeLog": { "$ref": "#/definitions/changeLog" },
 
     "case": { "$ref": "#/definitions/case" },
