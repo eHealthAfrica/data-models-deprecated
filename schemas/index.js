@@ -1,23 +1,14 @@
 'use strict';
 
-var fs = require('fs');
-var path = require('path');
-
-var cwd = path.join(__dirname, '/');
-
-function isJSON(file) {
-  return file.match(/.json$/);
-}
-
-function toLowerCamelCase(str) {
-  return str.charAt(0).toLowerCase() + str.slice(1);
-}
-
-function appendToExports(file) {
-  var name = toLowerCamelCase(file).replace('.json', '');
-  exports[name] = require(cwd + file);
-}
-
-fs.readdirSync(cwd)
-  .filter(isJSON)
-  .forEach(appendToExports);
+module.exports = {
+  'case': require('./Case.json'),
+  'dailyDelivery': require('./DailyDelivery.json'),
+  'deliveryRound': require('./DeliveryRound.json'),
+  'driver': require('./Driver.json'),
+  'facilityRound': require('./FacilityRound.json'),
+  'packingList': require('./PackingList.json'),
+  'person': require('./Person.json'),
+  'pickedProduct': require('./PickedProduct.json'),
+  'product': require('./Product.json'),
+  'draft-04': require('./draft-04.json')
+};
