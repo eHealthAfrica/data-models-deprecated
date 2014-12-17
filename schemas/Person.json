@@ -181,10 +181,25 @@
 
     "symptoms": {"type": "object", "properties": {
       "temperature": { "type": "number"},
-      "list": {  "type": "array", "items": { "anyOf": [{ "$ref": "#/definitions/symptom" }] }},
-      "comments": { "type": "string" }
+      "abdominalPains": { "type": "boolean" },
+      "articularPain": { "type": "boolean" },
+      "cough": { "type": "boolean" },
+      "diarrhea": { "type": "boolean" },
+      "difficultyBreathing": { "type": "boolean" },
+      "difficultySwallowing": { "type": "boolean" },
+      "headache": { "type": "boolean" },
+      "hiccups": { "type": "boolean" },
+      "intenseFatigue": { "type": "boolean" },
+      "lossOfAppetite": { "type": "boolean" },
+      "muscularPain": { "type": "boolean" },
+      "nauseaVomiting": { "type": "boolean" },
+      "soreThroat": { "type": "boolean" },
+      "thoracicPain": { "type": "boolean" },
+      "unexplainedBleedings": { "type": "boolean" },
+      "rash": { "type": "boolean" },
+      "other": { "type": "string" }
     },
-      "required": ["list"]
+      "additionalProperties": false
     }
   },
 
