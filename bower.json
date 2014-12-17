@@ -1,0 +1,24 @@
+{
+  "name": "data-model",
+  "main": "dist/data-model.js",
+  "version": "1.0.1",
+  "homepage": "https://github.com/eHealthAfrica/data_model",
+  "authors": [
+    "eHealth Africa (http://ehealthafrica.org/)"
+  ],
+  "description": "Validation for standard data models",
+  "keywords": [
+    "model",
+    "schema",
+    "validation"
+  ],
+  "license": "All rights reserved",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
