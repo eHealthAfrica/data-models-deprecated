@@ -159,21 +159,21 @@
 
     "symptom": {"type": "object", "properties": {
       "code": { "enum": [
-          "abdominal_pains",
-          "articular_pain",
+          "abdominalPains",
+          "articularPain",
           "cough",
           "diarrhea",
-          "difficulty_breathing",
-          "difficulty_swallowing",
+          "difficultyBreathing",
+          "difficultySwallowing",
           "headache",
           "hiccups",
-          "intense_fatigue",
-          "loss_of_appetite",
-          "muscular_pain",
-          "nausea_vomiting",
-          "sore_throat",
-          "thoracic_pain",
-          "unexplained_bleedings",
+          "intenseFatigue",
+          "lossOfAppetite",
+          "muscularPain",
+          "nauseaVomiting",
+          "soreThroat",
+          "thoracicPain",
+          "unexplainedBleedings",
           "rash"
         ]},
       "value": { "type": "boolean" }
