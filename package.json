@@ -5,6 +5,9 @@
   "main": "index.js",
   "bin": "cli.js",
   "scripts": {
+    "build": "mkdir -p dist && npm run browserify && npm run uglify",
+    "browserify": "browserify index.js -o dist/data-model.js",
+    "uglify": "uglifyjs dist/data-model.js -mc > dist/data-model.min.js",
     "test": "mocha",
     "watch": "mocha --watch"
   },
@@ -24,8 +27,10 @@
     "z-schema": "^3.1.0"
   },
   "devDependencies": {
+    "browserify": "^7.0.2",
     "eslint": "^0.10.1",
-    "mocha": "~1.21.5"
+    "mocha": "~1.21.5",
+    "uglify-js": "^2.4.16"
   },
   "homepage": "https://github.com/eHealthAfrica/data_model",
   "directories": {
