@@ -97,8 +97,8 @@
       "sourceCases": { "type": "array", "items": {
         "type": "object",
         "properties": {
-          "surname": { "type": "string" },
-          "otherNames": { "type": "string" },
+          "name": { "type": "string" },
+          "id": { "type": "string" },
           "lastContactDate": { "type": "string", "format": "date-time" }
         }
       }},
