@@ -107,7 +107,7 @@
         "type": "object",
         "properties": {
           "dateOfVisit": { "type": "string", "format": "date-time" },
-          "interviewer": { "type": "string" },
+          "interviewer": { "$ref": "#/definitions/interviewer" },
           "comment": { "type": "string" },
           "isSymptomatic": { "type": "boolean" },
           "symptoms": { "$ref": "#/definitions/symptoms" },
@@ -126,9 +126,7 @@
     "case": {"type": "object", "properties": {
       "status": { "enum": ["unknown", "suspect", "probable", "confirmed", "not a case"] },
       "onsetDate": { "type": "string", "format": "date-time" },
-      "interviewer": { "type": "object", "properties": {
-        "name": {"type": "string"}
-      }},
+      "interviewer": { "$ref": "#/definitions/interviewer" },
       "hadContactWith": {
         "deadPerson": { "type": "boolean" },
         "sickPerson": { "type": "boolean" },
@@ -181,6 +179,14 @@
       "other": { "type": "string" }
     },
       "additionalProperties": false
+    },
+
+    "interviewer": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string"},
+        "phone": { "type": "string" }
+      }
     }
   },
 
