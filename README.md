@@ -73,6 +73,12 @@ Yields:
 
 See `data-model --help` for further usage.
 
+## For client side code
+
+A bundled version is available in the `dist/` folder. The files there
+have been built with Browserify using the `--standalone` option, so
+they will expose a global `dataModel` object.
+
 ## Author
 
 © 2014 [eHealth Africa](http://ehealthafrica.org)
