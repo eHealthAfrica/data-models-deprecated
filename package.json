@@ -1,12 +1,12 @@
 {
   "name": "data-model",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "validation for standard data models",
   "main": "index.js",
   "bin": "cli.js",
   "scripts": {
     "build": "mkdir -p dist && npm run browserify && npm run uglify",
-    "browserify": "browserify index.js -o dist/data-model.js",
+    "browserify": "browserify index.js -s data-model -o dist/data-model.js",
     "uglify": "uglifyjs dist/data-model.js -mc > dist/data-model.min.js",
     "test": "mocha",
     "watch": "mocha --watch"
