@@ -107,6 +107,8 @@
         "type": "object",
         "properties": {
           "dateOfVisit": { "type": "string", "format": "date-time" },
+          "interviewer": { "type": "string" },
+          "comment": { "type": "string" },
           "isSymptomatic": { "type": "boolean" },
           "symptoms": { "$ref": "#/definitions/symptoms" },
           "geoInfo": { "type": "object", "properties": {
