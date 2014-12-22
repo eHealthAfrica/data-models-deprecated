@@ -35,6 +35,13 @@
     "name": {
       "type": "string",
       "faker": "company.catchPhrase"
+    },
+    "storage": {
+      "enum": [
+        "frozen",
+        "refrigerator",
+        "dry"
+      ]
     }
   },
   "required": [
@@ -43,6 +50,7 @@
     "baseUOM",
     "code",
     "description",
-    "name"
+    "name",
+    "storage"
   ]
 }

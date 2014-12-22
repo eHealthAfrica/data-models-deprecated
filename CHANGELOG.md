@@ -5,6 +5,10 @@ file. This file is structured according to http://keepachangelog.com/
 
 - - -
 
+## [1.2.2] - 2014-12-19
+### Added
+- Product storage attribute
+
 ## [1.2.1] - 2014-12-19
 ### Fixed
 - distribution files *actually* exposing the model as a global variable
