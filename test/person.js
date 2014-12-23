@@ -6,6 +6,7 @@ var dataModel = require('../index');
 var example1 = require('./examples/person/1.json');
 var example2 = require('./examples/person/2.json');
 var example3 = require('./examples/person/3.json');
+var example4 = require('./examples/person/3.json');
 
 function clone(doc) {
   return JSON.parse(JSON.stringify(doc));
@@ -28,6 +29,11 @@ describe('person', function() {
 
   it('validates the third example', function() {
     var errors = dataModel.validate(example3);
+    assert.equal(errors, null, JSON.stringify(errors));
+  });
+
+   it('validates the fourth example', function() {
+    var errors = dataModel.validate(example4);
     assert.equal(errors, null, JSON.stringify(errors));
   });
 
