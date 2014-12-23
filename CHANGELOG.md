@@ -5,6 +5,10 @@ file. This file is structured according to http://keepachangelog.com/
 
 - - -
 
+## [1.2.3] - 2014-12-23
+### Added
+- Add 'mg' as allowed contry code
+
 ## [1.2.2] - 2014-12-19
 ### Added
 - Product storage attribute

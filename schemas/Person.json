@@ -75,7 +75,7 @@
         "address": { "type": "string" },
         "countryCode": {
           "type": "string",
-          "pattern": "^(gn|ml|lr)$",
+          "pattern": "^(gn|ml|lr|mg)$",
           "description": "country code following ISO_3166-1_alpha-2 in lowercase"
         }
       },
