@@ -45,6 +45,8 @@
 
     "case": { "$ref": "#/definitions/case" },
 
+    "labResults": { "type": "array", "items": { "$ref": "#/definitions/labResult" } },
+
     "contact": { "$ref": "#/definitions/contact" },
 
     "calls": { "type": "array", "items": { "$ref": "#/definitions/call" } },
@@ -59,8 +61,7 @@
         }
       }
     },
-
-    "source": { "type": "object" }
+    "sources": { "type": "array", "items": {"type": "object"} }
   },
 
   "definitions": {
@@ -91,6 +92,35 @@
         "user": { "type": "string" }
       }
     }},
+
+    "labResult": {"type": "object", "properties": {
+        "minRequirementStatus":  { "enum": ["accepted", "pending", "rejected"] },
+
+        "collectedBy": {
+          "type": "object", "properties": {
+            "contact1": { "type": "object" },
+            "contact2": { "type": "object" },
+            "facilityName": { "type": "string" }
+          }
+        },
+
+        "labName": {"type": "string"},
+        "caseId": {"type": "string"},
+        "sampleId": {"type": "string"},
+        "sampleType": {"type": "string"},
+        "sampledDate": { "type": "string", "format": "date-time" },
+        "testedDate": { "type": "string", "format": "date-time" },
+        "initialSymptomOnsetDate": { "type": "string", "format": "date-time" },
+        "statusAtSampleCollection": { "enum": ["alive", "dead"] },
+        "addressOnset": { "$ref": "#/definitions/address" },
+        "collectionType":  { "enum": ["initial", "repeat"] },
+        "importedDate": { "type": "string", "format": "date-time" },
+        "result": { "enum": ["positive", "negative", "indeterminate"] },
+        "ctValue": { "type": "string" },
+        "cdcTest": { "type": "string" },
+        "ms2Control": { "type": "string" }
+      }
+    },
 
     "contact": { "type": "object", "properties": {
       "status": { "enum": ["unknown", "active", "complete", "lost"] },
