@@ -5,6 +5,10 @@ file. This file is structured according to http://keepachangelog.com/
 
 - - -
 
+## [1.3.1] - 2015-01-05
+### Fixed
+- updated the distribution files
+
 ## [1.3.0] - 2015-01-05
 ### Added
 - `call` schema

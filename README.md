@@ -79,6 +79,9 @@ A bundled version is available in the `dist/` folder. The files there
 have been built with Browserify using the `--standalone` option, so
 they will expose a global `dataModel` object.
 
+Remember to run `npm run build` before tagging a new release of this
+code in order to update the distribution files.
+
 ## Author
 
 © 2014 [eHealth Africa](http://ehealthafrica.org)

@@ -88,7 +88,7 @@ module.exports = {
   validate: validate
 };
 
-},{"./schemas":96,"json-schema-faker":3,"semver-regex":75,"z-schema":85}],2:[function(require,module,exports){
+},{"./schemas":97,"json-schema-faker":3,"semver-regex":75,"z-schema":85}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -48636,6 +48636,32 @@ module.exports = ZSchema;
 },{"./FormatValidators":77,"./JsonValidation":78,"./Polyfills":79,"./Report":80,"./SchemaCache":81,"./SchemaCompilation":82,"./SchemaValidation":83,"./Utils":84}],86:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Call",
+  "description": "A call to an Ebola call centre",
+  "type": "object",
+  "properties": {
+    "contact": {
+      "type": "object"
+    },
+    "patient": {
+      "type": "object"
+    },
+    "response": {
+      "type": "object"
+    },
+    "referenceNo": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "doc_type",
+    "version"
+  ]
+}
+
+},{}],87:[function(require,module,exports){
+module.exports={
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Case",
   "description": "A person infected with Ebola",
   "type": "object",
@@ -48676,7 +48702,7 @@ module.exports={
   ]
 }
 
-},{}],87:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "DailyDelivery",
@@ -48715,7 +48741,7 @@ module.exports={
   ]
 }
 
-},{}],88:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "DeliveryRound",
@@ -48753,7 +48779,7 @@ module.exports={
   ]
 }
 
-},{}],89:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Driver",
@@ -48798,7 +48824,7 @@ module.exports={
   ]
 }
 
-},{}],90:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "FacilityRound",
@@ -48853,7 +48879,7 @@ module.exports={
   ]
 }
 
-},{}],91:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "PackingList",
@@ -48897,7 +48923,7 @@ module.exports={
   ]
 }
 
-},{}],92:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Person",
@@ -48945,6 +48971,8 @@ module.exports={
 
     "case": { "$ref": "#/definitions/case" },
 
+    "labResults": { "type": "array", "items": { "$ref": "#/definitions/labResult" } },
+
     "contact": { "$ref": "#/definitions/contact" },
 
     "calls": { "type": "array", "items": { "$ref": "#/definitions/call" } },
@@ -48959,8 +48987,7 @@ module.exports={
         }
       }
     },
-
-    "source": { "type": "object" }
+    "sources": { "type": "array", "items": {"type": "object"} }
   },
 
   "definitions": {
@@ -48975,7 +49002,7 @@ module.exports={
         "address": { "type": "string" },
         "countryCode": {
           "type": "string",
-          "pattern": "^(gn|ml|lr)$",
+          "pattern": "^(gn|ml|lr|mg)$",
           "description": "country code following ISO_3166-1_alpha-2 in lowercase"
         }
       },
@@ -48992,6 +49019,35 @@ module.exports={
       }
     }},
 
+    "labResult": {"type": "object", "properties": {
+        "minRequirementStatus":  { "enum": ["accepted", "pending", "rejected"] },
+
+        "collectedBy": {
+          "type": "object", "properties": {
+            "contact1": { "type": "object" },
+            "contact2": { "type": "object" },
+            "facilityName": { "type": "string" }
+          }
+        },
+
+        "labName": {"type": "string"},
+        "caseId": {"type": "string"},
+        "sampleId": {"type": "string"},
+        "sampleType": {"type": "string"},
+        "sampledDate": { "type": "string", "format": "date-time" },
+        "testedDate": { "type": "string", "format": "date-time" },
+        "initialSymptomOnsetDate": { "type": "string", "format": "date-time" },
+        "statusAtSampleCollection": { "enum": ["alive", "dead"] },
+        "addressOnset": { "$ref": "#/definitions/address" },
+        "collectionType":  { "enum": ["initial", "repeat"] },
+        "importedDate": { "type": "string", "format": "date-time" },
+        "result": { "enum": ["positive", "negative", "indeterminate"] },
+        "ctValue": { "type": "string" },
+        "cdcTest": { "type": "string" },
+        "ms2Control": { "type": "string" }
+      }
+    },
+
     "contact": { "type": "object", "properties": {
       "status": { "enum": ["unknown", "active", "complete", "lost"] },
       "sourceCases": { "type": "array", "items": {
@@ -49007,6 +49063,8 @@ module.exports={
         "type": "object",
         "properties": {
           "dateOfVisit": { "type": "string", "format": "date-time" },
+          "interviewer": { "$ref": "#/definitions/interviewer" },
+          "comment": { "type": "string" },
           "isSymptomatic": { "type": "boolean" },
           "symptoms": { "$ref": "#/definitions/symptoms" },
           "geoInfo": { "type": "object", "properties": {
@@ -49024,9 +49082,7 @@ module.exports={
     "case": {"type": "object", "properties": {
       "status": { "enum": ["unknown", "suspect", "probable", "confirmed", "not a case"] },
       "onsetDate": { "type": "string", "format": "date-time" },
-      "interviewer": { "type": "object", "properties": {
-        "name": {"type": "string"}
-      }},
+      "interviewer": { "$ref": "#/definitions/interviewer" },
       "hadContactWith": {
         "deadPerson": { "type": "boolean" },
         "sickPerson": { "type": "boolean" },
@@ -49079,6 +49135,14 @@ module.exports={
       "other": { "type": "string" }
     },
       "additionalProperties": false
+    },
+
+    "interviewer": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string"},
+        "phone": { "type": "string" }
+      }
     }
   },
 
@@ -49090,7 +49154,7 @@ module.exports={
   ]
 }
 
-},{}],93:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "PickedProduct",
@@ -49124,7 +49188,7 @@ module.exports={
   ]
 }
 
-},{}],94:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Product",
@@ -49162,6 +49226,13 @@ module.exports={
     "name": {
       "type": "string",
       "faker": "company.catchPhrase"
+    },
+    "storage": {
+      "enum": [
+        "frozen",
+        "refrigerator",
+        "dry"
+      ]
     }
   },
   "required": [
@@ -49170,11 +49241,12 @@ module.exports={
     "baseUOM",
     "code",
     "description",
-    "name"
+    "name",
+    "storage"
   ]
 }
 
-},{}],95:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 module.exports={
     "id": "http://json-schema.org/draft-04/schema#",
     "$schema": "http://json-schema.org/draft-04/schema#",
@@ -49326,10 +49398,11 @@ module.exports={
     "default": {}
 }
 
-},{}],96:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 'use strict';
 
 module.exports = {
+  'call': require('./Call.json'),
   'case': require('./Case.json'),
   'dailyDelivery': require('./DailyDelivery.json'),
   'deliveryRound': require('./DeliveryRound.json'),
@@ -49342,5 +49415,5 @@ module.exports = {
   'draft-04': require('./draft-04.json')
 };
 
-},{"./Case.json":86,"./DailyDelivery.json":87,"./DeliveryRound.json":88,"./Driver.json":89,"./FacilityRound.json":90,"./PackingList.json":91,"./Person.json":92,"./PickedProduct.json":93,"./Product.json":94,"./draft-04.json":95}]},{},[1])(1)
+},{"./Call.json":86,"./Case.json":87,"./DailyDelivery.json":88,"./DeliveryRound.json":89,"./Driver.json":90,"./FacilityRound.json":91,"./PackingList.json":92,"./Person.json":93,"./PickedProduct.json":94,"./Product.json":95,"./draft-04.json":96}]},{},[1])(1)
 });
