@@ -88,7 +88,7 @@ module.exports = {
   validate: validate
 };
 
-},{"./schemas":97,"json-schema-faker":3,"semver-regex":75,"z-schema":85}],2:[function(require,module,exports){
+},{"./schemas":96,"json-schema-faker":3,"semver-regex":75,"z-schema":85}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -48636,34 +48636,8 @@ module.exports = ZSchema;
 },{"./FormatValidators":77,"./JsonValidation":78,"./Polyfills":79,"./Report":80,"./SchemaCache":81,"./SchemaCompilation":82,"./SchemaValidation":83,"./Utils":84}],86:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Call",
-  "description": "A call to an Ebola call centre",
-  "type": "object",
-  "properties": {
-    "contact": {
-      "type": "object"
-    },
-    "patient": {
-      "type": "object"
-    },
-    "response": {
-      "type": "object"
-    },
-    "referenceNo": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "doc_type",
-    "version"
-  ]
-}
-
-},{}],87:[function(require,module,exports){
-module.exports={
-  "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Case",
-  "description": "A person infected with Ebola",
+  "description": "An Ebola case registered by the call centre",
   "type": "object",
   "properties": {
 
@@ -48674,8 +48648,9 @@ module.exports={
     "referenceNo": { "type": "string" },
 
     "changeLog": { "$ref": "#/definitions/changeLog" },
-
-    "contact": { "$ref": "#/definitions/contact" }
+    "contact": { "$ref": "#/definitions/contact" },
+    "patient": { "$ref": "#/definitions/patient" },
+    "response": { "$ref": "#/definitions/response" }
   },
 
   "definitions": {
@@ -48691,18 +48666,24 @@ module.exports={
         }
       }
     },
-
     "contact": {
+      "type": "object"
+    },
+    "patient": {
+      "type": "object"
+    },
+    "response": {
       "type": "object"
     }
   },
 
   "required": [
-    "doc_type"
+    "doc_type",
+    "contact"
   ]
 }
 
-},{}],88:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "DailyDelivery",
@@ -48741,7 +48722,7 @@ module.exports={
   ]
 }
 
-},{}],89:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "DeliveryRound",
@@ -48779,7 +48760,7 @@ module.exports={
   ]
 }
 
-},{}],90:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Driver",
@@ -48824,7 +48805,7 @@ module.exports={
   ]
 }
 
-},{}],91:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "FacilityRound",
@@ -48879,7 +48860,7 @@ module.exports={
   ]
 }
 
-},{}],92:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "PackingList",
@@ -48923,7 +48904,7 @@ module.exports={
   ]
 }
 
-},{}],93:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Person",
@@ -49154,7 +49135,7 @@ module.exports={
   ]
 }
 
-},{}],94:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "PickedProduct",
@@ -49188,7 +49169,7 @@ module.exports={
   ]
 }
 
-},{}],95:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Product",
@@ -49246,7 +49227,7 @@ module.exports={
   ]
 }
 
-},{}],96:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 module.exports={
     "id": "http://json-schema.org/draft-04/schema#",
     "$schema": "http://json-schema.org/draft-04/schema#",
@@ -49398,11 +49379,10 @@ module.exports={
     "default": {}
 }
 
-},{}],97:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 'use strict';
 
 module.exports = {
-  'call': require('./Call.json'),
   'case': require('./Case.json'),
   'dailyDelivery': require('./DailyDelivery.json'),
   'deliveryRound': require('./DeliveryRound.json'),
@@ -49415,5 +49395,5 @@ module.exports = {
   'draft-04': require('./draft-04.json')
 };
 
-},{"./Call.json":86,"./Case.json":87,"./DailyDelivery.json":88,"./DeliveryRound.json":89,"./Driver.json":90,"./FacilityRound.json":91,"./PackingList.json":92,"./Person.json":93,"./PickedProduct.json":94,"./Product.json":95,"./draft-04.json":96}]},{},[1])(1)
+},{"./Case.json":86,"./DailyDelivery.json":87,"./DeliveryRound.json":88,"./Driver.json":89,"./FacilityRound.json":90,"./PackingList.json":91,"./Person.json":92,"./PickedProduct.json":93,"./Product.json":94,"./draft-04.json":95}]},{},[1])(1)
 });

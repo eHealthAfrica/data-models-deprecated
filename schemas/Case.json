@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Case",
-  "description": "A person infected with Ebola",
+  "description": "An Ebola case registered by the call centre",
   "type": "object",
   "properties": {
 
@@ -12,8 +12,9 @@
     "referenceNo": { "type": "string" },
 
     "changeLog": { "$ref": "#/definitions/changeLog" },
-
-    "contact": { "$ref": "#/definitions/contact" }
+    "contact": { "$ref": "#/definitions/contact" },
+    "patient": { "$ref": "#/definitions/patient" },
+    "response": { "$ref": "#/definitions/response" }
   },
 
   "definitions": {
@@ -29,13 +30,19 @@
         }
       }
     },
-
     "contact": {
+      "type": "object"
+    },
+    "patient": {
+      "type": "object"
+    },
+    "response": {
       "type": "object"
     }
   },
 
   "required": [
-    "doc_type"
+    "doc_type",
+    "contact"
   ]
 }
