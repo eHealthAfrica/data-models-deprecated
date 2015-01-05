@@ -5,6 +5,18 @@ file. This file is structured according to http://keepachangelog.com/
 
 - - -
 
+## [1.3.2] - 2015-01-05
+### Changed
+- removed the `call` model, now merged with the `case` model, which
+  represented the same type of documents. technically a breaking
+  change, but the `call` model is not used anywhere
+- `contact` is now mandatory in a case. all known components are
+  already writing it
+
+## [1.3.1] - 2015-01-05
+### Fixed
+- updated the distribution files
+
 ## [1.3.0] - 2015-01-05
 ### Added
 - `call` schema

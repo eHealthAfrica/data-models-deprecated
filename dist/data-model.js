@@ -48637,7 +48637,7 @@ module.exports = ZSchema;
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Case",
-  "description": "A person infected with Ebola",
+  "description": "An Ebola case registered by the call centre",
   "type": "object",
   "properties": {
 
@@ -48648,8 +48648,9 @@ module.exports={
     "referenceNo": { "type": "string" },
 
     "changeLog": { "$ref": "#/definitions/changeLog" },
-
-    "contact": { "$ref": "#/definitions/contact" }
+    "contact": { "$ref": "#/definitions/contact" },
+    "patient": { "$ref": "#/definitions/patient" },
+    "response": { "$ref": "#/definitions/response" }
   },
 
   "definitions": {
@@ -48665,14 +48666,20 @@ module.exports={
         }
       }
     },
-
     "contact": {
+      "type": "object"
+    },
+    "patient": {
+      "type": "object"
+    },
+    "response": {
       "type": "object"
     }
   },
 
   "required": [
-    "doc_type"
+    "doc_type",
+    "contact"
   ]
 }
 
@@ -48945,6 +48952,8 @@ module.exports={
 
     "case": { "$ref": "#/definitions/case" },
 
+    "labResults": { "type": "array", "items": { "$ref": "#/definitions/labResult" } },
+
     "contact": { "$ref": "#/definitions/contact" },
 
     "calls": { "type": "array", "items": { "$ref": "#/definitions/call" } },
@@ -48959,8 +48968,7 @@ module.exports={
         }
       }
     },
-
-    "source": { "type": "object" }
+    "sources": { "type": "array", "items": {"type": "object"} }
   },
 
   "definitions": {
@@ -48975,7 +48983,7 @@ module.exports={
         "address": { "type": "string" },
         "countryCode": {
           "type": "string",
-          "pattern": "^(gn|ml|lr)$",
+          "pattern": "^(gn|ml|lr|mg)$",
           "description": "country code following ISO_3166-1_alpha-2 in lowercase"
         }
       },
@@ -48992,6 +49000,35 @@ module.exports={
       }
     }},
 
+    "labResult": {"type": "object", "properties": {
+        "minRequirementStatus":  { "enum": ["accepted", "pending", "rejected"] },
+
+        "collectedBy": {
+          "type": "object", "properties": {
+            "contact1": { "type": "object" },
+            "contact2": { "type": "object" },
+            "facilityName": { "type": "string" }
+          }
+        },
+
+        "labName": {"type": "string"},
+        "caseId": {"type": "string"},
+        "sampleId": {"type": "string"},
+        "sampleType": {"type": "string"},
+        "sampledDate": { "type": "string", "format": "date-time" },
+        "testedDate": { "type": "string", "format": "date-time" },
+        "initialSymptomOnsetDate": { "type": "string", "format": "date-time" },
+        "statusAtSampleCollection": { "enum": ["alive", "dead"] },
+        "addressOnset": { "$ref": "#/definitions/address" },
+        "collectionType":  { "enum": ["initial", "repeat"] },
+        "importedDate": { "type": "string", "format": "date-time" },
+        "result": { "enum": ["positive", "negative", "indeterminate"] },
+        "ctValue": { "type": "string" },
+        "cdcTest": { "type": "string" },
+        "ms2Control": { "type": "string" }
+      }
+    },
+
     "contact": { "type": "object", "properties": {
       "status": { "enum": ["unknown", "active", "complete", "lost"] },
       "sourceCases": { "type": "array", "items": {
@@ -49007,6 +49044,8 @@ module.exports={
         "type": "object",
         "properties": {
           "dateOfVisit": { "type": "string", "format": "date-time" },
+          "interviewer": { "$ref": "#/definitions/interviewer" },
+          "comment": { "type": "string" },
           "isSymptomatic": { "type": "boolean" },
           "symptoms": { "$ref": "#/definitions/symptoms" },
           "geoInfo": { "type": "object", "properties": {
@@ -49024,9 +49063,7 @@ module.exports={
     "case": {"type": "object", "properties": {
       "status": { "enum": ["unknown", "suspect", "probable", "confirmed", "not a case"] },
       "onsetDate": { "type": "string", "format": "date-time" },
-      "interviewer": { "type": "object", "properties": {
-        "name": {"type": "string"}
-      }},
+      "interviewer": { "$ref": "#/definitions/interviewer" },
       "hadContactWith": {
         "deadPerson": { "type": "boolean" },
         "sickPerson": { "type": "boolean" },
@@ -49079,6 +49116,14 @@ module.exports={
       "other": { "type": "string" }
     },
       "additionalProperties": false
+    },
+
+    "interviewer": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string"},
+        "phone": { "type": "string" }
+      }
     }
   },
 
@@ -49162,6 +49207,13 @@ module.exports={
     "name": {
       "type": "string",
       "faker": "company.catchPhrase"
+    },
+    "storage": {
+      "enum": [
+        "frozen",
+        "refrigerator",
+        "dry"
+      ]
     }
   },
   "required": [
@@ -49170,7 +49222,8 @@ module.exports={
     "baseUOM",
     "code",
     "description",
-    "name"
+    "name",
+    "storage"
   ]
 }
 
