@@ -5,6 +5,10 @@ file. This file is structured according to http://keepachangelog.com/
 
 - - -
 
+## [1.3.0] - 2015-01-05
+### Added
+- `call` schema
+
 ## [1.2.3] - 2014-12-23
 ### Added
 - Add 'mg' as allowed contry code
