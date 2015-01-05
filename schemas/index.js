@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+  'call': require('./Call.json'),
   'case': require('./Case.json'),
   'dailyDelivery': require('./DailyDelivery.json'),
   'deliveryRound': require('./DeliveryRound.json'),
