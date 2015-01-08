@@ -31,7 +31,24 @@
       }
     },
     "contact": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "callNature": {
+          "enum": [
+            "death",
+            "suspect",
+            "sick",
+            "health information",
+            "quarantine",
+            "security threat",
+            "prank call",
+            "other"
+          ]
+        }
+      },
+      "required": [
+        "callNature"
+      ]
     },
     "patient": {
       "type": "object"

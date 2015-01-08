@@ -5,6 +5,14 @@ file. This file is structured according to http://keepachangelog.com/
 
 - - -
 
+## [1.4.0] - 2015-01-08
+### Changed
+- specify the possible values for `case.contact.callNature`
+- `case.contact.callNature` is now required
+
+I am not marking this as a breaking change, in the belief that our
+data is already compliant to the new schema
+
 ## [1.3.2] - 2015-01-05
 ### Changed
 - removed the `call` model, now merged with the `case` model, which
