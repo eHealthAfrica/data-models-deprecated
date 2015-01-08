@@ -48667,7 +48667,24 @@ module.exports={
       }
     },
     "contact": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "callNature": {
+          "enum": [
+            "death",
+            "suspect",
+            "sick",
+            "health information",
+            "quarantine",
+            "security threat",
+            "prank call",
+            "other"
+          ]
+        }
+      },
+      "required": [
+        "callNature"
+      ]
     },
     "patient": {
       "type": "object"
@@ -48920,25 +48937,25 @@ module.exports={
 
     "otherIds": { "type": "object" },
 
-    "surname": { "type": "string", "minLength": 1 },
-    "otherNames": { "type": "string" },
+    "surname": { "type": "string", "minLength": 1, "faker": "name.firstName" },
+    "otherNames": { "type": "string", "minLength":1, "faker": "name.firstName" },
 
-    "occupation": { "type": "string" },
+    "occupation": { "type": "string", "faker": "company.bs" },
 
     "age": { "type": "object", "properties": {
-      "years": { "type": "number", "minimum": 0 },
+      "years": { "type": "number", "minimum": 0, "maximum": 121 },
       "months": { "type": "number", "minimum": 0, "maximum": 11 }
     }},
     "birthDay": { "type": "number", "minimum": 1, "maximum": 31 },
     "birthMonth": { "type": "number", "minimum": 1, "maximum": 12 },
-    "birthYear": { "type": "number", "minimum": 1900 },
+    "birthYear": { "type": "number", "minimum": 1900, "maximum": 2020 },
     "gender": { "enum": ["m", "f"] },
     "status": { "enum": ["alive", "dead"] },
 
     "currentLocation": { "type": "string" },
 
-    "phoneNumber": { "type": "string" },
-    "phoneOwner": { "type": "string" },
+    "phoneNumber": { "type": "string", "chance": { "phone": { "country": "uk" }}},
+    "phoneOwner": { "type": "string", "faker": "name.findName" },
 
     "address": { "$ref": "#/definitions/address" },
 
@@ -48964,7 +48981,7 @@ module.exports={
         "type": "object",
         "properties": {
           "date": { "type": "string", "format": "date-time" },
-          "text": { "type": "string" }
+          "text": { "type": "string", "chance": { "sentence": { "words": 10 }}}
         }
       }
     },
@@ -48980,7 +48997,7 @@ module.exports={
         "adminDivision2": { "type": ["string", "number"] },
         "adminDivision3": { "type": ["string", "number"] },
         "adminDivision4": { "type": ["string", "number"] },
-        "address": { "type": "string" },
+        "address": { "type": "string", "faker": "address.streetAddress" },
         "countryCode": {
           "type": "string",
           "pattern": "^(gn|ml|lr|mg)$",
@@ -48996,7 +49013,7 @@ module.exports={
       "properties": {
         "rev": { "type": "string" },
         "timestamp": { "type": "integer" },
-        "user": { "type": "string" }
+        "user": { "type": "string", "faker": "name.findName" }
       }
     }},
 
@@ -49034,7 +49051,7 @@ module.exports={
       "sourceCases": { "type": "array", "items": {
         "type": "object",
         "properties": {
-          "name": { "type": "string" },
+          "name": { "type": "string", "faker": "name.findName" },
           "id": { "type": "string" },
           "lastContactDate": { "type": "string", "format": "date-time" }
         }
@@ -49076,12 +49093,17 @@ module.exports={
     },
 
     "call": { "type": "object", "properties": {
-      "createdBy": { "type": "string" },
+      "createdBy": { "type": "string", "faker": "name.findName" },
       "createdDate": { "type": "string", "format": "date-time" },
-      "name": { "type": "string" },
+      "name": { "type": "string", "faker": "name.findName" },
       "address": { "$ref": "#/definitions/address" },
-      "phoneNumber": { "type": "string" },
-      "otherPhoneNumber": { "type": "string" },
+      "phoneNumber": {
+        "type": "string",
+        "chance": {
+          "phone": { "country": "uk" }
+        }
+      },
+      "otherPhoneNumber": { "type": "string", "chance": { "phone": { "country": "uk" }}},
       "callNature": { "enum": ["death",
                                "suspect",
                                "sick",
@@ -49121,8 +49143,8 @@ module.exports={
     "interviewer": {
       "type": "object",
       "properties": {
-        "name": { "type": "string"},
-        "phone": { "type": "string" }
+        "name": { "type": "string", "faker": "name.findName"},
+        "phone": { "type": "string", "chance": { "phone": { "country": "uk" }}}
       }
     }
   },
