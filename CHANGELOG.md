@@ -5,6 +5,10 @@ file. This file is structured according to http://keepachangelog.com/
 
 - - -
 
+## [1.5.0] - 2015-01-15
+### Added
+- `city` property in a case management `Person` schema
+
 ## [1.4.0] - 2015-01-08
 ### Changed
 - specify the possible values for `case.contact.callNature`
