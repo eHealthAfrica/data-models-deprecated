@@ -35,6 +35,14 @@
 
     "address": { "$ref": "#/definitions/address" },
 
+    "leader": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "phone": {"type": "string"}
+      }
+    },
+
     "createdDate": { "type": "string", "format": "date-time" },
     "modifiedDate": { "type": "string", "format": "date-time" },
 
