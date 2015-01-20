@@ -10,5 +10,6 @@ module.exports = {
   'person': require('./Person.json'),
   'pickedProduct': require('./PickedProduct.json'),
   'product': require('./Product.json'),
-  'draft-04': require('./draft-04.json')
+  'draft-04': require('./draft-04.json'),
+  'ebolaCallCentreUser': require('./EbolaCallCentreUser.json')
 };
