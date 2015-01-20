@@ -48997,6 +48997,7 @@ module.exports={
         "adminDivision2": { "type": ["string", "number"] },
         "adminDivision3": { "type": ["string", "number"] },
         "adminDivision4": { "type": ["string", "number"] },
+        "city": {"type": "string", "faker": "address.city"},
         "address": { "type": "string", "faker": "address.streetAddress" },
         "countryCode": {
           "type": "string",

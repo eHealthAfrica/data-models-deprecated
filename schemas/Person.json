@@ -35,6 +35,14 @@
 
     "address": { "$ref": "#/definitions/address" },
 
+    "leader": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "phone": {"type": "string"}
+      }
+    },
+
     "createdDate": { "type": "string", "format": "date-time" },
     "modifiedDate": { "type": "string", "format": "date-time" },
 
@@ -73,6 +81,7 @@
         "adminDivision2": { "type": ["string", "number"] },
         "adminDivision3": { "type": ["string", "number"] },
         "adminDivision4": { "type": ["string", "number"] },
+        "city": {"type": "string", "faker": "address.city"},
         "address": { "type": "string", "faker": "address.streetAddress" },
         "countryCode": {
           "type": "string",
@@ -129,7 +138,21 @@
         "properties": {
           "name": { "type": "string", "faker": "name.findName" },
           "id": { "type": "string" },
-          "lastContactDate": { "type": "string", "format": "date-time" }
+          "lastContactDate": { "type": "string", "format": "date-time" },
+          "exposures": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "slept-ate",
+                "physical-contact",
+                "touch-fluids",
+                "objects",
+                "breastfeeding",
+                "funeral",
+                "other"
+              ]
+            }
+          }
         }
       }},
 
