@@ -48959,6 +48959,14 @@ module.exports={
 
     "address": { "$ref": "#/definitions/address" },
 
+    "leader": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "phone": {"type": "string"}
+      }
+    },
+
     "createdDate": { "type": "string", "format": "date-time" },
     "modifiedDate": { "type": "string", "format": "date-time" },
 
@@ -49054,7 +49062,21 @@ module.exports={
         "properties": {
           "name": { "type": "string", "faker": "name.findName" },
           "id": { "type": "string" },
-          "lastContactDate": { "type": "string", "format": "date-time" }
+          "lastContactDate": { "type": "string", "format": "date-time" },
+          "exposures": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "slept-ate",
+                "physical-contact",
+                "touch-fluids",
+                "objects",
+                "breastfeeding",
+                "funeral",
+                "other"
+              ]
+            }
+          }
         }
       }},
 
