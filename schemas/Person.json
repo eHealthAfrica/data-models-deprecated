@@ -35,13 +35,7 @@
 
     "address": { "$ref": "#/definitions/address" },
 
-    "leader": {
-      "type": "object",
-      "properties": {
-        "name": {"type": "string"},
-        "phone": {"type": "string"}
-      }
-    },
+    "leader": { "$ref": "#/definitions/connectedPerson" },
 
     "createdDate": { "type": "string", "format": "date-time" },
     "modifiedDate": { "type": "string", "format": "date-time" },
@@ -139,6 +133,8 @@
           "name": { "type": "string", "faker": "name.findName" },
           "id": { "type": "string" },
           "lastContactDate": { "type": "string", "format": "date-time" },
+          "phone": { "type": "string" },
+          "relative": { "$ref": "#/definitions/connectedPerson" },
           "exposures": {
             "type": "array",
             "items": {
@@ -160,7 +156,7 @@
         "type": "object",
         "properties": {
           "dateOfVisit": { "type": "string", "format": "date-time" },
-          "interviewer": { "$ref": "#/definitions/interviewer" },
+          "interviewer": { "$ref": "#/definitions/connectedPerson" },
           "comment": { "type": "string" },
           "isSymptomatic": { "type": "boolean" },
           "symptoms": { "$ref": "#/definitions/symptoms" },
@@ -179,7 +175,7 @@
     "case": {"type": "object", "properties": {
       "status": { "enum": ["unknown", "suspect", "probable", "confirmed", "not a case"] },
       "onsetDate": { "type": "string", "format": "date-time" },
-      "interviewer": { "$ref": "#/definitions/interviewer" },
+      "interviewer": { "$ref": "#/definitions/connectedPerson" },
       "hadContactWith": {
         "deadPerson": { "type": "boolean" },
         "sickPerson": { "type": "boolean" },
@@ -239,7 +235,7 @@
       "additionalProperties": false
     },
 
-    "interviewer": {
+    "connectedPerson": {
       "type": "object",
       "properties": {
         "name": { "type": "string", "faker": "name.findName"},
