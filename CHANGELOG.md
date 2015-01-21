@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this
 file. This file is structured according to http://keepachangelog.com/
 
 - - -
+##[Unreleased]
+### Added
+- `phone` property in sources within a `Person` schema
+- `interviewer` moved to `connectedPerson` to be re-usable (on `Person` schema)
+- `relative` of source case, is a `connectedPerson` (on `Person` schema)
+### Changed
+- `interviewer` is of type `connectedPerson` (on `Person` schema)
+- `leader` is of type `connectedPerson` (on `Person` schema)
 
 ## [1.5.0] - 2015-01-15
 ### Added
