@@ -13,6 +13,11 @@ file. This file is structured according to http://keepachangelog.com/
 - `interviewer` is of type `connectedPerson` (on `Person` schema)
 - `leader` is of type `connectedPerson` (on `Person` schema)
 
+## [unreleased][unreleased]
+### Added
+- `EbolaCallCentreUser` schema
+
+
 ## [1.5.0] - 2015-01-15
 ### Added
 - `leader` property in a case management `Person` schema
