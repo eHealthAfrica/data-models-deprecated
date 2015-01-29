@@ -230,6 +230,8 @@
       "thoracic_pain": { "type": "boolean" },
       "unexplained_bleedings": { "type": "boolean" },
       "rash": { "type": "boolean" },
+      "red_eyes": { "type": "boolean" },
+      "other_symptoms": { "type": "boolean" },
       "other": { "type": "string" }
     },
       "additionalProperties": false

@@ -4,19 +4,19 @@ All notable changes to this project will be documented in this
 file. This file is structured according to http://keepachangelog.com/
 
 - - -
-##[Unreleased]
-### Added
-- `phone` property in sources within a `Person` schema
-- `interviewer` moved to `connectedPerson` to be re-usable (on `Person` schema)
-- `relative` of source case, is a `connectedPerson` (on `Person` schema)
-### Changed
-- `interviewer` is of type `connectedPerson` (on `Person` schema)
-- `leader` is of type `connectedPerson` (on `Person` schema)
 
-## [unreleased][unreleased]
+## 1.6.0 - 2015-01-29
 ### Added
 - `EbolaCallCentreUser` schema
-
+- Person schema
+  - `phone` property in sources
+  - `interviewer` moved to `connectedPerson` to be re-usable
+  - `relative` of source case, is a `connectedPerson`
+  - `red_eyes` and `other_symptoms` as accepted symptoms
+### Changed
+- Person schema
+  - `interviewer` is of type `connectedPerson`
+  - `leader` is of type `connectedPerson`
 
 ## [1.5.0] - 2015-01-15
 ### Added

@@ -88,7 +88,7 @@ module.exports = {
   validate: validate
 };
 
-},{"./schemas":96,"json-schema-faker":3,"semver-regex":75,"z-schema":85}],2:[function(require,module,exports){
+},{"./schemas":97,"json-schema-faker":3,"semver-regex":75,"z-schema":85}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -45028,7 +45028,7 @@ var random = {
 
     },
 
-    // takes an array and returns a random element of the array
+    // takes an array and returns the array randomly sorted
     array_element: function (array) {
         array = array || ["a", "b", "c"];
         var r = faker.random.number({ max: array.length - 1 });
@@ -45042,16 +45042,6 @@ var random = {
         var key = faker.random.array_element(array);
 
         return field === "key" ? key : object[key];
-    },
-
-    uuid : function () {
-        var RFC4122_TEMPLATE = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
-        var replacePlaceholders = function (placeholder) {
-            var random = Math.random()*16|0;
-            var value = placeholder == 'x' ? random : (random &0x3 | 0x8);
-            return value.toString(16);
-        };
-        return RFC4122_TEMPLATE.replace(/[xy]/g, replacePlaceholders);
     }
 };
 
@@ -47238,16 +47228,12 @@ exports.validate = function (report, schema, json) {
         if (typeof schema.type === "string") {
             if (jsonType !== schema.type && (jsonType !== "integer" || schema.type !== "number")) {
                 report.addError("INVALID_TYPE", [schema.type, jsonType], null, schema.description);
-                if (this.options.breakOnFirstError) {
-                    return false;
-                }
+                return false;
             }
         } else {
             if (schema.type.indexOf(jsonType) === -1 && (jsonType !== "integer" || schema.type.indexOf("number") === -1)) {
                 report.addError("INVALID_TYPE", [schema.type, jsonType], null, schema.description);
-                if (this.options.breakOnFirstError) {
-                    return false;
-                }
+                return false;
             }
         }
     }
@@ -47257,16 +47243,14 @@ exports.validate = function (report, schema, json) {
     while (idx--) {
         if (JsonValidators[keys[idx]]) {
             JsonValidators[keys[idx]].call(this, report, schema, json);
-            if (report.errors.length && this.options.breakOnFirstError) { break; }
+            if (report.errors.length) { break; }
         }
     }
 
-    if (report.errors.length === 0 || this.options.breakOnFirstError === false) {
-        if (jsonType === "array") {
-            recurseArray.call(this, report, schema, json);
-        } else if (jsonType === "object") {
-            recurseObject.call(this, report, schema, json);
-        }
+    if (jsonType === "array") {
+        recurseArray.call(this, report, schema, json);
+    } else if (jsonType === "object") {
+        recurseObject.call(this, report, schema, json);
     }
 
     // we don't need the root pointer anymore
@@ -47626,7 +47610,7 @@ function collectReferences(obj, results, scope, path) {
         scope.push(obj.id);
     }
 
-    if (typeof obj.$ref === "string" && typeof obj.__$refResolved === "undefined") {
+    if (typeof obj.$ref === "string") {
         results.push({
             ref: mergeReference(scope, obj.$ref),
             key: "$ref",
@@ -47634,7 +47618,7 @@ function collectReferences(obj, results, scope, path) {
             path: path.slice(0)
         });
     }
-    if (typeof obj.$schema === "string" && typeof obj.__$schemaResolved === "undefined") {
+    if (typeof obj.$schema === "string") {
         results.push({
             ref: mergeReference(scope, obj.$schema),
             key: "$schema",
@@ -47689,16 +47673,6 @@ var compileArrayOfSchemasLoop = function (mainReport, arr) {
     return compiledCount;
 };
 
-function findId(arr, id) {
-    var idx = arr.length;
-    while (idx--) {
-        if (arr[idx].id === id) {
-            return arr[idx];
-        }
-    }
-    return null;
-}
-
 var compileArrayOfSchemas = function (report, arr) {
 
     var compiled = 0,
@@ -47719,28 +47693,6 @@ var compileArrayOfSchemas = function (report, arr) {
 
         // count how many are compiled now
         compiled = compileArrayOfSchemasLoop.call(this, report, arr);
-
-        // fix __$missingReferences if possible
-        idx = arr.length;
-        while (idx--) {
-            var sch = arr[idx];
-            if (sch.__$missingReferences) {
-                var idx2 = sch.__$missingReferences.length;
-                while (idx2--) {
-                    var refObj = sch.__$missingReferences[idx2];
-                    var response = findId(arr, refObj.ref);
-                    if (response) {
-                        // this might create circular references
-                        refObj.obj["__" + refObj.key + "Resolved"] = response;
-                        // it's resolved now so delete it
-                        sch.__$missingReferences.splice(idx2, 1);
-                    }
-                }
-                if (sch.__$missingReferences.length === 0) {
-                    delete sch.__$missingReferences;
-                }
-            }
-        }
 
         // keep repeating if not all compiled and at least one more was compiled in the last loop
     } while (compiled !== arr.length && compiled !== lastLoopCompiled);
@@ -47781,10 +47733,6 @@ exports.compileSchema = function (report, schema) {
         SchemaCache.cacheSchemaByUri.call(this, schema.id, schema);
     }
 
-    // delete all __$missingReferences from previous compilation attempts
-    var isValidExceptReferences = report.isValid();
-    delete schema.__$missingReferences;
-
     // collect all references that need to be resolved - $ref and $schema
     var refs = collectReferences.call(this, schema),
         idx = refs.length;
@@ -47797,12 +47745,6 @@ exports.compileSchema = function (report, schema) {
                 Array.prototype.push.apply(report.path, refObj.path);
                 report.addError("UNRESOLVABLE_REFERENCE", [refObj.ref]);
                 report.path.slice(0, -refObj.path.length);
-
-                // pusblish unresolved references out
-                if (isValidExceptReferences) {
-                    schema.__$missingReferences = schema.__$missingReferences || [];
-                    schema.__$missingReferences.push(refObj);
-                }
             }
         }
         // this might create circular references
@@ -48550,9 +48492,7 @@ var defaultOptions = {
     // turn on some of the above
     strictMode: false,
     // report error paths as an array of path segments to get to the offending node
-    reportPathAsArray: false,
-    // stops validation as soon as an error is found, true by default but can be turned off
-    breakOnFirstError: true
+    reportPathAsArray: false
 };
 
 /*
@@ -48586,7 +48526,6 @@ function ZSchema(options) {
         this.options.noEmptyStrings   = true;
         this.options.noEmptyArrays    = true;
     }
-
 }
 
 /*
@@ -48886,6 +48825,60 @@ module.exports={
 },{}],90:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "EbolaCallCentreUser",
+  "description": "An Ebola call centre CouchDB user",
+  "type": "object",
+  "properties": {
+    "_id": { "type": "string" },
+    "_rev": { "type": "string" },
+    "password_scheme": { "type": "string" },
+    "iterations": { "type": "integer" },
+    "name": { "type": "string" },
+    "roles": { 
+      "type": "array", 
+      "items": { "type": "string" }
+    },
+    "details": {
+      "fullName": { "type": "string" },
+      "role": { "type": "string" },
+      "app": { "type": "string" }
+    },
+    "type": { "type": "string" },
+    "doc_type": { "type": "string"},
+    "derived_key": { "type": "string" },
+    "salt": { "type": "string"},
+    "locations": { "$ref": "#/definitions/locations" } 
+  },
+
+  "definitions": {
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "id": { "type": "string" },
+          "level": { "type": "integer" },
+          "default": { "type": "boolean" }
+        }
+      }
+    }
+  },
+
+  "required": [
+    "_id",
+    "password_scheme",
+    "name",
+    "type",
+    "doc_type",
+    "derived_key",
+    "salt"
+  ]
+}
+
+},{}],91:[function(require,module,exports){
+module.exports={
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "FacilityRound",
   "description": "TODO /cc @jofomah",
   "type": "object",
@@ -48938,7 +48931,7 @@ module.exports={
   ]
 }
 
-},{}],91:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "PackingList",
@@ -48982,7 +48975,7 @@ module.exports={
   ]
 }
 
-},{}],92:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Person",
@@ -49215,6 +49208,8 @@ module.exports={
       "thoracic_pain": { "type": "boolean" },
       "unexplained_bleedings": { "type": "boolean" },
       "rash": { "type": "boolean" },
+      "red_eyes": { "type": "boolean" },
+      "other_symptoms": { "type": "boolean" },
       "other": { "type": "string" }
     },
       "additionalProperties": false
@@ -49237,7 +49232,7 @@ module.exports={
   ]
 }
 
-},{}],93:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "PickedProduct",
@@ -49271,7 +49266,7 @@ module.exports={
   ]
 }
 
-},{}],94:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Product",
@@ -49329,7 +49324,7 @@ module.exports={
   ]
 }
 
-},{}],95:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 module.exports={
     "id": "http://json-schema.org/draft-04/schema#",
     "$schema": "http://json-schema.org/draft-04/schema#",
@@ -49481,7 +49476,7 @@ module.exports={
     "default": {}
 }
 
-},{}],96:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -49494,8 +49489,9 @@ module.exports = {
   'person': require('./Person.json'),
   'pickedProduct': require('./PickedProduct.json'),
   'product': require('./Product.json'),
-  'draft-04': require('./draft-04.json')
+  'draft-04': require('./draft-04.json'),
+  'ebolaCallCentreUser': require('./EbolaCallCentreUser.json')
 };
 
-},{"./Case.json":86,"./DailyDelivery.json":87,"./DeliveryRound.json":88,"./Driver.json":89,"./FacilityRound.json":90,"./PackingList.json":91,"./Person.json":92,"./PickedProduct.json":93,"./Product.json":94,"./draft-04.json":95}]},{},[1])(1)
+},{"./Case.json":86,"./DailyDelivery.json":87,"./DeliveryRound.json":88,"./Driver.json":89,"./EbolaCallCentreUser.json":90,"./FacilityRound.json":91,"./PackingList.json":92,"./Person.json":93,"./PickedProduct.json":94,"./Product.json":95,"./draft-04.json":96}]},{},[1])(1)
 });
