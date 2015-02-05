@@ -156,6 +156,17 @@
       "followUps": { "type": "array", "items": {
         "type": "object",
         "properties": {
+          "status": { "enum": ["incomplete", "complete"] },
+          "incompleteReason": {
+            "enum": [
+              "food-distribution-incomplete",
+              "no-food-distribution",
+              "gone-to-work",
+              "resistance",
+              "travelling",
+              "other"
+            ]
+          },
           "dateOfVisit": { "type": "string", "format": "date-time" },
           "interviewer": { "$ref": "#/definitions/connectedPerson" },
           "comment": { "type": "string" },
