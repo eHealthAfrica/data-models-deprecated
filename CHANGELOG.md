@@ -5,6 +5,10 @@ file. This file is structured according to http://keepachangelog.com/
 
 - - -
 
+Unreleased
+----------
+- Add `category` field to `Person.age`
+
 ## [1.7.0] - 2015-02-10
 ### Added
 - Add `sl` country code to validation pattern for Person.address
