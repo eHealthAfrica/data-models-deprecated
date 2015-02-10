@@ -5,9 +5,12 @@ file. This file is structured according to http://keepachangelog.com/
 
 - - -
 
-Unreleased
-----------
+[Unreleased] - Unreleased
+
+### Added
 - Add `category` field to `Person.age`
+- Add `incompleteReasons` to `Person.contact.followUps`
+- Add `status` to `Person.contact.followUps`
 
 ## [1.7.0] - 2015-02-10
 ### Added
