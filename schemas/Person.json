@@ -79,7 +79,7 @@
         "address": { "type": "string", "faker": "address.streetAddress" },
         "countryCode": {
           "type": "string",
-          "pattern": "^(gn|ml|lr|mg)$",
+          "pattern": "^(gn|ml|lr|mg|sl)$",
           "description": "country code following ISO_3166-1_alpha-2 in lowercase"
         }
       },
