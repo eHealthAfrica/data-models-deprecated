@@ -20,7 +20,8 @@
 
     "age": { "type": "object", "properties": {
       "years": { "type": "number", "minimum": 0, "maximum": 121 },
-      "months": { "type": "number", "minimum": 0, "maximum": 11 }
+      "months": { "type": "number", "minimum": 0, "maximum": 11 },
+      "category": { "enum": ["infant", "child", "adult"] }
     }},
     "birthDay": { "type": "number", "minimum": 1, "maximum": 31 },
     "birthMonth": { "type": "number", "minimum": 1, "maximum": 12 },
