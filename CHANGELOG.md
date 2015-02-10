@@ -5,7 +5,12 @@ file. This file is structured according to http://keepachangelog.com/
 
 - - -
 
-## 1.6.0 - 2015-01-29
+## [1.7.0] - 2015-02-10
+### Added
+- Add `sl` country code to validation pattern for Person.address
+
+
+## [1.6.0] - 2015-01-29
 ### Added
 - `EbolaCallCentreUser` schema
 - Person schema
