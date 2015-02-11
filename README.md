@@ -12,6 +12,15 @@ we want to share through different eHealth projects
 
 JSON schema docs: http://json-schema.org
 
+
+## Schema Domain
+
+Until such a time upon which we decide on something better, the current schema domain is `schema.ehealthafrica.org` and the current stable version is `1.0`. e.g:
+
+```
+https://schema.ehealthafrica.org/1.0/Image.json#
+```
+
 ## API
 
 ### `validate`
