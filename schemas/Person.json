@@ -226,6 +226,7 @@
 
     "symptoms": {"type": "object", "properties": {
       "temperature": { "type": "number"},
+      "fever": { "type": "boolean" },
       "abdominal_pains": { "type": "boolean" },
       "articular_pain": { "type": "boolean" },
       "cough": { "type": "boolean" },
