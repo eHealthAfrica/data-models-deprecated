@@ -7,10 +7,12 @@ file. This file is structured according to http://keepachangelog.com/
 
 [Unreleased] - Unreleased
 
+## [1.7.1] - 2015-02-19
 ### Added
 - Add `category` field to `Person.age`
 - Add `incompleteReasons` to `Person.contact.followUps`
 - Add `status` to `Person.contact.followUps`
+- Add `fever` to `definitions.symptoms` schema
 
 ## [1.7.0] - 2015-02-10
 ### Added
