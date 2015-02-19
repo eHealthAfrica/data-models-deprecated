@@ -1,7 +1,7 @@
 {
   "name": "data-model",
   "main": "dist/data-model.js",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "homepage": "https://github.com/eHealthAfrica/data_model",
   "authors": [
     "eHealth Africa (http://ehealthafrica.org/)"
