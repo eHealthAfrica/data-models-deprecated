@@ -7,6 +7,9 @@ file. This file is structured according to http://keepachangelog.com/
 
 [Unreleased] - Unreleased
 
+### Added
+- Add `Image` schema
+
 ## [1.7.1] - 2015-02-19
 ### Added
 - Add `category` field to `Person.age`

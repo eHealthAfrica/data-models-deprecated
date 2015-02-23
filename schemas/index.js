@@ -11,5 +11,6 @@ module.exports = {
   'pickedProduct': require('./PickedProduct.json'),
   'product': require('./Product.json'),
   'draft-04': require('./draft-04.json'),
-  'ebolaCallCentreUser': require('./EbolaCallCentreUser.json')
+  'ebolaCallCentreUser': require('./EbolaCallCentreUser.json'),
+  'image': require('./Image.json')
 };
