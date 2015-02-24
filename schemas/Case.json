@@ -9,12 +9,36 @@
 
     "version": { "type": "string", "format": "semver" },
 
-    "referenceNo": { "type": "string" },
+    "callNature": {
+      "enum": [
+        "death",
+        "suspect",
+        "sick",
+        "health information",
+        "quarantine",
+        "security threat",
+        "prank call",
+        "other"
+      ]
+    },
+    "callNatureOther": { "type": "string" },
+    "requestedHealthInfo": { "type": "object" },
+
+    "createdOn": { "type": "string", "format": "date-time" },
+    "createdBy": {
+      "oneOf": [
+        { "$ref": "#/definitions/user" },
+        { "type": "string" }
+      ]
+    },
+    "callDetails": { "type": "string" },
+    "isFollowUpCall": { "type": "boolean" },
 
     "changeLog": { "$ref": "#/definitions/changeLog" },
     "contact": { "$ref": "#/definitions/contact" },
     "patient": { "$ref": "#/definitions/patient" },
-    "response": { "$ref": "#/definitions/response" }
+    "response": { "$ref": "#/definitions/response" },
+    "dispatch": { "$ref": "#/definitions/dispatch" }
   },
 
   "definitions": {
@@ -26,28 +50,17 @@
         "properties": {
           "rev": { "type": "string" },
           "timestamp": { "type": "integer" },
-          "user": { "type": "string" }
+          "user": { "$ref": "#/definitions/user" }
         }
       }
     },
     "contact": {
       "type": "object",
       "properties": {
-        "callNature": {
-          "enum": [
-            "death",
-            "suspect",
-            "sick",
-            "health information",
-            "quarantine",
-            "security threat",
-            "prank call",
-            "other"
-          ]
-        }
+        "phoneNo": { "type": "string" }
       },
       "required": [
-        "callNature"
+        "phoneNo"
       ]
     },
     "patient": {
@@ -55,11 +68,23 @@
     },
     "response": {
       "type": "object"
+    },
+    "dispatch": {
+      "type": "object"
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "username": { "type": "string" },
+        "fullName": { "type": "string" }
+      }
     }
   },
 
   "required": [
     "doc_type",
+    "callNature",
+    "createdOn",
     "contact"
   ]
 }
