@@ -9,8 +9,10 @@ file. This file is structured according to http://keepachangelog.com/
 
 ### Added
 - Add `Image` schema
+- Move call fields out of `contact`, update mandatory fields and add
+some missing fields on `Case` schema.
 
-## [1.7.1] - 2015-02-19
+## [1.8.0] - 2015-02-19
 ### Added
 - Add `category` field to `Person.age`
 - Add `incompleteReasons` to `Person.contact.followUps`
