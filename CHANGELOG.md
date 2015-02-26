@@ -11,6 +11,7 @@ file. This file is structured according to http://keepachangelog.com/
 - Add `Image` schema
 - Move call fields out of `contact`, update mandatory fields and add
 some missing fields on `Case` schema.
+- Add new location fields to `Case` schema.
 
 ## [1.8.0] - 2015-02-19
 ### Added
