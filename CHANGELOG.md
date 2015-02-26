@@ -12,6 +12,14 @@ file. This file is structured according to http://keepachangelog.com/
 - Move call fields out of `contact`, update mandatory fields and add
 some missing fields on `Case` schema.
 
+### Changed
+- `name` of a `sourceCase` should be stored within the regular person
+object and not within the `contact` attribute. Please migrate to `otherNames`
+and `surname`.
+- `phone` of a `sourceCase` should be stored within the regular person
+object and not within the `contact` attribute. Please migrate to `phoneNumber`.
+
+
 ## [1.8.0] - 2015-02-19
 ### Added
 - Add `category` field to `Person.age`
