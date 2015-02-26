@@ -131,10 +131,8 @@
       "sourceCases": { "type": "array", "items": {
         "type": "object",
         "properties": {
-          "name": { "type": "string", "faker": "name.findName" },
           "id": { "type": "string" },
           "lastContactDate": { "type": "string", "format": "date-time" },
-          "phone": { "type": "string" },
           "relative": { "$ref": "#/definitions/connectedPerson" },
           "exposures": {
             "type": "array",
