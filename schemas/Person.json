@@ -151,7 +151,8 @@
                 "funeral",
                 "other"
               ]
-            }
+            },
+          "relationToCase": { "type": "string" }
           }
         }
       }},
