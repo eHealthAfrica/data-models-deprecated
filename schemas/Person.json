@@ -64,7 +64,12 @@
         }
       }
     },
-    "sources": { "type": "array", "items": {"type": "object"} }
+    "sources": { "type": "array", "items": {"type": "object"} },
+
+    "healthWorker": {
+      "isHealthWorker": { "type": "boolean"},
+      "facilityName": { "type": "string"}
+    }
   },
 
   "definitions": {
