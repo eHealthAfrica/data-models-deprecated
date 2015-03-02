@@ -9,8 +9,6 @@
 
     "version": { "type": "string", "format": "semver" },
 
-    "referenceNumber": { "type": "integer" },
-
     "otherIds": { "type": "object" },
 
     "surname": { "type": "string", "minLength": 1, "faker": "name.firstName" },

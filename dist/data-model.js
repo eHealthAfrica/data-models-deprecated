@@ -2571,22 +2571,20 @@ var instance = module.exports = function() {
 
     function push(ref) {
       if (typeof ref.id === 'string') {
-        var base = $.getDocumentURI(ref.id) || ref.id;
+        var id = $.resolveURL(fakeroot, ref.id).replace(/\/#?$/, '');
 
-        if (/#([^\/]+)/.test(ref.id)) {
-          base = ref.id.split('#')[1];
+        if (id.indexOf('#') > -1) {
+          var parts = id.split('#');
 
-          if (!$ref.refs[base]) {
-            $ref.refs[base] = {
-              $ref: ref.id
-            };
+          if (parts[1].charAt() === '/') {
+            id = parts[0];
+          } else {
+            id = parts[1] || parts[0];
           }
-
-          base = ref.id;
         }
 
-        if (!$ref.refs[base]) {
-          $ref.refs[base] = ref;
+        if (!$ref.refs[id]) {
+          $ref.refs[id] = ref;
         }
       }
     }
@@ -2660,17 +2658,15 @@ function get(obj, path) {
 var find = module.exports = function(id, refs) {
   var target = refs[id] || refs[id.split('#')[1]] || refs[$.getDocumentURI(id)];
 
-  if (!target) {
+  if (target) {
+    target = id.indexOf('#/') > -1 ? get(target, id) : target;
+  } else {
     for (var key in refs) {
       if ($.resolveURL(refs[key].id, id) === refs[key].id) {
         target = refs[key];
         break;
       }
     }
-  }
-
-  if (id.indexOf('#/') > -1) {
-    target = get(target, id);
   }
 
   if (!target) {
@@ -2691,16 +2687,25 @@ var $ = require('./uri-helpers');
 
 var cloneObj = require('./clone-obj');
 
-var SCHEMA_URI = 'http://json-schema.org/schema#';
+var SCHEMA_URI = [
+  'http://json-schema.org/schema#',
+  'http://json-schema.org/draft-04/schema#'
+];
 
 function expand(obj, parent, callback) {
   if (obj) {
-    if (typeof obj.id === 'string') {
-      parent = obj.id = $.resolveURL(parent, obj.id);
+    var id = typeof obj.id === 'string' ? obj.id : '#';
+
+    if (!$.isURL(id)) {
+      id = $.resolveURL(parent === id ? null : parent, id);
     }
 
-    if (obj.$ref) {
-      obj.$ref = $.resolveURL(parent, obj.$ref);
+    if (typeof obj.$ref === 'string' && !$.isURL(obj.$ref)) {
+      obj.$ref = $.resolveURL(id, obj.$ref);
+    }
+
+    if (typeof obj.id === 'string') {
+      obj.id = parent = id;
     }
   }
 
@@ -2724,12 +2729,16 @@ module.exports = function(fakeroot, schema, push) {
     fakeroot = null;
   }
 
-  var copy = cloneObj(schema),
-      base = $.resolveURL(copy.$schema || SCHEMA_URI, fakeroot || '');
+  var base = fakeroot || '',
+      copy = cloneObj(schema);
 
-  copy.id = $.resolveURL(base, copy.id || '#');
+  if (copy.$schema && SCHEMA_URI.indexOf(copy.$schema) === -1) {
+    throw new Error('Unsupported schema version (v4 only)');
+  }
 
-  expand(copy, copy.id, push);
+  base = $.resolveURL(copy.$schema || SCHEMA_URI[0], base);
+
+  expand(copy, $.resolveURL(copy.id || '#', base), push);
 
   return copy;
 };
@@ -2752,7 +2761,13 @@ function clone(obj, refs, child, expand) {
     var fixed = find(obj.$ref, refs);
 
     if (fixed && expand) {
+      var id = typeof fixed.id === 'string' ? fixed.id : '#';
+
       obj = fixed;
+
+      if (obj.$ref !== id) {
+        return clone(fixed, refs, true, expand);
+      }
 
       delete obj.$ref;
     }
@@ -2864,6 +2879,8 @@ function parseURI(href, base) {
 }
 
 function resolveURL(base, href) {
+  base = base || 'http://json-schema.org/schema#';
+
   href = parseURI(href, base);
   base = parseURI(base);
 
@@ -46813,7 +46830,7 @@ var JsonValidators = {
         if (typeof json !== "string") {
             return;
         }
-        if (json.length > schema.maxLength) {
+        if (Utils.ucs2decode(json).length > schema.maxLength) {
             report.addError("MAX_LENGTH", [json.length, schema.maxLength], null, schema.description);
         }
     },
@@ -46822,7 +46839,7 @@ var JsonValidators = {
         if (typeof json !== "string") {
             return;
         }
-        if (json.length < schema.minLength) {
+        if (Utils.ucs2decode(json).length < schema.minLength) {
             report.addError("MIN_LENGTH", [json.length, schema.minLength], null, schema.description);
         }
     },
@@ -47190,6 +47207,8 @@ var recurseObject = function (report, schema, json) {
 
 exports.validate = function (report, schema, json) {
 
+    report.commonErrorMessage = "JSON_OBJECT_VALIDATION_FAILED";
+
     // check if schema is an object
     var to = Utils.whatIs(schema);
     if (to !== "object") {
@@ -47302,6 +47321,7 @@ if (typeof Number.isFinite !== "function") {
 "use strict";
 
 var Errors = require("./Errors");
+var Utils  = require("./Utils");
 
 function Report(parentOrOptions) {
     this.parentReport = parentOrOptions instanceof Report ?
@@ -47384,6 +47404,11 @@ Report.prototype.getPath = function () {
     if (this.options.reportPathAsArray !== true) {
         // Sanitize the path segments (http://tools.ietf.org/html/rfc6901#section-4)
         path = "#/" + path.map(function (segment) {
+
+            if (Utils.isAbsoluteUri(segment)) {
+                return "uri(" + segment + ")";
+            }
+
             return segment.replace("~", "~0").replace("/", "~1");
         }).join("/");
     }
@@ -47399,7 +47424,9 @@ Report.prototype.addError = function (errorCode, params, subReports, schemaDescr
     var idx = params.length,
         errorMessage = Errors[errorCode];
     while (idx--) {
-        errorMessage = errorMessage.replace("{" + idx + "}", params[idx]);
+        var whatIs = Utils.whatIs(params[idx]);
+        var param = (whatIs === "object" || whatIs === "null") ? JSON.stringify(params[idx]) : params[idx];
+        errorMessage = errorMessage.replace("{" + idx + "}", param);
     }
 
     var err = {
@@ -47437,12 +47464,13 @@ Report.prototype.addError = function (errorCode, params, subReports, schemaDescr
 module.exports = Report;
 
 }).call(this,require('_process'))
-},{"./Errors":76,"_process":2}],81:[function(require,module,exports){
+},{"./Errors":76,"./Utils":84,"_process":2}],81:[function(require,module,exports){
 "use strict";
 
 var Report              = require("./Report");
 var SchemaCompilation   = require("./SchemaCompilation");
 var SchemaValidation    = require("./SchemaValidation");
+var Utils               = require("./Utils");
 
 function decodeJSONPointer(str) {
     // http://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-07#section-3
@@ -47521,6 +47549,19 @@ exports.checkCacheForUri = function (uri) {
     return remotePath ? this.cache[remotePath] != null : false;
 };
 
+exports.getSchemaByReference = function (key) {
+    var i = this.referenceCache.length;
+    while (i--) {
+        if (this.referenceCache[i][0] === key) {
+            return this.referenceCache[i][1];
+        }
+    }
+    // not found
+    var schema = Utils.cloneDeep(key);
+    this.referenceCache.push([key, schema]);
+    return schema;
+};
+
 exports.getSchemaByUri = function (report, uri, root) {
     var remotePath = getRemotePath(uri),
         queryPath = getQueryPath(uri),
@@ -47568,30 +47609,22 @@ exports.getSchemaByUri = function (report, uri, root) {
 
 exports.getRemotePath = getRemotePath;
 
-},{"./Report":80,"./SchemaCompilation":82,"./SchemaValidation":83}],82:[function(require,module,exports){
+},{"./Report":80,"./SchemaCompilation":82,"./SchemaValidation":83,"./Utils":84}],82:[function(require,module,exports){
 "use strict";
 
-var Report = require("./Report");
+var Report      = require("./Report");
 var SchemaCache = require("./SchemaCache");
-
-function isAbsoluteUri(uri) {
-    return /^https?:\/\//.test(uri);
-}
-
-function isRelativeUri(uri) {
-    // relative URIs that end with a hash sign, issue #56
-    return /.+#/.test(uri);
-}
+var Utils       = require("./Utils");
 
 function mergeReference(scope, ref) {
-    if (isAbsoluteUri(ref)) {
+    if (Utils.isAbsoluteUri(ref)) {
         return ref;
     }
 
     var joinedScope = scope.join(""),
-        isScopeAbsolute = isAbsoluteUri(joinedScope),
-        isScopeRelative = isRelativeUri(joinedScope),
-        isRefRelative = isRelativeUri(ref),
+        isScopeAbsolute = Utils.isAbsoluteUri(joinedScope),
+        isScopeRelative = Utils.isRelativeUri(joinedScope),
+        isRefRelative = Utils.isRelativeUri(ref),
         toRemove;
 
     if (isScopeAbsolute && isRefRelative) {
@@ -47751,6 +47784,8 @@ var compileArrayOfSchemas = function (report, arr) {
 
 exports.compileSchema = function (report, schema) {
 
+    report.commonErrorMessage = "SCHEMA_COMPILATION_FAILED";
+
     // if schema is a string, assume it's a uri
     if (typeof schema === "string") {
         var loadedSchema = SchemaCache.getSchemaByUri.call(this, report, schema);
@@ -47793,7 +47828,18 @@ exports.compileSchema = function (report, schema) {
         var refObj = refs[idx];
         var response = SchemaCache.getSchemaByUri.call(this, report, refObj.ref, schema);
         if (!response) {
-            if (!isAbsoluteUri(refObj.ref) || this.options.ignoreUnresolvableReferences !== true) {
+
+            var isAbsolute = Utils.isAbsoluteUri(refObj.ref);
+            var isDownloaded = false;
+            var ignoreUnresolvableRemotes = this.options.ignoreUnresolvableReferences === true;
+
+            if (isAbsolute) {
+                // we shouldn't add UNRESOLVABLE_REFERENCE for schemas we already have downloaded
+                // and set through setRemoteReference method
+                isDownloaded = SchemaCache.checkCacheForUri.call(this, refObj.ref);
+            }
+
+            if (!isAbsolute || !isDownloaded && !ignoreUnresolvableRemotes) {
                 Array.prototype.push.apply(report.path, refObj.path);
                 report.addError("UNRESOLVABLE_REFERENCE", [refObj.ref]);
                 report.path.slice(0, -refObj.path.length);
@@ -47822,7 +47868,7 @@ exports.compileSchema = function (report, schema) {
 
 };
 
-},{"./Report":80,"./SchemaCache":81}],83:[function(require,module,exports){
+},{"./Report":80,"./SchemaCache":81,"./Utils":84}],83:[function(require,module,exports){
 "use strict";
 
 var FormatValidators = require("./FormatValidators"),
@@ -48306,6 +48352,8 @@ var validateArrayOfSchemas = function (report, arr) {
 
 exports.validateSchema = function (report, schema) {
 
+    report.commonErrorMessage = "SCHEMA_VALIDATION_FAILED";
+
     // if schema is an array, assume it's an array of schemas
     if (Array.isArray(schema)) {
         return validateArrayOfSchemas.call(this, report, schema);
@@ -48377,6 +48425,15 @@ exports.validateSchema = function (report, schema) {
 
 },{"./FormatValidators":77,"./JsonValidation":78,"./Report":80,"./Utils":84}],84:[function(require,module,exports){
 "use strict";
+
+exports.isAbsoluteUri = function (uri) {
+    return /^https?:\/\//.test(uri);
+};
+
+exports.isRelativeUri = function (uri) {
+    // relative URIs that end with a hash sign, issue #56
+    return /.+#/.test(uri);
+};
 
 exports.whatIs = function (what) {
 
@@ -48507,6 +48564,72 @@ exports.clone = function (src) {
     return res;
 };
 
+exports.cloneDeep = function cloneDeep(src) {
+    if (typeof src !== "object" || src === null) { return src; }
+    var res, idx;
+    if (Array.isArray(src)) {
+        res = [];
+        idx = src.length;
+        while (idx--) {
+            res[idx] = cloneDeep(src[idx]);
+        }
+    } else {
+        res = {};
+        var keys = Object.keys(src);
+        idx = keys.length;
+        while (idx--) {
+            var key = keys[idx];
+            res[key] = cloneDeep(src[key]);
+        }
+    }
+    return res;
+};
+
+/*
+  following function comes from punycode.js library
+  see: https://github.com/bestiejs/punycode.js
+*/
+/*jshint -W016*/
+/**
+ * Creates an array containing the numeric code points of each Unicode
+ * character in the string. While JavaScript uses UCS-2 internally,
+ * this function will convert a pair of surrogate halves (each of which
+ * UCS-2 exposes as separate characters) into a single code point,
+ * matching UTF-16.
+ * @see `punycode.ucs2.encode`
+ * @see <https://mathiasbynens.be/notes/javascript-encoding>
+ * @memberOf punycode.ucs2
+ * @name decode
+ * @param {String} string The Unicode input string (UCS-2).
+ * @returns {Array} The new array of code points.
+ */
+exports.ucs2decode = function (string) {
+    var output = [],
+        counter = 0,
+        length = string.length,
+        value,
+        extra;
+    while (counter < length) {
+        value = string.charCodeAt(counter++);
+        if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
+            // high surrogate, and there is a next character
+            extra = string.charCodeAt(counter++);
+            if ((extra & 0xFC00) == 0xDC00) { // low surrogate
+                output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
+            } else {
+                // unmatched surrogate; only append this code unit, in case the next
+                // code unit is the high surrogate of a surrogate pair
+                output.push(value);
+                counter--;
+            }
+        } else {
+            output.push(value);
+        }
+    }
+    return output;
+};
+/*jshint +W016*/
+
 },{}],85:[function(require,module,exports){
 "use strict";
 
@@ -48560,6 +48683,7 @@ var defaultOptions = {
 */
 function ZSchema(options) {
     this.cache = {};
+    this.referenceCache = [];
 
     // options
     if (typeof options === "object") {
@@ -48595,6 +48719,9 @@ function ZSchema(options) {
 ZSchema.prototype.compileSchema = function (schema) {
     var report = new Report(this.options);
 
+    if (typeof schema === "object") {
+        schema = SchemaCache.getSchemaByReference.call(this, schema);
+    }
     if (typeof schema === "string") {
         schema = SchemaCache.getSchemaByUri.call(this, report, schema);
     }
@@ -48607,6 +48734,9 @@ ZSchema.prototype.compileSchema = function (schema) {
 ZSchema.prototype.validateSchema = function (schema) {
     var report = new Report(this.options);
 
+    if (typeof schema === "object") {
+        schema = SchemaCache.getSchemaByReference.call(this, schema);
+    }
     if (typeof schema === "string") {
         schema = SchemaCache.getSchemaByUri.call(this, report, schema);
     }
@@ -48620,6 +48750,9 @@ ZSchema.prototype.validateSchema = function (schema) {
 ZSchema.prototype.validate = function (json, schema, callback) {
     var report = new Report(this.options);
 
+    if (typeof schema === "object") {
+        schema = SchemaCache.getSchemaByReference.call(this, schema);
+    }
     if (typeof schema === "string") {
         schema = SchemaCache.getSchemaByUri.call(this, report, schema);
     }
@@ -48648,6 +48781,16 @@ ZSchema.prototype.validate = function (json, schema, callback) {
     // assign lastReport so errors are retrievable in sync mode
     this.lastReport = report;
     return report.isValid();
+};
+ZSchema.prototype.getLastError = function () {
+    if (this.lastReport.errors.length === 0) {
+        return null;
+    }
+    var e = new Error();
+    e.name = "z-schema validation error";
+    e.message = this.lastReport.commonErrorMessage;
+    e.details = this.lastReport.errors;
+    return e;
 };
 ZSchema.prototype.getLastErrors = function () {
     return this.lastReport.errors.length > 0 ? this.lastReport.errors : undefined;
@@ -48691,6 +48834,9 @@ ZSchema.prototype.setRemoteReference = function (uri, schema) {
 ZSchema.registerFormat = function (formatName, validatorFunction) {
     FormatValidators[formatName] = validatorFunction;
 };
+ZSchema.getDefaultOptions = function () {
+    return Utils.cloneDeep(defaultOptions);
+};
 
 module.exports = ZSchema;
 
@@ -48706,12 +48852,36 @@ module.exports={
 
     "version": { "type": "string", "format": "semver" },
 
-    "referenceNo": { "type": "string" },
+    "callNature": {
+      "enum": [
+        "death",
+        "suspect",
+        "sick",
+        "health information",
+        "quarantine",
+        "security threat",
+        "prank call",
+        "other"
+      ]
+    },
+    "callNatureOther": { "type": "string" },
+    "requestedHealthInfo": { "type": "object" },
+
+    "createdOn": { "type": "string", "format": "date-time" },
+    "createdBy": {
+      "oneOf": [
+        { "$ref": "#/definitions/user" },
+        { "type": "string" }
+      ]
+    },
+    "callDetails": { "type": "string" },
+    "isFollowUpCall": { "type": "boolean" },
 
     "changeLog": { "$ref": "#/definitions/changeLog" },
     "contact": { "$ref": "#/definitions/contact" },
     "patient": { "$ref": "#/definitions/patient" },
-    "response": { "$ref": "#/definitions/response" }
+    "response": { "$ref": "#/definitions/response" },
+    "dispatch": { "$ref": "#/definitions/dispatch" }
   },
 
   "definitions": {
@@ -48723,28 +48893,17 @@ module.exports={
         "properties": {
           "rev": { "type": "string" },
           "timestamp": { "type": "integer" },
-          "user": { "type": "string" }
+          "user": { "$ref": "#/definitions/user" }
         }
       }
     },
     "contact": {
       "type": "object",
       "properties": {
-        "callNature": {
-          "enum": [
-            "death",
-            "suspect",
-            "sick",
-            "health information",
-            "quarantine",
-            "security threat",
-            "prank call",
-            "other"
-          ]
-        }
+        "phoneNo": { "type": "string" }
       },
       "required": [
-        "callNature"
+        "phoneNo"
       ]
     },
     "patient": {
@@ -48752,11 +48911,23 @@ module.exports={
     },
     "response": {
       "type": "object"
+    },
+    "dispatch": {
+      "type": "object"
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "username": { "type": "string" },
+        "fullName": { "type": "string" }
+      }
     }
   },
 
   "required": [
     "doc_type",
+    "callNature",
+    "createdOn",
     "contact"
   ]
 }
@@ -49078,8 +49249,6 @@ module.exports={
 
     "version": { "type": "string", "format": "semver" },
 
-    "referenceNumber": { "type": "integer" },
-
     "otherIds": { "type": "object" },
 
     "surname": { "type": "string", "minLength": 1, "faker": "name.firstName" },
@@ -49200,10 +49369,8 @@ module.exports={
       "sourceCases": { "type": "array", "items": {
         "type": "object",
         "properties": {
-          "name": { "type": "string", "faker": "name.findName" },
           "id": { "type": "string" },
           "lastContactDate": { "type": "string", "format": "date-time" },
-          "phone": { "type": "string" },
           "relative": { "$ref": "#/definitions/connectedPerson" },
           "exposures": {
             "type": "array",
