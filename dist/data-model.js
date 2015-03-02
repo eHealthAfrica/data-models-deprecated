@@ -48900,14 +48900,24 @@ module.exports={
     "contact": {
       "type": "object",
       "properties": {
-        "phoneNo": { "type": "string" }
+        "phoneNo": { "type": "string" },
+        "adminDivision1": { "type": "string" },
+        "adminDivision2": { "type": "string" },
+        "adminDivision3": { "type": "string" },
+        "location": { "$ref": "#/definitions/location" }
       },
       "required": [
         "phoneNo"
       ]
     },
     "patient": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "adminDivision1": { "type": "string" },
+        "adminDivision2": { "type": "string" },
+        "adminDivision3": { "type": "string" },
+        "location": { "$ref": "#/definitions/location" }
+      }
     },
     "response": {
       "type": "object"
@@ -48921,6 +48931,22 @@ module.exports={
         "username": { "type": "string" },
         "fullName": { "type": "string" }
       }
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "adminDivision1": { "$ref": "#/definitions/adminDivision" },
+        "adminDivision2": { "$ref": "#/definitions/adminDivision" },
+        "adminDivision3": { "$ref": "#/definitions/adminDivision" }
+      }
+    },
+    "adminDivision": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" }
+      },
+      "required": ["id", "name"]
     }
   },
 
@@ -49302,7 +49328,14 @@ module.exports={
         }
       }
     },
-    "sources": { "type": "array", "items": {"type": "object"} }
+    "sources": { "type": "array", "items": {"type": "object"} },
+
+    "healthWorker": {
+      "isHealthWorker": { "type": "boolean" },
+      "facilityName": { "type": "string" }
+    },
+
+    "isHeadOfHousehold": { "type": "boolean" }
   },
 
   "definitions": {
@@ -49384,7 +49417,8 @@ module.exports={
                 "funeral",
                 "other"
               ]
-            }
+            },
+          "relationToCase": { "type": "string" }
           }
         }
       }},
