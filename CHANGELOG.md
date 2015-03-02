@@ -12,6 +12,9 @@ file. This file is structured according to http://keepachangelog.com/
 - Move call fields out of `contact`, update mandatory fields and add
 some missing fields on `Case` schema.
 - Add new location fields to `Case` schema.
+- Add root level healthworker object (contains isHealthWorker boolean and facilityName string)
+- Add root level isHeadOfHousehold boolean
+- Add in contact object, a relationToCase string
 
 ### Changed
 - `name` of a `sourceCase` should be stored within the regular person
