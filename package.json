@@ -5,7 +5,7 @@
   "main": "index.js",
   "bin": "cli.js",
   "scripts": {
-    "build": "mkdir -p dist && npm run browserify && npm run uglify",
+    "build": "npm install && mkdir -p dist && npm run browserify && npm run uglify",
     "browserify": "browserify index.js -s data-model -o dist/data-model.js",
     "uglify": "uglifyjs dist/data-model.js -mc > dist/data-model.min.js",
     "test": "mocha",

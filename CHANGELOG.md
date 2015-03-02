@@ -20,6 +20,9 @@ and `surname`.
 - `phone` of a `sourceCase` should be stored within the regular person
 object and not within the `contact` attribute. Please migrate to `phoneNumber`.
 
+### Fixed
+- removed `referenceNumber` from the Person schema. It was not used anywere
+
 
 ## [1.8.0] - 2015-02-19
 ### Added
