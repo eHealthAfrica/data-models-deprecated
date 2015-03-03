@@ -58,9 +58,9 @@
       "type": "object",
       "properties": {
         "phoneNo": { "type": "string" },
-        "adminDivision1": { "type": "string" },
-        "adminDivision2": { "type": "string" },
-        "adminDivision3": { "type": "string" },
+        "adminDivision1": { "type": ["string", "number"] },
+        "adminDivision2": { "type": ["string", "number"] },
+        "adminDivision3": { "type": ["string", "number"] },
         "location": { "$ref": "#/definitions/location" }
       },
       "required": [
@@ -70,9 +70,9 @@
     "patient": {
       "type": "object",
       "properties": {
-        "adminDivision1": { "type": "string" },
-        "adminDivision2": { "type": "string" },
-        "adminDivision3": { "type": "string" },
+        "adminDivision1": { "type": ["string", "number"] },
+        "adminDivision2": { "type": ["string", "number"] },
+        "adminDivision3": { "type": ["string", "number"] },
         "location": { "$ref": "#/definitions/location" }
       }
     },
