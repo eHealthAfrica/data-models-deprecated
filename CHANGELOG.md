@@ -6,6 +6,8 @@ file. This file is structured according to http://keepachangelog.com/
 - - -
 
 [Unreleased] - Unreleased
+- In `Case` schema `patient.adminDivision[level]` and `contact.adminDivision[level]`
+can be either a number or a string
 
 ## [1.9.0] - 2015-03-03
 ### Added
