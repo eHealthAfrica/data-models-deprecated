@@ -26,6 +26,7 @@ object and not within the `contact` attribute. Please migrate to `phoneNumber`.
 
 ### Fixed
 - removed `referenceNumber` from the Person schema. It was not used anywere
+- fixed deref to version 0.2.6. Higher version was breaking the doc 'generate' functionality
 
 
 ## [1.8.0] - 2015-02-19
