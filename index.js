@@ -6,6 +6,10 @@ var jsf = require('json-schema-faker');
 
 var schemas = require('./schemas');
 
+var SCHEMA_DOMAIN = 'schema.ehealthafrica.org';
+var SCHEMA_VERSION = '1.0';
+var SCHEMA_URI = 'https://' + SCHEMA_DOMAIN + '/' + SCHEMA_VERSION;
+
 ZSchema.registerFormat('semver', function(str) {
   return semver().test(str);
 });
@@ -19,8 +23,14 @@ var draft = {
   schema: 'draft-04'
 };
 
+var image = {
+  url: SCHEMA_URI + '/Image.json',
+  schema: 'image'
+};
+
 var validator = new ZSchema();
 validator.setRemoteReference(draft.url, schemas[draft.schema]);
+validator.setRemoteReference(image.url, schemas[image.schema]);
 
 /**
  * Thin wrapper to make validation more convenient
