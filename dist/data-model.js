@@ -7,6 +7,10 @@ var jsf = require('json-schema-faker');
 
 var schemas = require('./schemas');
 
+var SCHEMA_DOMAIN = 'schema.ehealthafrica.org';
+var SCHEMA_VERSION = '1.0';
+var SCHEMA_URI = 'https://' + SCHEMA_DOMAIN + '/' + SCHEMA_VERSION;
+
 ZSchema.registerFormat('semver', function(str) {
   return semver().test(str);
 });
@@ -20,8 +24,14 @@ var draft = {
   schema: 'draft-04'
 };
 
+var image = {
+  url: SCHEMA_URI + '/Image.json',
+  schema: 'image'
+};
+
 var validator = new ZSchema();
 validator.setRemoteReference(draft.url, schemas[draft.schema]);
+validator.setRemoteReference(image.url, schemas[image.schema]);
 
 /**
  * Thin wrapper to make validation more convenient
@@ -88,7 +98,7 @@ module.exports = {
   validate: validate
 };
 
-},{"./schemas":98,"json-schema-faker":3,"semver-regex":75,"z-schema":85}],2:[function(require,module,exports){
+},{"./schemas":99,"json-schema-faker":3,"semver-regex":75,"z-schema":85}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -2571,20 +2581,22 @@ var instance = module.exports = function() {
 
     function push(ref) {
       if (typeof ref.id === 'string') {
-        var id = $.resolveURL(fakeroot, ref.id).replace(/\/#?$/, '');
+        var base = $.getDocumentURI(ref.id) || ref.id;
 
-        if (id.indexOf('#') > -1) {
-          var parts = id.split('#');
+        if (/#([^\/]+)/.test(ref.id)) {
+          base = ref.id.split('#')[1];
 
-          if (parts[1].charAt() === '/') {
-            id = parts[0];
-          } else {
-            id = parts[1] || parts[0];
+          if (!$ref.refs[base]) {
+            $ref.refs[base] = {
+              $ref: ref.id
+            };
           }
+
+          base = ref.id;
         }
 
-        if (!$ref.refs[id]) {
-          $ref.refs[id] = ref;
+        if (!$ref.refs[base]) {
+          $ref.refs[base] = ref;
         }
       }
     }
@@ -2658,15 +2670,17 @@ function get(obj, path) {
 var find = module.exports = function(id, refs) {
   var target = refs[id] || refs[id.split('#')[1]] || refs[$.getDocumentURI(id)];
 
-  if (target) {
-    target = id.indexOf('#/') > -1 ? get(target, id) : target;
-  } else {
+  if (!target) {
     for (var key in refs) {
       if ($.resolveURL(refs[key].id, id) === refs[key].id) {
         target = refs[key];
         break;
       }
     }
+  }
+
+  if (id.indexOf('#/') > -1) {
+    target = get(target, id);
   }
 
   if (!target) {
@@ -2687,25 +2701,16 @@ var $ = require('./uri-helpers');
 
 var cloneObj = require('./clone-obj');
 
-var SCHEMA_URI = [
-  'http://json-schema.org/schema#',
-  'http://json-schema.org/draft-04/schema#'
-];
+var SCHEMA_URI = 'http://json-schema.org/schema#';
 
 function expand(obj, parent, callback) {
   if (obj) {
-    var id = typeof obj.id === 'string' ? obj.id : '#';
-
-    if (!$.isURL(id)) {
-      id = $.resolveURL(parent === id ? null : parent, id);
-    }
-
-    if (typeof obj.$ref === 'string' && !$.isURL(obj.$ref)) {
-      obj.$ref = $.resolveURL(id, obj.$ref);
-    }
-
     if (typeof obj.id === 'string') {
-      obj.id = parent = id;
+      parent = obj.id = $.resolveURL(parent, obj.id);
+    }
+
+    if (obj.$ref) {
+      obj.$ref = $.resolveURL(parent, obj.$ref);
     }
   }
 
@@ -2729,16 +2734,12 @@ module.exports = function(fakeroot, schema, push) {
     fakeroot = null;
   }
 
-  var base = fakeroot || '',
-      copy = cloneObj(schema);
+  var copy = cloneObj(schema),
+      base = $.resolveURL(copy.$schema || SCHEMA_URI, fakeroot || '');
 
-  if (copy.$schema && SCHEMA_URI.indexOf(copy.$schema) === -1) {
-    throw new Error('Unsupported schema version (v4 only)');
-  }
+  copy.id = $.resolveURL(base, copy.id || '#');
 
-  base = $.resolveURL(copy.$schema || SCHEMA_URI[0], base);
-
-  expand(copy, $.resolveURL(copy.id || '#', base), push);
+  expand(copy, copy.id, push);
 
   return copy;
 };
@@ -2761,13 +2762,7 @@ function clone(obj, refs, child, expand) {
     var fixed = find(obj.$ref, refs);
 
     if (fixed && expand) {
-      var id = typeof fixed.id === 'string' ? fixed.id : '#';
-
       obj = fixed;
-
-      if (obj.$ref !== id) {
-        return clone(fixed, refs, true, expand);
-      }
 
       delete obj.$ref;
     }
@@ -2879,8 +2874,6 @@ function parseURI(href, base) {
 }
 
 function resolveURL(base, href) {
-  base = base || 'http://json-schema.org/schema#';
-
   href = parseURI(href, base);
   base = parseURI(base);
 
@@ -49631,6 +49624,135 @@ module.exports={
 
 },{}],97:[function(require,module,exports){
 module.exports={
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "VaccineTrialParticipant",
+  "description": "An Vaccine Trial Participant",
+  "type": "object",
+  "properties": {
+    "siteName": {
+      "type": "string"
+    },
+    "biometrics": { 
+      "type": "array",
+      "items": {"$ref": "#/definitions/biometrics" }
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "gender": {
+      "enum": [
+        "m",
+        "f"
+      ]
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "address": { "$ref": "#/definitions/address" }, 
+    "occupationalDetails": {
+      "type": "string"
+    },
+    "enrollmentDate": {
+      "type": "string"
+    },
+    "vaccinations": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/vaccination" }
+    },
+    "photograph": { "$ref": "https://schema.ehealthafrica.org/1.0/Image.json#" },
+    "agreement": { "$ref": "#/definitions/agreement" }
+  },
+
+  "definitions": {
+    "biometrics": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": ["fingerprint"]
+        },
+        "meta": {
+          "type": "object",
+          "oneOf": [
+            { "$ref": "#/definitions/biometricsTypeFingerprintMeta" }
+          ]
+        },
+        "iso": {
+          "type": "string"
+        },
+        "ntemplate": {
+          "type": "string"
+        }
+      }
+    },
+
+    "biometricsTypeFingerprintMeta": {
+      "type": "object",
+      "properties": {
+        "finger": { "enum": ["1","2","3","4","5"] },
+        "hand": { "enum": ["left", "right"] }
+      }
+    },
+
+    "address": {
+      "type": "object",
+      "properties": {
+        "adminDivision1": { "type": ["string", "number"] },
+        "adminDivision2": { "type": ["string", "number"] },
+        "adminDivision3": { "type": ["string", "number"] },
+        "adminDivision4": { "type": ["string", "number"] },
+        "city": {"type": "string", "faker": "address.city"},
+        "address": { "type": "string", "faker": "address.streetAddress" },
+        "countryCode": {
+          "type": "string",
+          "pattern": "^(gn|ml|lr|mg|sl)$",
+          "description": "country code following ISO_3166-1_alpha-2 in lowercase"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "vaccination": {
+      "type": "object",
+      "properties": {
+        "vaccinationSite": {
+          "enum": ["1","2","3","4","5","6","7","8","9","10"]
+        },
+        "cdcId": {
+          "type": "string"
+        },
+        "biometricId": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        }
+      }
+    },
+
+    "agreement": {
+      "properties": {
+        "agree": {
+          "type": "string"
+        }
+      },
+      "participantName": {
+        "type": "string"
+      },
+      "date": {
+        "type": "date"
+      },
+      "cdcId": {
+        "type": "string"
+      }
+    }
+  }
+}
+
+},{}],98:[function(require,module,exports){
+module.exports={
     "id": "http://json-schema.org/draft-04/schema#",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "description": "Core schema meta-schema",
@@ -49781,7 +49903,7 @@ module.exports={
     "default": {}
 }
 
-},{}],98:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -49796,8 +49918,9 @@ module.exports = {
   'product': require('./Product.json'),
   'draft-04': require('./draft-04.json'),
   'ebolaCallCentreUser': require('./EbolaCallCentreUser.json'),
-  'image': require('./Image.json')
+  'image': require('./Image.json'),
+  'vaccineTrialParticipant': require('./VaccineTrialParticipant.json')
 };
 
-},{"./Case.json":86,"./DailyDelivery.json":87,"./DeliveryRound.json":88,"./Driver.json":89,"./EbolaCallCentreUser.json":90,"./FacilityRound.json":91,"./Image.json":92,"./PackingList.json":93,"./Person.json":94,"./PickedProduct.json":95,"./Product.json":96,"./draft-04.json":97}]},{},[1])(1)
+},{"./Case.json":86,"./DailyDelivery.json":87,"./DeliveryRound.json":88,"./Driver.json":89,"./EbolaCallCentreUser.json":90,"./FacilityRound.json":91,"./Image.json":92,"./PackingList.json":93,"./Person.json":94,"./PickedProduct.json":95,"./Product.json":96,"./VaccineTrialParticipant.json":97,"./draft-04.json":98}]},{},[1])(1)
 });

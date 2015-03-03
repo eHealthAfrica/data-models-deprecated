@@ -6,8 +6,14 @@ file. This file is structured according to http://keepachangelog.com/
 - - -
 
 [Unreleased] - Unreleased
+
+## [1.10.0] - 2015-03-03
 - In `Case` schema `patient.adminDivision[level]` and `contact.adminDivision[level]`
 can be either a number or a string
+- Add `VaccineTrialParticipant` schema
+- Define schema domain and version:
+  - `https://schema.ehealthafrica.org/1.0`
+- Configure validator to return `https://schema.ehealthafrica.org/1.0/Image.json` from file system
 
 ## [1.9.0] - 2015-03-03
 ### Added
@@ -18,10 +24,6 @@ some missing fields on `Case` schema.
 - Add root level healthworker object (contains isHealthWorker boolean and facilityName string)
 - Add root level isHeadOfHousehold boolean
 - Add in contact object, a relationToCase string
-- Add `VaccineTrialParticipant` schema
-- Define schema domain and version:
-  - `https://schema.ehealthafrica.org/1.0`
-- Configure validator to return `https://schema.ehealthafrica.org/1.0/Image.json` from file system
 
 ### Changed
 - `name` of a `sourceCase` should be stored within the regular person
