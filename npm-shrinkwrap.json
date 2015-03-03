@@ -13,9 +13,9 @@
           "resolved": "https://registry.npmjs.org/chance/-/chance-0.6.4.tgz"
         },
         "deref": {
-          "version": "0.2.8",
+          "version": "0.2.6",
           "from": "deref@>=0.2.5 <0.3.0",
-          "resolved": "https://registry.npmjs.org/deref/-/deref-0.2.8.tgz"
+          "resolved": "https://registry.npmjs.org/deref/-/deref-0.2.6.tgz"
         },
         "faker": {
           "version": "2.1.2",
