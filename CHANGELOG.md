@@ -7,6 +7,7 @@ file. This file is structured according to http://keepachangelog.com/
 
 [Unreleased] - Unreleased
 
+## [1.9.0] - 2015-03-03
 ### Added
 - Add `Image` schema
 - Move call fields out of `contact`, update mandatory fields and add
