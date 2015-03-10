@@ -69,7 +69,9 @@
       "facilityName": { "type": "string" }
     },
 
-    "isHeadOfHousehold": { "type": "boolean" }
+    "isHeadOfHousehold": { "type": "boolean" },
+
+    "relative": { "$ref": "#/definitions/connectedPerson" }
   },
 
   "definitions": {
@@ -138,7 +140,6 @@
         "properties": {
           "id": { "type": "string" },
           "lastContactDate": { "type": "string", "format": "date-time" },
-          "relative": { "$ref": "#/definitions/connectedPerson" },
           "exposures": {
             "type": "array",
             "items": {
