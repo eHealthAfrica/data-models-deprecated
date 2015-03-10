@@ -1,0 +1,69 @@
+{
+   "_id": "1234",
+   "_rev": "1-01734348fb0224524c7c1fcdd3799602",
+   "siteName": "Berlin",
+   "firstName": "dfsdfsdf",
+   "lastName": "Bsdfsdf",
+   "gender": "f",
+   "phoneNumber": "6668882222",
+   "occupationalDetails": "gg",
+   "enrollmentDate": "2015-02-26T16:49:49.508Z",
+   "birthDay": 7,
+   "birthMonth": 9,
+   "birthYear": 1988,
+   "doc_type": "vaccineTrialParticipant",
+   "modifiedDate": "2015-02-26T16:50:57.517Z",
+   "dateSynced": "2015-02-26T16:50:57.517Z",
+   "age": {
+       "years": 26,
+       "months": 5
+   },
+   "photograph": {
+       "mimeType": "image/jpeg",
+       "encoding": "base64",
+       "encodingType": "jpeg",
+       "data": ""
+   },
+   "agreement": {
+       "agree": "yes",
+       "participantName": "karl",
+       "date": "2015-02-26T16:49:49.509Z",
+       "cdcId": "dd8888888"
+   },
+   "vaccinations": [
+       {
+           "vaccinationSite": "10",
+           "cdcId": "dd8888888",
+           "date": "2015-02-26T16:49:49.509Z",
+           "biometrics": {
+               "type": "fingerprint",
+               "ntemplate": "",
+               "iso": "",
+               "meta": {
+                   "finger": "4",
+                   "hand": "left"
+               }
+           }
+       }
+   ],
+   "address": {
+       "countryCode": "sl",
+       "address": "ff",
+       "city": "ff",
+       "adminDivision1": "W",
+       "adminDivision2": "32",
+       "adminDivision3": "32-03"
+   },
+   "biometrics": [
+       {
+           "type": "fingerprint",
+           "ntemplate": "",
+           "iso": "",
+           "meta": {
+               "finger": "4",
+               "hand": "left"
+           }
+       }
+   ]
+}
+

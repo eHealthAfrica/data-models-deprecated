@@ -1,0 +1,9 @@
+{
+  "doc_type": "packingList",
+  "version": "1.0.0",
+  "productID": "BCG",
+  "expectedQty": 10,
+  "packedQty": 11,
+  "deliveredQty": 9,
+  "adjustmentReason": "Broken box"
+}

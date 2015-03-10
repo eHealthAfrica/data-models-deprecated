@@ -1,0 +1,45 @@
+{
+  "_id": "xxx",
+  "_rev": "1-135cb8ae192b198575f9191869980052",
+  "doc_type": "case",
+  "createdBy": {
+    "username": "gin_call_user",
+    "fullName": "fra"
+  },
+  "createdOn": "2015-01-05T11:45:59.670Z",
+  "callNature": "suspect",
+  "contact": {
+    "doc_type": "contact",
+    "name": "Francesco Occhipinti",
+    "address": "test street, number 5",
+    "phoneNo": "123456",
+    "adminDivision1": "D",
+    "adminDivision2": "FO"
+  },
+  "patient": {
+    "doc_type": "patient",
+    "status": "alive",
+    "symptoms": {
+      "common": {
+        "fever": false,
+        "vomiting": false,
+        "diarrhea": false,
+        "weakness": false,
+        "muscleOrJointPain": false,
+        "bleeding": false,
+        "rash": false,
+        "abdominalPain": false,
+        "difficultySwallowing": false,
+        "headache": false,
+        "hiccup": false
+      },
+      "other": ""
+    },
+    "patientName": "unknown"
+  },
+  "response": {
+    "doc_type": "response",
+    "caseStatus": "open"
+  },
+  "dispatch": {}
+}

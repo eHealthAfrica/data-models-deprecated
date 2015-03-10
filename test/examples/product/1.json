@@ -1,0 +1,10 @@
+{
+  "doc_type": "product",
+  "version": "1.0.1",
+  "active": true,
+  "baseUOM": "e5def927-b173-44b6-9112-3103a473a65c",
+  "code": "HPV",
+  "description": "HPV prevents infections such cervical cancer, genital warts, and some less common cancers",
+  "name": "Human Papilloma Virus Vaccine",
+  "storage": "refrigerator"
+}

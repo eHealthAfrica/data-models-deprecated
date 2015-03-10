@@ -1,0 +1,10 @@
+{
+  "_id": "abdullahi.ahmed@example.com",
+  "_rev": "1-24d7258aa284524d083ab1ff2f4bc997",
+  "doc_type": "driver",
+  "version": "1.0.0",
+  "forename": "Abdullahi",
+  "surname": "Ahmed",
+  "email": "abdullahi.ahmed@example.com",
+  "phone": "+2340000000"
+}

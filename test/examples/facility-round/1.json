@@ -1,0 +1,17 @@
+{
+  "doc_type": "facilityRound",
+  "version": "1.0.0",
+  "orderID": "54b1a77f60b10a358beeb8d305001cd2",
+  "facility": "Kano Facility",
+  "status": "?",
+  "note": "Left with manager",
+  "deliveryPeriod": "?",
+  "departedAt": "2014-12-11T19:00:49.770Z",
+  "arrivedAt": "2014-12-12T19:00:49.770Z",
+  "pickedProducts": [
+    "54b1c77f60b10a358beeb8d305001cd2",
+    "54b1c77f60b10a358beeb8d305001cg8",
+    "54b1c77f60b10a358beeb8d305001cp0"
+  ],
+  "survey": []
+}

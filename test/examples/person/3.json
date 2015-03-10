@@ -1,0 +1,78 @@
+{
+  "_id": "xxx-xxx-xxx-xxx",
+  "_rev": "3-56a67842cda6735221574de444827e20",
+  "doc_type": "person",
+  "version": "0.0.0",
+
+  "referenceNumber": 542113,
+
+  "status": "dead",
+  "surname": "ghfygyhgy",
+  "age": { "years": 54, "months": 0 },
+  "gender": "m",
+  "classification": {
+    "name": "case",
+    "subClassification": "confirmed"
+  },
+  "phoneNumber": "trtyrty",
+  "familyPhoneNumber": "765765765",
+
+  "address": {
+    "adminDivision1": 1,
+    "adminDivision2": 4
+  },
+
+  "case": {
+    "status": "probable",
+    "onsetDate": "2014-04-04T01:05:02+00:00",
+    "epiId": "alksjdalskdj",
+
+    "hadContactWith": {
+      "deadPerson": false,
+      "sickPerson": false,
+      "healthWorker": true,
+      "homeQuaratine": false
+    },
+
+    "symptoms": {
+      "other": "",
+      "diarrhea": false,
+      "rash": false,
+      "difficulty_swallowing": false,
+      "headache": false
+    }
+  },
+
+  "calls": [
+    {
+      "createdBy": "Test",
+      "createdOn": "2014-10-25T14:30:35.720Z",
+
+      "name": "xxx",
+      "address": {
+        "adminDivision1": 1,
+        "adminDivision2": 5,
+        "countryCode": "lr"
+      },
+      "phoneNumber": "1234567",
+      "otherPhoneNumber": "12345678",
+      "callNature": "death",
+      "callDetails": "gfghfgfhghjg",
+      "isFollowUp": true
+    }
+  ],
+
+  "comments": [
+    {
+      "date": "2014-10-01T00:00:00Z",
+      "text": "bla bla bla"
+    }
+  ],
+
+  "actions": [
+    {
+      "doc_type": "response",
+      "caseStatus": "open"
+    }
+  ]
+}

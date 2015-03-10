@@ -1,0 +1,57 @@
+{
+  "_id": "xxx",
+  "_rev": "1-abcd",
+  "doc_type": "case",
+  "createdBy": "fra",
+  "createdOn": "2014-11-25T12:06:13.062Z",
+  "callNature": "prank call",
+  "contact": {
+    "doc_type": "contact",
+    "phoneNo": "1234"
+  },
+  "patient": {
+    "doc_type": "patient",
+    "status": "alive",
+    "symptoms": {
+      "common": {
+        "fever": false,
+        "vomiting": false,
+        "diarrhea": false,
+        "weakness": false,
+        "muscleOrJointPain": false,
+        "bleeding": false,
+        "rash": false,
+        "abdominalPain": false,
+        "difficultySwallowing": false,
+        "headache": false,
+        "hiccup": false
+      },
+      "other": ""
+    },
+    "patientName": "unknown"
+  },
+  "contact": {
+    "phoneNo": "123",
+    "location": {
+      "adminDivision1": {
+        "id": "E",
+        "name": "east"
+      },
+      "adminDivision2": {
+        "id": "11",
+        "name": "kailahun"
+      },
+      "adminDivision3": {
+        "id": "11-04",
+        "name": "kissi teng"
+      }
+    },
+    "adminDivision1": "E",
+    "adminDivision2": "11",
+    "adminDivision3": "11-04"
+  },
+  "response": {
+    "doc_type": "response",
+    "caseStatus": "open"
+  }
+}

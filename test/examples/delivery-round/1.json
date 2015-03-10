@@ -1,0 +1,9 @@
+{
+  "doc_type": "deliveryRound",
+  "roundCode": "001",
+  "startDate": "2014-12-10T19:00:49.770Z",
+  "endDate": "2014-12-11T19:00:49.770Z",
+  "completedOn": "2014-12-11T19:00:49.770Z",
+  "status": "?",
+  "lag": false
+}

@@ -1,0 +1,32 @@
+{
+  "_id": "org.couchdb.user:schema-test-1",
+  "_rev": "20-68bcecfed0925174e22eba6829251a11",
+  "password_scheme": "pbkdf2",
+  "iterations": 10,
+  "name": "schema-test-1",
+  "roles": [
+    "role1",
+    "role2"
+  ],
+  "details": {
+    "fullName": "Schmea Test 1",
+    "role": "Role",
+    "app": "Application Title"
+  },
+  "type": "user",
+  "doc_type": "ebolaCallCentreUser",
+  "derived_key": "xxx",
+  "salt": "yyy",
+  "locations": [
+    {
+      "name": "Location 1",
+      "id": "L",
+      "level": 0
+    },
+    {
+      "name": "Location 2",
+      "id": "O",
+      "level": 0
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "doc_type": "pickedProduct",
+  "version": "1.0.0",
+  "_id": "54b1c77f60b10a358beeb8d305001cd2",
+  "expectedQty": 10,
+  "actualQty": 9,
+  "productType": "BCG"
+}
