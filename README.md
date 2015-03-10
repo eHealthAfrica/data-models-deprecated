@@ -1,9 +1,9 @@
-# data_model
+# Data Models
 
 [![Build Status][travis-image]][travis-url]
 
-[travis-url]: https://magnum.travis-ci.com/eHealthAfrica/data_model
-[travis-image]: https://magnum.travis-ci.com/eHealthAfrica/data_model.svg?token=eprxeztvNYMY2wzhLC7X&branch=master
+[travis-url]: https://magnum.travis-ci.com/eHealthAfrica/data-models
+[travis-image]: https://magnum.travis-ci.com/eHealthAfrica/data-models.svg?token=eprxeztvNYMY2wzhLC7X&branch=master
 
 > Standard Data Models
 
@@ -12,6 +12,13 @@ we want to share through different eHealth projects
 
 JSON schema docs: http://json-schema.org
 
+
+## Attention developers!
+
+This is open software. If you need realistic data for your tests you
+can either forge them or generate them automatically with the command
+line tool (see below). Improving the generator is also a way to
+improve the data model.
 
 ## Schema Domain
 
