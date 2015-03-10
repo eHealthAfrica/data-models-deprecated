@@ -5,7 +5,9 @@ file. This file is structured according to http://keepachangelog.com/
 
 - - -
 
-[Unreleased] - Unreleased
+## [Unreleased] - Unreleased
+### Changed
+- `relative` is belongs to the Person now, not just the Case.
 
 ## [1.10.0] - 2015-03-03
 - In `Case` schema `patient.adminDivision[level]` and `contact.adminDivision[level]`
