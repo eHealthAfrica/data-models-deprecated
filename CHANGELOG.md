@@ -19,6 +19,7 @@ can be either a number or a string
 - Define schema domain and version:
   - `https://schema.ehealthafrica.org/1.0`
 - Configure validator to return `https://schema.ehealthafrica.org/1.0/Image.json` from file system
+- In `Case` schema, add `contact.preferredLanguages` as array
 
 ## [1.9.0] - 2015-03-03
 ### Added
