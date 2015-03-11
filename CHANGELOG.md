@@ -8,6 +8,7 @@ file. This file is structured according to http://keepachangelog.com/
 ## [Unreleased] - Unreleased
 ### Added
 - `id` in `case` for the source case id
+- `contact.preferredLanguages` as array in `case`
 
 ### Changed
 - `relative` is belongs to the Person now, not just the Case.
@@ -19,7 +20,6 @@ can be either a number or a string
 - Define schema domain and version:
   - `https://schema.ehealthafrica.org/1.0`
 - Configure validator to return `https://schema.ehealthafrica.org/1.0/Image.json` from file system
-- In `Case` schema, add `contact.preferredLanguages` as array
 
 ## [1.9.0] - 2015-03-03
 ### Added
