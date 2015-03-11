@@ -6,6 +6,9 @@ file. This file is structured according to http://keepachangelog.com/
 - - -
 
 ## [Unreleased] - Unreleased
+### Added
+- `id` in `case` for the source case id
+
 ### Changed
 - `relative` is belongs to the Person now, not just the Case.
 
