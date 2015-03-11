@@ -49329,7 +49329,9 @@ module.exports={
       "facilityName": { "type": "string" }
     },
 
-    "isHeadOfHousehold": { "type": "boolean" }
+    "isHeadOfHousehold": { "type": "boolean" },
+
+    "relative": { "$ref": "#/definitions/connectedPerson" }
   },
 
   "definitions": {
@@ -49398,7 +49400,6 @@ module.exports={
         "properties": {
           "id": { "type": "string" },
           "lastContactDate": { "type": "string", "format": "date-time" },
-          "relative": { "$ref": "#/definitions/connectedPerson" },
           "exposures": {
             "type": "array",
             "items": {
@@ -49449,6 +49450,7 @@ module.exports={
     },
 
     "case": {"type": "object", "properties": {
+      "id": { "type": "string" },
       "status": { "enum": ["unknown", "suspect", "probable", "confirmed", "not a case"] },
       "onsetDate": { "type": "string", "format": "date-time" },
       "interviewer": { "$ref": "#/definitions/connectedPerson" },

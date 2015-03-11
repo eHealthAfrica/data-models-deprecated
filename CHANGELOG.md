@@ -5,7 +5,7 @@ file. This file is structured according to http://keepachangelog.com/
 
 - - -
 
-## [Unreleased] - Unreleased
+## 1.11.0 - Unreleased
 ### Added
 - `id` in `case` for the source case id
 - `contact.preferredLanguages` as array in `case`
@@ -14,7 +14,9 @@ file. This file is structured according to http://keepachangelog.com/
 - `patient.household.child`, `patient.household.pregnantWoman`, and `patient.household.disabledPerson` on `case` schema
 
 ### Changed
-- `relative` is belongs to the Person now, not just the Case.
+- `relative` belongs to the Person now, not just the Case. This is not
+  breaking, the field is currently not used in Sense and in Sense
+  dashboard
 - Remove human readable `id` from items in `person.contact.sourceCases`
 
 ## [1.10.0] - 2015-03-03
