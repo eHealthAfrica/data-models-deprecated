@@ -48894,10 +48894,11 @@ module.exports={
       "type": "object",
       "properties": {
         "phoneNo": { "type": "string" },
-        "adminDivision1": { "type": "string" },
-        "adminDivision2": { "type": "string" },
-        "adminDivision3": { "type": "string" },
-        "location": { "$ref": "#/definitions/location" }
+        "adminDivision1": { "type": ["string", "number"] },
+        "adminDivision2": { "type": ["string", "number"] },
+        "adminDivision3": { "type": ["string", "number"] },
+        "location": { "$ref": "#/definitions/location" },
+        "preferredLanguages": { "type": "array" }
       },
       "required": [
         "phoneNo"
@@ -48906,9 +48907,9 @@ module.exports={
     "patient": {
       "type": "object",
       "properties": {
-        "adminDivision1": { "type": "string" },
-        "adminDivision2": { "type": "string" },
-        "adminDivision3": { "type": "string" },
+        "adminDivision1": { "type": ["string", "number"] },
+        "adminDivision2": { "type": ["string", "number"] },
+        "adminDivision3": { "type": ["string", "number"] },
         "location": { "$ref": "#/definitions/location" }
       }
     },

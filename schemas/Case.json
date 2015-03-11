@@ -61,7 +61,8 @@
         "adminDivision1": { "type": ["string", "number"] },
         "adminDivision2": { "type": ["string", "number"] },
         "adminDivision3": { "type": ["string", "number"] },
-        "location": { "$ref": "#/definitions/location" }
+        "location": { "$ref": "#/definitions/location" },
+        "preferredLanguages": { "type": "array" }
       },
       "required": [
         "phoneNo"
