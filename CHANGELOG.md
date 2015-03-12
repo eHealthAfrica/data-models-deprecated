@@ -9,9 +9,11 @@ file. This file is structured according to http://keepachangelog.com/
 ### Added
 - `id` in `case` for the source case id
 - `contact.preferredLanguages` as array in `case`
+- Mandatory foreign key `personId` on `person.contact.sourceCases`
 
 ### Changed
 - `relative` is belongs to the Person now, not just the Case.
+- Remove human readable `id` from items in `person.contact.sourceCases`
 
 ## [1.10.0] - 2015-03-03
 - In `Case` schema `patient.adminDivision[level]` and `contact.adminDivision[level]`
