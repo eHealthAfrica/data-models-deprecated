@@ -31,8 +31,7 @@
     "type": "Slept in same house",
     "status": "active",
     "sourceCases": [{
-      "surname": "XXX",
-      "otherNames": "XXX",
+      "personId": "XXX-123-1",
       "lastContactDate": "2014-08-08T00:00:00Z"
     }],
 
