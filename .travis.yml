@@ -1,8 +1,9 @@
 language: node_js
 node_js:
-  - '0.11'
-  - '0.10'
+- '0.11'
+- '0.10'
 notifications:
   slack:
     rooms:
-      - secure: AmkUF4r56PdRj6OyhwwoutRTO/cXx0oUOvElmme6OWDtrugEzRAfauzwWoCpOBevAXUJcJ4eFjX0uaxAP3f6QSzCeFvhk2h7Qava7egu+tI+oeLG028TCc3L8HLTCEELLjP90N/XsLUv9dCUvJaKECEn83Go8FPBSuOGnEw6yC8=
+    - secure: Z0uu1uGNK1R9ADq8VyMMqQgZ6WBnLZw2RUEsIQyVpR6JKEMdyZ8VNVvYY+WGLPN6HV1VuwBrAX4wAR6944QbPvP5+9pxYmc8fiMuBRefQdPV395I0DTnJIVrdolk7ZTsN8+FSW6iKHfccV/4/zPxlWBFZiYu1kSJUUO3tLimvJ8= #call-center-travis
+    - secure: gZFo8mPhwkkIfTyRHyUSr5A+B+4nTVZFOgxMlkJIysQRTI4iFiInJBTHgni+JJG7hVO0eIwWWBNx6KlVseFOjJ/wjZNvFNIhksyxWJBl6GfaZPhhmet7/+S1/WWLuQp/i26cV+xnslbvxCR7GbXoeHFwwBnKcsqWGRm9/Xw5eps= #sense-followup-travis
