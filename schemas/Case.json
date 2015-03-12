@@ -34,6 +34,9 @@
     "callDetails": { "type": "string" },
     "isFollowUpCall": { "type": "boolean" },
 
+    "sameCallPatients": { "type": "array" },
+    "callId": { "type": "string" },
+
     "changeLog": { "$ref": "#/definitions/changeLog" },
     "contact": { "$ref": "#/definitions/contact" },
     "patient": { "$ref": "#/definitions/patient" },

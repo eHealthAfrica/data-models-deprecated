@@ -10,6 +10,7 @@ file. This file is structured according to http://keepachangelog.com/
 - `id` in `case` for the source case id
 - `contact.preferredLanguages` as array in `case`
 - Mandatory foreign key `personId` on `person.contact.sourceCases`
+- Add multiple patients per call feature fields to `case` (`sameCallPatients` and `callId`)
 
 ### Changed
 - `relative` is belongs to the Person now, not just the Case.
