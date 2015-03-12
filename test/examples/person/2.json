@@ -59,22 +59,18 @@
     "sourceCases": [
       {
         "relationship": "",
-        "id": "vhf.xxx-xxx-xxx-xxx-xxx",
-        "lastContactDate": "2014-04-14T00:00:00+00:00",
-        "surname": "AAA",
-        "otherNames": "BBB"
+        "personId": "XXX-123-a",
+        "lastContactDate": "2014-04-14T00:00:00+00:00"
       },
       {
         "relationship": "",
-        "id": "vhf.xxx-xxx-xxx-xxx-xxx",
+        "personId": "XXX-123-b",
         "lastContactDate": "2014-04-01T00:00:00+00:00"
       },
       {
         "relationship": "frère",
-        "id": "vhf.xxx-xxx-xxx-xxx-xxx",
-        "lastContactDate": "2014-04-01T00:00:00+00:00",
-        "surname": "CCC",
-        "otherNames": "DDD"
+        "personId": "XXX-123-c",
+        "lastContactDate": "2014-04-01T00:00:00+00:00"
       }
     ],
     "followUps": [

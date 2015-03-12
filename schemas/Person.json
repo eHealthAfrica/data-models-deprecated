@@ -138,7 +138,7 @@
       "sourceCases": { "type": "array", "items": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
+          "personId": { "type": "string" },
           "lastContactDate": { "type": "string", "format": "date-time" },
           "exposures": {
             "type": "array",
@@ -155,7 +155,8 @@
             },
           "relationToCase": { "type": "string" }
           }
-        }
+        },
+        "required": ["personId"]
       }},
 
       "followUps": { "type": "array", "items": {

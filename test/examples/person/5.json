@@ -63,26 +63,21 @@
     "sourceCases": [
       {
         "relationship": "",
-        "id": "abcdefg",
+        "personId": "XXX-123-a",
         "lastContactDate": "2014-04-14T00:00:00+00:00",
-        "surname": "AAA",
-        "otherNames": "BBB",
         "exposures": ["slept-ate", "physical-contact"]
       },
       {
         "relationship": "",
-        "id": "hilmno",
+        "personId": "XXX-123-b",
         "lastContactDate": "2014-04-01T00:00:00+00:00",
         "exposures": ["physical-contact"]
       },
       {
         "relationship": "frère",
-        "id": "pqrstuvz",
+        "personId": "XXX-123-b",
         "lastContactDate": "2014-04-01T00:00:00+00:00",
-        "surname": "CCC",
-        "otherNames": "DDD",
         "exposures": ["touch-fluids"],
-        "phone": "+123 123 123",
         "relative": { "name": "placeholder name", "phone": "+123 123 123" }
       }
     ],

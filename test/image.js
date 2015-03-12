@@ -13,7 +13,6 @@ describe('image', function() {
 
   it('throws validation errors on invalid example', function() {
     var errors = dataModel.validate(example2);
-    console.log(errors);
     assert.equal(errors.length, 2);
     assert.equal(errors[0].code, 'OBJECT_MISSING_REQUIRED_PROPERTY');
     assert.equal(errors[0].params[0], 'mimeType');
