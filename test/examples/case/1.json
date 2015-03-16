@@ -12,6 +12,10 @@
   "patient": {
     "doc_type": "patient",
     "status": "alive",
+    "household": {
+      "pregnantWoman": true,
+      "child": true
+    },
     "symptoms": {
       "common": {
         "fever": false,
