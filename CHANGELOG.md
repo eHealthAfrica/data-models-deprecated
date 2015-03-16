@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this
 file. This file is structured according to http://keepachangelog.com/
 
 - - -
+## [Unreleased] - Unreleased
+### Added
+- Require Case schema `version`
+- Add Case schema `contact.`: `category`, `address`
+- Add Case schema `patient.`: `id`, `status`, `gender`, `age`, `patientName`, `phoneNo`, `address`
+- Make Case schema `location.adminDivision.id` a union type, adding `number`
+
+### Changed
+- Remove deprecated `[contact|patient].adminDivision` properties from Case schema
+
 
 ## 1.11.0 - 2015-03-17
 ### Added
@@ -18,6 +28,7 @@ file. This file is structured according to http://keepachangelog.com/
   breaking, the field is currently not used in Sense and in Sense
   dashboard
 - Remove human readable `id` from items in `person.contact.sourceCases`
+
 
 ## [1.10.0] - 2015-03-03
 - In `Case` schema `patient.adminDivision[level]` and `contact.adminDivision[level]`

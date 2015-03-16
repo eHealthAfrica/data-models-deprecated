@@ -2,7 +2,11 @@
   "_id": "xxx",
   "_rev": "1-abcd",
   "doc_type": "case",
-  "createdBy": "fra",
+  "version": "1.0.0",
+  "createdBy": {
+    "username": "guy",
+    "fullName": "Xxx Yyy"
+  },
   "createdOn": "2014-11-25T12:06:13.062Z",
   "callNature": "prank call",
   "contact": {
@@ -11,11 +15,11 @@
   },
   "patient": {
     "doc_type": "patient",
-    "status": "alive",
     "household": {
       "pregnantWoman": true,
       "child": true
     },
+    "status": "dead",
     "symptoms": {
       "common": {
         "fever": false,
@@ -49,10 +53,7 @@
         "id": "11-04",
         "name": "kissi teng"
       }
-    },
-    "adminDivision1": "E",
-    "adminDivision2": "11",
-    "adminDivision3": "11-04"
+    }
   },
   "response": {
     "doc_type": "response",
