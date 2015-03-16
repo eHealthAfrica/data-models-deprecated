@@ -77,7 +77,8 @@
         "adminDivision1": { "type": ["string", "number"] },
         "adminDivision2": { "type": ["string", "number"] },
         "adminDivision3": { "type": ["string", "number"] },
-        "location": { "$ref": "#/definitions/location" }
+        "location": { "$ref": "#/definitions/location" },
+        "household": { "$ref": "#/definitions/household" }
       }
     },
     "response": {
@@ -108,7 +109,15 @@
         "name": { "type": "string" }
       },
       "required": ["id", "name"]
-    }
+    },
+    "household": {
+      "type": "object",
+      "properties": {
+        "child": { "type": "boolean" },
+        "disabledPerson": { "type": "boolean" },
+        "pregnantWoman": { "type": "boolean" }
+      }
+    }    
   },
 
   "required": [
