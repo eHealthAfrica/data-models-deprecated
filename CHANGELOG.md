@@ -5,7 +5,7 @@ file. This file is structured according to http://keepachangelog.com/
 
 - - -
 
-## 1.11.0 - Unreleased
+## 1.11.0 - 2015-03-17
 ### Added
 - `id` in `case` for the source case id
 - `contact.preferredLanguages` as array in `case`
