@@ -2,8 +2,8 @@
 
 [![Build Status][travis-image]][travis-url]
 
-[travis-url]: https://magnum.travis-ci.com/eHealthAfrica/data-models
-[travis-image]: https://magnum.travis-ci.com/eHealthAfrica/data-models.svg?token=eprxeztvNYMY2wzhLC7X&branch=master
+[travis-url]: https://travis-ci.org/eHealthAfrica/data-models
+[travis-image]: https://travis-ci.org/eHealthAfrica/data-models.svg?branch=master
 
 > Standard Data Models
 
