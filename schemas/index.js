@@ -13,5 +13,6 @@ module.exports = {
   'draft-04': require('./draft-04.json'),
   'ebolaCallCentreUser': require('./EbolaCallCentreUser.json'),
   'image': require('./Image.json'),
-  'vaccineTrialParticipant': require('./VaccineTrialParticipant.json')
+  'vaccineTrialParticipant': require('./VaccineTrialParticipant.json'),
+  'nutritionSurvey': require('./NutritionSurvey.json')
 };
