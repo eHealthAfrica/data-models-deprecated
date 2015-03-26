@@ -5,7 +5,7 @@
 [travis-url]: https://travis-ci.org/eHealthAfrica/data-models
 [travis-image]: https://travis-ci.org/eHealthAfrica/data-models.svg?branch=master
 
-> Standard Data Models
+> Validation for standard data models
 
 This repository provides examples and validators for data models that
 we want to share through different eHealth projects
