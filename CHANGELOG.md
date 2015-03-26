@@ -16,7 +16,7 @@ file. This file is structured according to http://keepachangelog.com/
 - Remove deprecated `[contact|patient].adminDivision` properties from Case schema
 
 
-## 1.11.0 - 2015-03-17
+## [1.11.0] - 2015-03-17
 ### Added
 - `id` in `case` for the source case id
 - `contact.preferredLanguages` as array in `case`
@@ -136,3 +136,21 @@ data is already compliant to the new schema
 ### Added
 - id and name properties in Person.contact.sourceCases. This would be
   a breaking change but that software is not in production yet
+
+[unreleased]: https://github.com/eHealthAfrica/data-models/compare/1.12.0...HEAD
+[1.12.0]: https://github.com/eHealthAfrica/data-models/compare/1.11.0...1.12.0
+[1.11.0]: https://github.com/eHealthAfrica/data-models/compare/1.10.0...1.11.0
+[1.10.0]: https://github.com/eHealthAfrica/data-models/compare/1.9.0...1.10.0
+[1.9.0]: https://github.com/eHealthAfrica/data-models/compare/1.8.0...1.9.0
+[1.8.0]: https://github.com/eHealthAfrica/data-models/compare/1.7.0...1.8.0
+[1.7.0]: https://github.com/eHealthAfrica/data-models/compare/1.6.0...1.7.0
+[1.6.0]: https://github.com/eHealthAfrica/data-models/compare/1.5.0...1.6.0
+[1.5.0]: https://github.com/eHealthAfrica/data-models/compare/1.4.0...1.5.0
+[1.4.0]: https://github.com/eHealthAfrica/data-models/compare/1.3.2...1.4.0
+[1.3.2]: https://github.com/eHealthAfrica/data-models/compare/1.3.1...1.3.2
+[1.3.1]: https://github.com/eHealthAfrica/data-models/compare/1.3.0...1.3.1
+[1.3.0]: https://github.com/eHealthAfrica/data-models/compare/1.2.2...1.3.0
+[1.2.2]: https://github.com/eHealthAfrica/data-models/compare/1.2.1...1.2.2
+[1.2.1]: https://github.com/eHealthAfrica/data-models/compare/1.2.0...1.2.1
+[1.2.0]: https://github.com/eHealthAfrica/data-models/compare/1.1.0...1.2.0
+[1.1.0]: https://github.com/eHealthAfrica/data-models/compare/1.0.0...1.1.0
