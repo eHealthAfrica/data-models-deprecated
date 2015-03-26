@@ -131,45 +131,25 @@
     "team": {
       "type": "object",
       "properties": {
-        "uuid": {
-          "type": "string"
+        "teamLeader": {
+          "$ref": "#/definitions/teamMember"
         },
-        "created": {
-          "type": "string",
-          "format": "date-time"
+        "anthropometrist": {
+          "$ref": "#/definitions/teamMember"
         },
-        "_id": {
-          "type": "string"
-        },
-        "_rev": {
-          "type": "string"
-        },
-        "modified": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "teamID": {
-          "type": "integer"
-        },
-        "members": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/teamMember"
-          }
+        "assistant": {
+          "$ref": "#/definitions/teamMember"
         }
-      }
+      },
+      "required": [
+        "teamLeader",
+        "anthropometrist",
+        "assistant"
+      ]
     },
     "teamMember": {
       "type": "object",
       "properties": {
-        "designation": {
-          "type": "string",
-          "enum": [
-            "Team Leader",
-            "Anthropometrist",
-            "Assistant"
-          ]
-        },
         "firstName": {
           "type": "string"
         },
@@ -195,6 +175,12 @@
         "email": {
           "type": "string",
           "format": "email"
+        },
+        "_id": {
+          "type": "string"
+        },
+        "_rev": {
+          "type": "string"
         }
       }
     },
