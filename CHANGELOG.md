@@ -5,6 +5,10 @@ file. This file is structured according to http://keepachangelog.com/
 
 ---
 
+## [1.12.1] - 2015-03-26
+### Fixed
+- Remove Bower private flag
+
 ## [1.12.0] - 2015-03-26
 ### Added
 - Require Case schema `version`
@@ -138,7 +142,8 @@ data is already compliant to the new schema
 - id and name properties in Person.contact.sourceCases. This would be
   a breaking change but that software is not in production yet
 
-[unreleased]: https://github.com/eHealthAfrica/data-models/compare/1.12.0...HEAD
+[unreleased]: https://github.com/eHealthAfrica/data-models/compare/1.12.1...HEAD
+[1.12.1]: https://github.com/eHealthAfrica/data-models/compare/1.12.0...1.12.1
 [1.12.0]: https://github.com/eHealthAfrica/data-models/compare/1.11.0...1.12.0
 [1.11.0]: https://github.com/eHealthAfrica/data-models/compare/1.10.0...1.11.0
 [1.10.0]: https://github.com/eHealthAfrica/data-models/compare/1.9.0...1.10.0
