@@ -1,44 +1,38 @@
 {
   "doc_type": "nutritionSurvey",
   "team": {
-    "teamID": 1,
-    "members": [
-      {
-        "designation": "Team Leader",
-        "firstName": "Alexei",
-        "mobile": "000000000000",
-        "lastName": "Vronsky",
-        "age": 45,
-        "memberID": 1,
-        "gender": "M",
-        "email": "alexei@example.com",
-        "_id": "2bc34546-3d5c-41a8-eefd-eb9b4819c56b",
-        "_rev": "1-38fe619147fc30ece77cf3ae04b3de71"
-      },
-      {
-        "designation": "Anthropometrist",
-        "firstName": "Stepan",
-        "mobile": "000000000000",
-        "lastName": "Oblonsky",
-        "age": 35,
-        "memberID": 2,
-        "gender": "M",
-        "email": "stepan@example.com",
-        "_id": "2bc34546-3d5c-41a8-eefd-eb9b4819c590",
-        "_rev": "1-38fe619147fc30ece77cf3ae04b3de28"
-      },
-      {
-        "designation": "Assistant",
-        "firstName": "Darya",
-        "mobile": "000000000000",
-        "lastName": "Oblonskaya",
-        "age": 33,
-        "memberID": 3,
-        "gender": "F",
-        "email": "darya@example.com",
-        "_id": "2bc34546-3d5c-41a8-eefd-eb9b4819c199",
-        "_rev": "1-38fe619147fc30ece77cf3ae04b3de57"
-      }
-    ]
+    "teamLeader": {
+      "firstName": "Alexei",
+      "mobile": "000000000000",
+      "lastName": "Vronsky",
+      "age": 45,
+      "memberID": 1,
+      "gender": "M",
+      "email": "alexei@example.com",
+      "_id": "2bc34546-3d5c-41a8-eefd-eb9b4819c56b",
+      "_rev": "1-38fe619147fc30ece77cf3ae04b3de71"
+    },
+    "anthropometrist": {
+      "firstName": "Stepan",
+      "mobile": "000000000000",
+      "lastName": "Oblonsky",
+      "age": 35,
+      "memberID": 2,
+      "gender": "M",
+      "email": "stepan@example.com",
+      "_id": "2bc34546-3d5c-41a8-eefd-eb9b4819c590",
+      "_rev": "1-38fe619147fc30ece77cf3ae04b3de28"
+    },
+    "assistant": {
+      "firstName": "Darya",
+      "mobile": "000000000000",
+      "lastName": "Oblonskaya",
+      "age": 33,
+      "memberID": 3,
+      "gender": "F",
+      "email": "darya@example.com",
+      "_id": "2bc34546-3d5c-41a8-eefd-eb9b4819c199",
+      "_rev": "1-38fe619147fc30ece77cf3ae04b3de57"
+    }
   }
 }
