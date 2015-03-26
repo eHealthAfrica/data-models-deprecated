@@ -3,8 +3,9 @@
 All notable changes to this project will be documented in this
 file. This file is structured according to http://keepachangelog.com/
 
-- - -
-## [Unreleased] - Unreleased
+---
+
+## [1.12.0] - 2015-03-26
 ### Added
 - Require Case schema `version`
 - Add Case schema `contact.`: `category`, `address`

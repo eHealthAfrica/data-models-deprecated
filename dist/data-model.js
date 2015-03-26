@@ -98,7 +98,7 @@ module.exports = {
   validate: validate
 };
 
-},{"./schemas":99,"json-schema-faker":3,"semver-regex":75,"z-schema":85}],2:[function(require,module,exports){
+},{"./schemas":100,"json-schema-faker":3,"semver-regex":75,"z-schema":85}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -48861,14 +48861,13 @@ module.exports={
     "requestedHealthInfo": { "type": "object" },
 
     "createdOn": { "type": "string", "format": "date-time" },
-    "createdBy": {
-      "oneOf": [
-        { "$ref": "#/definitions/user" },
-        { "type": "string" }
-      ]
-    },
+    "createdBy": { "$ref": "#/definitions/user" },
+
     "callDetails": { "type": "string" },
     "isFollowUpCall": { "type": "boolean" },
+
+    "sameCallPatients": { "type": "array" },
+    "callId": { "type": "string" },
 
     "changeLog": { "$ref": "#/definitions/changeLog" },
     "contact": { "$ref": "#/definitions/contact" },
@@ -48893,10 +48892,9 @@ module.exports={
     "contact": {
       "type": "object",
       "properties": {
+        "category": { "type": "string" },
         "phoneNo": { "type": "string" },
-        "adminDivision1": { "type": ["string", "number"] },
-        "adminDivision2": { "type": ["string", "number"] },
-        "adminDivision3": { "type": ["string", "number"] },
+        "address": { "type": "string" },
         "location": { "$ref": "#/definitions/location" },
         "preferredLanguages": { "type": "array" }
       },
@@ -48907,10 +48905,32 @@ module.exports={
     "patient": {
       "type": "object",
       "properties": {
-        "adminDivision1": { "type": ["string", "number"] },
-        "adminDivision2": { "type": ["string", "number"] },
-        "adminDivision3": { "type": ["string", "number"] },
-        "location": { "$ref": "#/definitions/location" }
+        "id": { "type": "number" },
+        "status": { "enum": [
+          "dead",
+          "alive"
+        ]},
+        "gender": { "enum": ["F", "M", "unknown"] },
+        "age": {
+          "type": "object",
+          "properties": {
+            "years": { "type": "number", "minimum": 0, "maximum": 121 },
+            "months": { "type": "number", "minimum": 0, "maximum": 11 },
+            "category": { "enum": ["infant", "child", "adult"] }
+          }
+        },
+        "patientName": { "type": "string" },
+        "phoneNo": { "type": "string" },
+        "address": { "type": "string" },
+        "location": { "$ref": "#/definitions/location" },
+        "household": {
+          "type": "object",
+          "properties": {
+            "child":          { "type": "boolean" },
+            "disabledPerson": { "type": "boolean" },
+            "pregnantWoman":  { "type": "boolean" }
+          }
+        }
       }
     },
     "response": {
@@ -48937,7 +48957,7 @@ module.exports={
     "adminDivision": {
       "type": "object",
       "properties": {
-        "id": { "type": "string" },
+        "id": { "type": ["string", "number"] },
         "name": { "type": "string" }
       },
       "required": ["id", "name"]
@@ -48946,6 +48966,7 @@ module.exports={
 
   "required": [
     "doc_type",
+    "version",
     "callNature",
     "createdOn",
     "contact"
@@ -49216,6 +49237,259 @@ module.exports={
 },{}],93:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Nutrition Survey",
+  "description": "Data collection and quality assurance tools for Nutrition Surveys on mobile devices",
+  "type": "object",
+  "properties": {
+    "doc_type": {
+      "type": "string",
+      "pattern": "^nutritionSurvey$"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "syncDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "_id": {
+      "type": "string"
+    },
+    "_rev": {
+      "type": "string"
+    },
+    "modified": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "householdID": {
+      "type": "integer"
+    },
+    "cluser": {
+      "type": "integer"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "location": {
+      "type": "array",
+      "items": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/member"
+      }
+    },
+    "team": {
+      "$ref": "#/definitions/team"
+    },
+    "tools": {
+      "$ref": "#/definitions/tools"
+    },
+    "history": {
+      "$ref": "#/definitions/history"
+    }
+  },
+  "definitions": {
+    "member": {
+      "type": "object",
+      "properties": {
+        "leftDuringRecall": {
+          "type": "string",
+          "enum": [
+            "Y",
+            "N"
+          ]
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "surveyType": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string",
+          "enum": [
+            "M",
+            "F"
+          ]
+        },
+        "age": {
+          "type": "integer"
+        },
+        "joinedDuringRecall": {
+          "type": "string",
+          "enum": [
+            "Y",
+            "N"
+          ]
+        },
+        "survey": {
+          "type": "object"
+        },
+        "diedDuringRecall": {
+          "type": "string",
+          "enum": [
+            "Y",
+            "N"
+          ]
+        },
+        "bornDuringRecall": {
+          "type": "string",
+          "enum": [
+            "Y",
+            "N"
+          ]
+        },
+        "skipped": {
+          "type": "boolean"
+        }
+      }
+    },
+    "team": {
+      "type": "object",
+      "properties": {
+        "teamLeader": {
+          "$ref": "#/definitions/teamMember"
+        },
+        "anthropometrist": {
+          "$ref": "#/definitions/teamMember"
+        },
+        "assistant": {
+          "$ref": "#/definitions/teamMember"
+        }
+      },
+      "required": [
+        "teamLeader",
+        "anthropometrist",
+        "assistant"
+      ]
+    },
+    "teamMember": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer"
+        },
+        "memberID": {
+          "type": "integer"
+        },
+        "gender": {
+          "type": "string",
+          "enum": [
+            "M",
+            "F"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "_id": {
+          "type": "string"
+        },
+        "_rev": {
+          "type": "string"
+        }
+      }
+    },
+    "tools": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "_rev": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "scale": {
+          "$ref": "#/definitions/tool"
+        },
+        "childMUAC": {
+          "$ref": "#/definitions/tool"
+        },
+        "adultMUAC": {
+          "$ref": "#/definitions/tool"
+        },
+        "heightBoard": {
+          "$ref": "#/definitions/tool"
+        }
+      }
+    },
+    "tool": {
+      "type": "object",
+      "properties": {
+        "toolID": {
+          "type": "integer"
+        },
+        "measurement": {
+          "type": "integer"
+        }
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/historyItem"
+      }
+    },
+    "historyItem": {
+      "type": "object",
+      "properties": {
+        "modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "members": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}
+
+},{}],94:[function(require,module,exports){
+module.exports={
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "PackingList",
   "description": "A list of products due on a delivery round",
   "type": "object",
@@ -49257,7 +49531,7 @@ module.exports={
   ]
 }
 
-},{}],94:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Person",
@@ -49398,7 +49672,7 @@ module.exports={
       "sourceCases": { "type": "array", "items": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
+          "personId": { "type": "string" },
           "lastContactDate": { "type": "string", "format": "date-time" },
           "exposures": {
             "type": "array",
@@ -49415,7 +49689,8 @@ module.exports={
             },
           "relationToCase": { "type": "string" }
           }
-        }
+        },
+        "required": ["personId"]
       }},
 
       "followUps": { "type": "array", "items": {
@@ -49533,7 +49808,7 @@ module.exports={
   ]
 }
 
-},{}],95:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "PickedProduct",
@@ -49567,7 +49842,7 @@ module.exports={
   ]
 }
 
-},{}],96:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Product",
@@ -49625,7 +49900,7 @@ module.exports={
   ]
 }
 
-},{}],97:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "VaccineTrialParticipant",
@@ -49754,7 +50029,7 @@ module.exports={
   }
 }
 
-},{}],98:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 module.exports={
     "id": "http://json-schema.org/draft-04/schema#",
     "$schema": "http://json-schema.org/draft-04/schema#",
@@ -49906,7 +50181,7 @@ module.exports={
     "default": {}
 }
 
-},{}],99:[function(require,module,exports){
+},{}],100:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -49922,8 +50197,9 @@ module.exports = {
   'draft-04': require('./draft-04.json'),
   'ebolaCallCentreUser': require('./EbolaCallCentreUser.json'),
   'image': require('./Image.json'),
-  'vaccineTrialParticipant': require('./VaccineTrialParticipant.json')
+  'vaccineTrialParticipant': require('./VaccineTrialParticipant.json'),
+  'nutritionSurvey': require('./NutritionSurvey.json')
 };
 
-},{"./Case.json":86,"./DailyDelivery.json":87,"./DeliveryRound.json":88,"./Driver.json":89,"./EbolaCallCentreUser.json":90,"./FacilityRound.json":91,"./Image.json":92,"./PackingList.json":93,"./Person.json":94,"./PickedProduct.json":95,"./Product.json":96,"./VaccineTrialParticipant.json":97,"./draft-04.json":98}]},{},[1])(1)
+},{"./Case.json":86,"./DailyDelivery.json":87,"./DeliveryRound.json":88,"./Driver.json":89,"./EbolaCallCentreUser.json":90,"./FacilityRound.json":91,"./Image.json":92,"./NutritionSurvey.json":93,"./PackingList.json":94,"./Person.json":95,"./PickedProduct.json":96,"./Product.json":97,"./VaccineTrialParticipant.json":98,"./draft-04.json":99}]},{},[1])(1)
 });
