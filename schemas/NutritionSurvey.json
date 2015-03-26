@@ -153,9 +153,7 @@
         "members": {
           "type": "array",
           "items": {
-            "type": {
-              "$ref": "#/definitions/teamMember"
-            }
+            "$ref": "#/definitions/teamMember"
           }
         }
       }
