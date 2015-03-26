@@ -1,7 +1,7 @@
 {
-  "name": "data-model",
+  "name": "data-models",
   "version": "1.11.0",
-  "description": "validation for standard data models",
+  "description": "Validation for standard data models",
   "main": "index.js",
   "bin": "cli.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "url": "git@github.com:eHealthAfrica/data-models.git"
   },
   "author": "eHealth Africa (http://ehealthafrica.org/)",
-  "license": "All rights reserved",
+  "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/eHealthAfrica/data-models/issues"
   },
