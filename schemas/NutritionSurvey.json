@@ -11,6 +11,11 @@
     "uuid": {
       "type": "string"
     },
+    "deviceID": {
+      "description": "A device Media Access Control (MAC) address",
+      "type": "string",
+      "pattern": "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"
+    },
     "syncDate": {
       "type": "string",
       "format": "date-time"
