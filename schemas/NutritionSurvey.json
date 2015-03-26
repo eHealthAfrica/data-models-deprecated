@@ -12,15 +12,15 @@
     },
     "syncDate": {
       "type": "string",
-      "format": "data-time"
+      "format": "date-time"
     },
     "startTime": {
       "type": "string",
-      "format": "data-time"
+      "format": "date-time"
     },
     "created": {
       "type": "string",
-      "format": "data-time"
+      "format": "date-time"
     },
     "_id": {
       "type": "string"
@@ -30,7 +30,7 @@
     },
     "modified": {
       "type": "string",
-      "format": "data-time"
+      "format": "date-time"
     },
     "householdID": {
       "type": "integer"
@@ -40,7 +40,7 @@
     },
     "endTime": {
       "type": "string",
-      "format": "data-time"
+      "format": "date-time"
     },
     "location": {
       "type": "array",
