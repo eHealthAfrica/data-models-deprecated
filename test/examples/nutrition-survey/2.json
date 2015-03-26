@@ -1,0 +1,38 @@
+{
+  "doc_type": "nutritionSurvey",
+  "team": {
+    "teamID": 1,
+    "members": [
+      {
+        "designation": "Team Leader",
+        "firstName": "Alexei",
+        "mobile": "000000000000",
+        "lastName": "Vronsky",
+        "age": 45,
+        "memberID": 1,
+        "gender": "M",
+        "email": "alexei@example.com"
+      },
+      {
+        "designation": "Anthropometrist",
+        "firstName": "Stepan",
+        "mobile": "000000000000",
+        "lastName": "Oblonsky",
+        "age": 35,
+        "memberID": 2,
+        "gender": "M",
+        "email": "stepan@example.com"
+      },
+      {
+        "designation": "Assistant",
+        "firstName": "Darya",
+        "mobile": "000000000000",
+        "lastName": "Oblonskaya",
+        "age": 33,
+        "memberID": 3,
+        "gender": "F",
+        "email": "darya@example.com"
+      }
+    ]
+  }
+}
