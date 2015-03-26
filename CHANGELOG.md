@@ -10,6 +10,7 @@ file. This file is structured according to http://keepachangelog.com/
 - Add Case schema `contact.`: `category`, `address`
 - Add Case schema `patient.`: `id`, `status`, `gender`, `age`, `patientName`, `phoneNo`, `address`
 - Make Case schema `location.adminDivision.id` a union type, adding `number`
+- NutritionSurvey schema
 
 ### Changed
 - Remove deprecated `[contact|patient].adminDivision` properties from Case schema
