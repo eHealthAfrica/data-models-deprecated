@@ -4,6 +4,9 @@
   "description": "Data collection and quality assurance tools for Nutrition Surveys on mobile devices",
   "type": "object",
   "properties": {
+    "doc_type": {
+      "type": "string"
+    },
     "uuid": {
       "type": "string"
     },
