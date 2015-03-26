@@ -5,7 +5,8 @@
   "type": "object",
   "properties": {
     "doc_type": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^nutritionSurvey$"
     },
     "uuid": {
       "type": "string"
