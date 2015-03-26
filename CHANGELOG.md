@@ -5,6 +5,10 @@ file. This file is structured according to http://keepachangelog.com/
 
 ---
 
+## [Unreleased][unreleased]
+### Fixed
+- NutritionSurvey: added `deviceID` spec
+
 ## [1.12.1] - 2015-03-26
 ### Fixed
 - Remove Bower private flag
