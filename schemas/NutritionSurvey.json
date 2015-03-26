@@ -140,7 +140,12 @@
         "assistant": {
           "$ref": "#/definitions/teamMember"
         }
-      }
+      },
+      "required": [
+        "teamLeader",
+        "anthropometrist",
+        "assistant"
+      ]
     },
     "teamMember": {
       "type": "object",

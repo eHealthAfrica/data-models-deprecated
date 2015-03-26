@@ -16,4 +16,17 @@ describe('nutrition-survey', function() {
     var errors = dataModel.validate(example2);
     assert.equal(errors, null, JSON.stringify(errors, null, 2));
   });
+
+  it('should fail if team roles are missing', function() {
+    var example = {
+      doc_type: 'nutritionSurvey',
+      team: {
+        anthropometrist: {},
+        assistant: {}
+      }
+    };
+    var actual = dataModel.validate(example);
+    var expected = 'Missing required property: teamLeader';
+    assert.equal(actual[0].message, expected);
+  });
 });
