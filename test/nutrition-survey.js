@@ -8,6 +8,6 @@ var example1 = require('./examples/nutrition-survey/1.json');
 describe('nutrition-survey', function() {
   it('validates the first example', function() {
     var errors = dataModel.validate(example1);
-    assert.equal(errors, null, JSON.stringify(errors));
+    assert.equal(errors, null, JSON.stringify(errors, null, 2));
   });
 });
