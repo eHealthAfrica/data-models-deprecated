@@ -1,3 +1,18 @@
+##### Version
+
+This field should contain the version of `data-models` used as a
+reference while developing the writer, that means the component or
+part of the code which is creating a new document.
+
+If eventually somebody wants to update an old writer setting the
+version to a more recent value, please go through the change log in
+`data-models` and be sure to update accordingly the way the writer is
+producing the document.
+
+This does not protect us from code modifying an existing document
+according to a recent data model, we might want to just remove this
+field in the future if it is not useful
+
 ##### Town Chief / Village Leader (see ticket 1024)
 
 `leader`
