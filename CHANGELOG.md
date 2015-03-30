@@ -6,6 +6,8 @@ file. This file is structured according to http://keepachangelog.com/
 ---
 
 ## [Unreleased][unreleased]
+### Added
+- Person: `createdDate` is now required. Used in a view in the Sense dashboard
 ### Fixed
 - NutritionSurvey: added `deviceID` spec
 
