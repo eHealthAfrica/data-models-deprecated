@@ -164,8 +164,9 @@
         "mobile": {
           "type": "string"
         },
-        "age": {
-          "type": "integer"
+        "birthYear": {
+          "type": "integer",
+          "minimum": 1900
         },
         "memberID": {
           "type": "integer"
