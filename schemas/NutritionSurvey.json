@@ -41,7 +41,7 @@
     "householdID": {
       "type": "integer"
     },
-    "cluser": {
+    "cluster": {
       "type": "integer"
     },
     "endTime": {
