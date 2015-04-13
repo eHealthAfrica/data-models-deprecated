@@ -1,38 +1,36 @@
 {
   "doc_type": "nutritionSurvey",
-  "team": {
-    "teamLeader": {
-      "firstName": "Alexei",
-      "mobile": "000000000000",
-      "lastName": "Vronsky",
-      "birthYear": 1970,
-      "memberID": 1,
-      "gender": "M",
-      "email": "alexei@example.com",
-      "_id": "2bc34546-3d5c-41a8-eefd-eb9b4819c56b",
-      "_rev": "1-38fe619147fc30ece77cf3ae04b3de71"
-    },
-    "anthropometrist": {
-      "firstName": "Stepan",
-      "mobile": "000000000000",
-      "lastName": "Oblonsky",
-      "birthYear": 1959,
-      "memberID": 2,
-      "gender": "M",
-      "email": "stepan@example.com",
-      "_id": "2bc34546-3d5c-41a8-eefd-eb9b4819c590",
-      "_rev": "1-38fe619147fc30ece77cf3ae04b3de28"
-    },
-    "assistant": {
-      "firstName": "Darya",
-      "mobile": "000000000000",
-      "lastName": "Oblonskaya",
-      "birthYear": 1989,
-      "memberID": 3,
-      "gender": "F",
-      "email": "darya@example.com",
-      "_id": "2bc34546-3d5c-41a8-eefd-eb9b4819c199",
-      "_rev": "1-38fe619147fc30ece77cf3ae04b3de57"
-    }
+  "teamLeader": {
+    "firstName": "Alexei",
+    "mobile": "000000000000",
+    "lastName": "Vronsky",
+    "birthYear": 1970,
+    "memberID": 1,
+    "gender": "M",
+    "email": "alexei@example.com",
+    "_id": "2bc34546-3d5c-41a8-eefd-eb9b4819c56b",
+    "_rev": "1-38fe619147fc30ece77cf3ae04b3de71"
+  },
+  "teamAnthropometrist": {
+    "firstName": "Stepan",
+    "mobile": "000000000000",
+    "lastName": "Oblonsky",
+    "birthYear": 1959,
+    "memberID": 2,
+    "gender": "M",
+    "email": "stepan@example.com",
+    "_id": "2bc34546-3d5c-41a8-eefd-eb9b4819c590",
+    "_rev": "1-38fe619147fc30ece77cf3ae04b3de28"
+  },
+  "teamAssistant": {
+    "firstName": "Darya",
+    "mobile": "000000000000",
+    "lastName": "Oblonskaya",
+    "birthYear": 1989,
+    "memberID": 3,
+    "gender": "F",
+    "email": "darya@example.com",
+    "_id": "2bc34546-3d5c-41a8-eefd-eb9b4819c199",
+    "_rev": "1-38fe619147fc30ece77cf3ae04b3de57"
   }
 }
