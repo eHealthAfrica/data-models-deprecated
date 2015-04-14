@@ -18,7 +18,8 @@
         "quarantine",
         "security threat",
         "prank call",
-        "other"
+        "other",
+        "non ebola"
       ]
     },
     "callNatureOther": { "type": "string" },

@@ -6,8 +6,12 @@ file. This file is structured according to http://keepachangelog.com/
 ---
 
 ## [Unreleased][unreleased]
+
+
+## [1.13.0] - 2015-04-14
 ### Added
 - Person: `createdDate` is now required. Used in a view in the Sense dashboard
+- Case: `callNature` 'non ebola' value
 ### Fixed
 - NutritionSurvey: added `deviceID` spec
 
