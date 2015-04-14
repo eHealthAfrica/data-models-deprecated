@@ -48854,7 +48854,8 @@ module.exports={
         "quarantine",
         "security threat",
         "prank call",
-        "other"
+        "other",
+        "non ebola"
       ]
     },
     "callNatureOther": { "type": "string" },
@@ -49248,6 +49249,11 @@ module.exports={
     "uuid": {
       "type": "string"
     },
+    "deviceID": {
+      "description": "A device Media Access Control (MAC) address",
+      "type": "string",
+      "pattern": "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"
+    },
     "syncDate": {
       "type": "string",
       "format": "date-time"
@@ -49396,8 +49402,9 @@ module.exports={
         "mobile": {
           "type": "string"
         },
-        "age": {
-          "type": "integer"
+        "birthYear": {
+          "type": "integer",
+          "minimum": 1900
         },
         "memberID": {
           "type": "integer"
@@ -49804,7 +49811,8 @@ module.exports={
   "required": [
     "doc_type",
     "version",
-    "surname"
+    "surname",
+    "createdDate"
   ]
 }
 
