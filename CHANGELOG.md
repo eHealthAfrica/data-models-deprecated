@@ -6,6 +6,8 @@ file. This file is structured according to http://keepachangelog.com/
 ---
 
 ## [Unreleased][unreleased]
+### Fixed
+- Updated vaccine trial participant to match new requirements
 
 
 ## [1.13.0] - 2015-04-14
@@ -84,7 +86,7 @@ object and not within the `contact` attribute. Please migrate to `phoneNumber`.
 - Add `fever` to `definitions.symptoms` schema
 
 ## [1.7.0] - 2015-02-10
-### Added
+### Added
 - Add `sl` country code to validation pattern for Person.address
 
 
