@@ -1,59 +1,72 @@
 {
-   "_id": "1234",
-   "_rev": "1-01734348fb0224524c7c1fcdd3799602",
-   "siteName": "Berlin",
-   "firstName": "dfsdfsdf",
-   "lastName": "Bsdfsdf",
-   "gender": "f",
-   "phoneNumber": "6668882222",
-   "occupationalDetails": "gg",
+   "doc_type": "vaccineTrialParticipant",
+
+   "_id": "KBU-12344",
+   "cdcId": "KBU-12344",
+
+   "enrollmentSite": "KBU",
    "enrollmentDate": "2015-02-26T16:49:49.508Z",
+
+   "title": "Ms.",
+   "firstName": "Test",
+   "lastName": "Appson",
+   "gender": "f",
+
+   "occupationalDetails": "gg",
+
    "birthDay": 7,
    "birthMonth": 9,
    "birthYear": 1988,
-   "doc_type": "vaccineTrialParticipant",
-   "modifiedDate": "2015-02-26T16:50:57.517Z",
-   "dateSynced": "2015-02-26T16:50:57.517Z",
    "age": {
        "years": 26,
        "months": 5
    },
+
+   "vaccinationDate": "2015-02-27T16:50:57.517Z",
+   "vaccinationSite": "KBU",
+
+   "phoneNumber": "6668882222",
+   "bestContactTime": "morning",
+   "paymentPhoneNumber": "6668882223",
+   "studyPhoneNumber": "7668882223",
+
+   "modifiedDate": "2015-02-26T16:50:57.517Z",
+
    "photograph": {
        "mimeType": "image/jpeg",
        "encoding": "base64",
        "encodingType": "jpeg",
        "data": ""
    },
-   "agreement": {
-       "agree": "yes",
-       "participantName": "karl",
-       "date": "2015-02-26T16:49:49.509Z",
-       "cdcId": "dd8888888"
-   },
-   "vaccinations": [
-       {
-           "vaccinationSite": "10",
-           "cdcId": "dd8888888",
-           "date": "2015-02-26T16:49:49.509Z",
-           "biometrics": {
-               "type": "fingerprint",
-               "ntemplate": "",
-               "iso": "",
-               "meta": {
-                   "finger": "4",
-                   "hand": "left"
-               }
-           }
-       }
-   ],
+
    "address": {
-       "countryCode": "sl",
-       "address": "ff",
-       "city": "ff",
-       "adminDivision1": "W",
-       "adminDivision2": "32",
-       "adminDivision3": "32-03"
+       "address": "my road",
+       "city": "test city",
+       "householdHeadFirstName": "whatever",
+       "householdHeadSurname": "whatever",
+       "landmark": "behind the store",
+       "adminDivision1": { "id": "W", "name": "West" },
+       "adminDivision2": { "id": "32", "name": "Old house" },
+       "adminDivision3": { "id": "32-03", "name": "Other old house" }
    },
+
+   "alternateContact1": {
+     "name": "fname",
+     "relationship": "sister",
+     "address": "same house",
+     "phone": "1199922299",
+     "messageConfirmation": true
+   },
+
+   "alternateContact2": {
+     "name": "other contact",
+     "relationship": "brother",
+     "address": "same house",
+     "phone": "2199922299",
+     "messageConfirmation": false
+   },
+
+
    "biometrics": [
        {
            "type": "fingerprint",
