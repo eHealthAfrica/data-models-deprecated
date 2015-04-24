@@ -49241,6 +49241,11 @@ module.exports={
   "title": "Nutrition Survey",
   "description": "Data collection and quality assurance tools for Nutrition Surveys on mobile devices",
   "type": "object",
+  "required": [
+    "teamLeader",
+    "teamAnthropometrist",
+    "teamAssistant"
+  ],
   "properties": {
     "doc_type": {
       "type": "string",
@@ -49279,7 +49284,7 @@ module.exports={
     "householdID": {
       "type": "integer"
     },
-    "cluser": {
+    "cluster": {
       "type": "integer"
     },
     "endTime": {
@@ -49305,8 +49310,14 @@ module.exports={
         "$ref": "#/definitions/member"
       }
     },
-    "team": {
-      "$ref": "#/definitions/team"
+    "teamLeader": {
+      "$ref": "#/definitions/teamMember"
+    },
+    "teamAnthropometrist": {
+      "$ref": "#/definitions/teamMember"
+    },
+    "teamAssistant": {
+      "$ref": "#/definitions/teamMember"
     },
     "tools": {
       "$ref": "#/definitions/tools"
@@ -49370,25 +49381,6 @@ module.exports={
           "type": "boolean"
         }
       }
-    },
-    "team": {
-      "type": "object",
-      "properties": {
-        "teamLeader": {
-          "$ref": "#/definitions/teamMember"
-        },
-        "anthropometrist": {
-          "$ref": "#/definitions/teamMember"
-        },
-        "assistant": {
-          "$ref": "#/definitions/teamMember"
-        }
-      },
-      "required": [
-        "teamLeader",
-        "anthropometrist",
-        "assistant"
-      ]
     },
     "teamMember": {
       "type": "object",
@@ -49812,6 +49804,8 @@ module.exports={
     "doc_type",
     "version",
     "surname",
+    "otherNames",
+    "gender",
     "createdDate"
   ]
 }
