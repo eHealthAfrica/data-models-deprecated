@@ -6,6 +6,10 @@ file. This file is structured according to http://keepachangelog.com/
 ---
 
 ## [Unreleased][unreleased]
+### Added
+- Person: `otherNames` & `gender` is now required to match reality with Sense
+  followup
+
 ### Fixed
 - Updated vaccine trial participant to match new requirements
 - NutritionSurvey: typo in `cluster`
