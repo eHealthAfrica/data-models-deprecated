@@ -8,7 +8,8 @@ file. This file is structured according to http://keepachangelog.com/
 ## [Unreleased][unreleased]
 ### Fixed
 - Updated vaccine trial participant to match new requirements
-
+- NutritionSurvey: typo in `cluster`
+- NutritionSurvey: team member relations are no longer nested
 
 ## [1.13.0] - 2015-04-14
 ### Added
