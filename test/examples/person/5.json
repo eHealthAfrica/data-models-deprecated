@@ -2,8 +2,6 @@
   "doc_type": "person",
   "version": "0.0.0",
   "surname": "XXX",
-  "otherNames": "YYY",
-  "gender": "m",
   "classification": {
     "name": "case",
     "subClassification": "confirmed"

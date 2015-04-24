@@ -49804,8 +49804,6 @@ module.exports={
     "doc_type",
     "version",
     "surname",
-    "otherNames",
-    "gender",
     "createdDate"
   ]
 }
