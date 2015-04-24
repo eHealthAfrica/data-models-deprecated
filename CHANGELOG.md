@@ -5,6 +5,14 @@ file. This file is structured according to http://keepachangelog.com/
 
 ---
 
+## 1.15.0 - 2015-04-24
+### Added
+- Person: `otherNames` & `gender` are not required anymore. This is
+  basically rolling back what happened with the previous version,
+  `1.14.0`. The reason is that we need to generate person documents
+  from data in `contact.sourceCases`, which has no `gender` and could
+  be missing `otherNames` as well
+
 ## 1.14.0 - 2015-04-24
 ### Added
 - Person: `otherNames` & `gender` is now required to match reality with Sense
