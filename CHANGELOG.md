@@ -5,11 +5,16 @@ file. This file is structured according to http://keepachangelog.com/
 
 ---
 
-## [Unreleased] - [Unreleased]
+## 1.15.0 - 2015-04-28
 ### Added
 - Added schema for a `FollowUp`. Going forward we'll split out the followups from
   `Person` into this separate document which can be found by their `_id`, which will
   be in the format `personId/dateOfVisit`.
+- Person: `otherNames` & `gender` are not required anymore. This is
+  basically rolling back what happened with the previous version,
+  `1.14.0`. The reason is that we need to generate person documents
+  from data in `contact.sourceCases`, which has no `gender` and could
+  be missing `otherNames` as well
 
 ## 1.14.0 - 2015-04-24
 ### Added
