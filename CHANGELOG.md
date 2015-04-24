@@ -5,7 +5,7 @@ file. This file is structured according to http://keepachangelog.com/
 
 ---
 
-## [Unreleased][unreleased]
+## 1.14.0 - 2015-04-24
 ### Added
 - Person: `otherNames` & `gender` is now required to match reality with Sense
   followup
