@@ -20,10 +20,8 @@ describe('nutrition-survey', function() {
   it('should fail if team roles are missing', function() {
     var example = {
       doc_type: 'nutritionSurvey',
-      team: {
-        anthropometrist: {},
-        assistant: {}
-      }
+      teamAnthropometrist: {},
+      teamAssistant: {}
     };
     var actual = dataModel.validate(example);
     var expected = 'Missing required property: teamLeader';
