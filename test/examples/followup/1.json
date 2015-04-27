@@ -28,5 +28,6 @@
     "name": "test interviewer"
   },
   "deviceId": "e1234",
-  "status": "complete"
+  "status": "complete",
+  "contactId": "7cdbd7e2-523a-4c1a-c128-f99966759ce8"
 }
