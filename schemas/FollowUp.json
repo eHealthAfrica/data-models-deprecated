@@ -4,7 +4,7 @@
   "description": "A single follow up of a person",
   "type": "object",
   "properties": {
-    "_id": { "type": "string" },
+    "_id": { "type": "string", "pattern": "^[^/]+/[^/]+$" },
     "doc_type": { "type": "string", "pattern": "^followup$" },
     "version": { "type": "string", "format": "semver" },
     "status": { "enum": ["incomplete", "complete"] },
