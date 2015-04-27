@@ -9,7 +9,7 @@ file. This file is structured according to http://keepachangelog.com/
 ### Added
 - Added schema for a `FollowUp`. Going forward we'll split out the followups from
   `Person` into this separate document which can be found by their `_id`, which will
-  be in the format `contactId/dateOfVisit`.
+  be in the format `personId/dateOfVisit`.
 
 ## 1.14.0 - 2015-04-24
 ### Added

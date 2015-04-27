@@ -30,7 +30,7 @@
     }},
     "deviceId": { "type": "string" },
     "dateOfVisit": { "type": "string", "format": "date-time" },
-    "contactId": { "type": "string" }
+    "personId": { "type": "string" }
   },
   "definitions": {
     "symptoms": {
@@ -74,6 +74,7 @@
     "doc_type",
     "version",
     "dateOfVisit",
+    "personId",
     "status"
   ]
 }
