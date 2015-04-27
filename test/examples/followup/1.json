@@ -1,0 +1,32 @@
+{
+  "_id": "a4533cab-61bf-4645-9473-93e8df9149a4/2014-08-22T13:36:25.263Z",
+  "_rev": "3-24d7258aa284524d083ab1ff2f4bc997",
+  "doc_type": "followup",
+  "version": "0.0.0",
+  "symptoms": {
+    "headache": false,
+    "temperature": 36.50,
+    "other": "some other",
+    "loss_of_appetite": true
+  },
+  "dateOfVisit": "2014-08-22T13:36:25.263Z",
+  "geoInfo": {
+    "timestamp": 1408715750330,
+    "coords": {
+      "speed": null,
+      "heading": null,
+      "altitudeAccuracy": null,
+      "accuracy": 2052,
+      "altitude": null,
+      "longitude": 0.3676124,
+      "latitude": 0.51913
+    }
+
+  },
+  "comment": "some comment",
+  "interviewer": {
+    "name": "test interviewer"
+  },
+  "deviceId": "e1234",
+  "status": "complete"
+}

@@ -5,6 +5,12 @@ file. This file is structured according to http://keepachangelog.com/
 
 ---
 
+## [Unreleased] - [Unreleased]
+### Added
+- Added schema for a `FollowUp`. Going forward we'll split out the followups from
+  `Person` into this separate document which can be found by their `_id`, which will
+  be in the format `contactId/dateOfVisit`.
+
 ## 1.14.0 - 2015-04-24
 ### Added
 - Person: `otherNames` & `gender` is now required to match reality with Sense
