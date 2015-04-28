@@ -6,6 +6,7 @@ module.exports = {
   'deliveryRound': require('./DeliveryRound.json'),
   'driver': require('./Driver.json'),
   'facilityRound': require('./FacilityRound.json'),
+  'followup': require('./FollowUp.json'),
   'packingList': require('./PackingList.json'),
   'person': require('./Person.json'),
   'pickedProduct': require('./PickedProduct.json'),
