@@ -98,7 +98,7 @@ module.exports = {
   validate: validate
 };
 
-},{"./schemas":100,"json-schema-faker":3,"semver-regex":75,"z-schema":85}],2:[function(require,module,exports){
+},{"./schemas":101,"json-schema-faker":3,"semver-regex":75,"z-schema":85}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -49208,6 +49208,88 @@ module.exports={
 },{}],92:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "FollowUp",
+  "description": "A single follow up of a person",
+  "type": "object",
+  "properties": {
+    "_id": { "type": "string", "pattern": "^[^/]+/[^/]+$" },
+    "doc_type": { "type": "string", "pattern": "^followup$" },
+    "version": { "type": "string", "format": "semver" },
+    "status": { "enum": ["incomplete", "complete"] },
+    "incompleteReason": {
+      "enum": [
+        "food-distribution-incomplete",
+        "no-food-distribution",
+        "gone-to-work",
+        "resistance",
+        "travelling",
+        "other"
+      ]
+    },
+    "interviewer": { "$ref": "#/definitions/connectedPerson" },
+    "comment": { "type": "string" },
+    "isSymptomatic": { "type": "boolean" },
+    "symptoms": { "$ref": "#/definitions/symptoms" },
+    "geoInfo": { "type": "object", "properties": {
+      "coords": { "type": "object", "properties": {
+        "longitude": { "type": "number" },
+        "latitude": { "type": "number" }
+      }}
+    }},
+    "deviceId": { "type": "string" },
+    "dateOfVisit": { "type": "string", "format": "date-time" },
+    "personId": { "type": "string" }
+  },
+  "definitions": {
+    "symptoms": {
+      "type": "object",
+      "properties": {
+        "temperature": { "type": "number"},
+        "fever": { "type": "boolean" },
+        "abdominal_pains": { "type": "boolean" },
+        "articular_pain": { "type": "boolean" },
+        "cough": { "type": "boolean" },
+        "diarrhea": { "type": "boolean" },
+        "difficulty_breathing": { "type": "boolean" },
+        "difficulty_swallowing": { "type": "boolean" },
+        "headache": { "type": "boolean" },
+        "hiccups": { "type": "boolean" },
+        "intense_fatigue": { "type": "boolean" },
+        "loss_of_appetite": { "type": "boolean" },
+        "muscular_pain": { "type": "boolean" },
+        "nausea_vomiting": { "type": "boolean" },
+        "sore_throat": { "type": "boolean" },
+        "thoracic_pain": { "type": "boolean" },
+        "unexplained_bleedings": { "type": "boolean" },
+        "rash": { "type": "boolean" },
+        "red_eyes": { "type": "boolean" },
+        "other_symptoms": { "type": "boolean" },
+        "other": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "connectedPerson": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "faker": "name.findName"},
+        "phone": { "type": "string", "chance": { "phone": { "country": "uk" }}}
+      }
+    }
+  },
+  "required": [
+    "_id",
+    "doc_type",
+    "version",
+    "dateOfVisit",
+    "personId",
+    "status"
+  ]
+}
+
+},{}],93:[function(require,module,exports){
+module.exports={
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Image",
   "description": "An Image",
   "type": "object",
@@ -49235,7 +49317,7 @@ module.exports={
   "required": ["data", "mimeType"]
 }
 
-},{}],93:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Nutrition Survey",
@@ -49486,7 +49568,7 @@ module.exports={
   }
 }
 
-},{}],94:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "PackingList",
@@ -49530,7 +49612,7 @@ module.exports={
   ]
 }
 
-},{}],95:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Person",
@@ -49808,7 +49890,7 @@ module.exports={
   ]
 }
 
-},{}],96:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "PickedProduct",
@@ -49842,7 +49924,7 @@ module.exports={
   ]
 }
 
-},{}],97:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Product",
@@ -49900,7 +49982,7 @@ module.exports={
   ]
 }
 
-},{}],98:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 module.exports={
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "VaccineTrialParticipant",
@@ -50073,7 +50155,7 @@ module.exports={
   }
 }
 
-},{}],99:[function(require,module,exports){
+},{}],100:[function(require,module,exports){
 module.exports={
     "id": "http://json-schema.org/draft-04/schema#",
     "$schema": "http://json-schema.org/draft-04/schema#",
@@ -50225,7 +50307,7 @@ module.exports={
     "default": {}
 }
 
-},{}],100:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -50234,6 +50316,7 @@ module.exports = {
   'deliveryRound': require('./DeliveryRound.json'),
   'driver': require('./Driver.json'),
   'facilityRound': require('./FacilityRound.json'),
+  'followup': require('./FollowUp.json'),
   'packingList': require('./PackingList.json'),
   'person': require('./Person.json'),
   'pickedProduct': require('./PickedProduct.json'),
@@ -50245,5 +50328,5 @@ module.exports = {
   'nutritionSurvey': require('./NutritionSurvey.json')
 };
 
-},{"./Case.json":86,"./DailyDelivery.json":87,"./DeliveryRound.json":88,"./Driver.json":89,"./EbolaCallCentreUser.json":90,"./FacilityRound.json":91,"./Image.json":92,"./NutritionSurvey.json":93,"./PackingList.json":94,"./Person.json":95,"./PickedProduct.json":96,"./Product.json":97,"./VaccineTrialParticipant.json":98,"./draft-04.json":99}]},{},[1])(1)
+},{"./Case.json":86,"./DailyDelivery.json":87,"./DeliveryRound.json":88,"./Driver.json":89,"./EbolaCallCentreUser.json":90,"./FacilityRound.json":91,"./FollowUp.json":92,"./Image.json":93,"./NutritionSurvey.json":94,"./PackingList.json":95,"./Person.json":96,"./PickedProduct.json":97,"./Product.json":98,"./VaccineTrialParticipant.json":99,"./draft-04.json":100}]},{},[1])(1)
 });
