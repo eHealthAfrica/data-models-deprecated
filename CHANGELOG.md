@@ -5,6 +5,10 @@ file. This file is structured according to http://keepachangelog.com/
 
 ---
 
+## 1.16.0 - soon
+### Changed
+- NutritionSurvey now uses `id` and not the randomly generated `member_id`
+
 ## 1.15.0 - 2015-04-28
 ### Added
 - Added schema for a `FollowUp`. Going forward we'll split out the followups from
