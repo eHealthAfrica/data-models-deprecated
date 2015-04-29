@@ -160,8 +160,9 @@
           "type": "integer",
           "minimum": 1900
         },
-        "memberID": {
-          "type": "integer"
+        "id": {
+          "type": "integer",
+          "readonly": true
         },
         "gender": {
           "type": "string",
