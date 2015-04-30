@@ -48845,6 +48845,8 @@ module.exports={
 
     "version": { "type": "string", "format": "semver" },
 
+    "caseStatus": { "type": "string" },
+
     "callNature": {
       "enum": [
         "death",
@@ -49480,8 +49482,9 @@ module.exports={
           "type": "integer",
           "minimum": 1900
         },
-        "memberID": {
-          "type": "integer"
+        "id": {
+          "type": "integer",
+          "readonly": true
         },
         "gender": {
           "type": "string",
