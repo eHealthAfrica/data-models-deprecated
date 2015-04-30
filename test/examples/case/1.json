@@ -9,6 +9,7 @@
   },
   "createdOn": "2014-11-25T12:06:13.062Z",
   "callNature": "prank call",
+  "caseStatus": "open",
   "contact": {
     "doc_type": "contact",
     "phoneNo": "1234"
@@ -56,7 +57,6 @@
     }
   },
   "response": {
-    "doc_type": "response",
-    "caseStatus": "open"
+    "doc_type": "response"
   }
 }
