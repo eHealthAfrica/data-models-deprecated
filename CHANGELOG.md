@@ -5,7 +5,7 @@ file. This file is structured according to http://keepachangelog.com/
 
 ---
 
-## 1.16.0 - soon
+## 1.16.0 - 2015-04-30
 ### Added
 - Case: add caseStatus
 ### Changed
