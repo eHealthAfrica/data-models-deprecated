@@ -9,6 +9,8 @@
 
     "version": { "type": "string", "format": "semver" },
 
+    "caseStatus": { "type": "string" },
+
     "callNature": {
       "enum": [
         "death",

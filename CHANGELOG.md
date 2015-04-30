@@ -6,6 +6,8 @@ file. This file is structured according to http://keepachangelog.com/
 ---
 
 ## 1.16.0 - soon
+### Added
+- Case: add caseStatus
 ### Changed
 - NutritionSurvey now uses `id` and not the randomly generated `member_id`
 
