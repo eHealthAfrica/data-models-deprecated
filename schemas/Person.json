@@ -270,7 +270,6 @@
   "required": [
     "doc_type",
     "version",
-    "surname",
     "createdDate"
   ]
 }
