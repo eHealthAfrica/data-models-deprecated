@@ -5,7 +5,7 @@ file. This file is structured according to http://keepachangelog.com/
 
 ---
 
-## Unreleased - Upcoming
+## 1.18.0 - 2015-05-19
 ###
 - Person: `surname` is no longer required
 
