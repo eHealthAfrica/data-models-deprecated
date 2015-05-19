@@ -1,6 +1,6 @@
 {
   "name": "data-model",
-  "version": "1.8.0",
+  "version": "1.17.0",
   "dependencies": {
     "json-schema-faker": {
       "version": "0.1.1",
