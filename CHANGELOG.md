@@ -5,6 +5,10 @@ file. This file is structured according to http://keepachangelog.com/
 
 ---
 
+## Unreleased - Upcoming
+###
+- Person: `surname` is no longer required
+
 ## 1.17.0 - 2015-05-19
 ### Changed
 - Person: `onsetDate` for cases is no longer required
