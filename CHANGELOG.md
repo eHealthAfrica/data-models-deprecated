@@ -5,6 +5,10 @@ file. This file is structured according to http://keepachangelog.com/
 
 ---
 
+## 1.17.0 - 2015-05-19
+### Changed
+- Person: `onsetDate` for cases is no longer required
+
 ## 1.16.0 - 2015-04-30
 ### Added
 - Case: add caseStatus
