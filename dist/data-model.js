@@ -49821,7 +49821,7 @@ module.exports={
       },
       "symptoms": { "$ref": "#/definitions/symptoms" }
     },
-     "required": ["onsetDate", "status"]
+     "required": ["status"]
     },
 
     "call": { "type": "object", "properties": {
