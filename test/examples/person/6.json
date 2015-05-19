@@ -1,0 +1,25 @@
+{
+  "_id": "fdbe63ec2cf62e484922c6f4203b5695",
+  "doc_type": "person",
+  "version": "1.16.0",
+  "createdDate": "2015-03-11T10:45:14.715Z",
+  "surname": "Doe",
+  "otherNames": "John aka J.",
+  "phoneNumber": "(01123) 2345678",
+  "relative": {
+    "name": "",
+    "phone": "0112 334455"
+  },
+  "case": {
+    "id": "qz0255",
+    "status": "unknown"
+  },
+  "sources": [
+    {
+      "type": "migration",
+      "name": "extract-source-cases-migration",
+      "origin": "00ae40fe-7b6f-4cea-df66-e00b59713944/contact/source-cases/0",
+      "timestamp": 1422613414251
+    }
+  ]
+}
