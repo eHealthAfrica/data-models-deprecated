@@ -36,7 +36,7 @@ Add the dependency from the module, then use the provided `validate`
 method. For example if you want to validate a `Person` object:
 
 ```js
-var dataModel = require('data-model');
+var dataModel = require('data-models');
 var person = { ... };
 var errors = dataModel.validate(person);
 ```
@@ -49,7 +49,7 @@ Given an optional list of model names (and count), generate an instance with
 pre-filled pseudo data:
 
 ```js
-var dataModel = require('data-model');
+var dataModel = require('data-models');
 dataModel.generate('driver', 1);
 // =>
 // { driver:
@@ -67,7 +67,7 @@ A command line interface to the [generate](#generate) function (stringified as
 JSON) can be useful for generating fixtures, for example:
 
 ```shell
-data-model --model driver --count 1
+data-models --model driver --count 1
 ```
 
 Yields:
