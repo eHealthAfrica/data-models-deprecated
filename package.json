@@ -6,6 +6,7 @@
   "bin": "cli.js",
   "scripts": {
     "build": "npm install && mkdir -p dist && npm run browserify && npm run uglify",
+    "build-docs": "./scripts/build-examples-doc.js > doc/Examples.md",
     "browserify": "browserify index.js -s data-model -o dist/data-model.js",
     "uglify": "uglifyjs dist/data-model.js -mc > dist/data-model.min.js",
     "test": "mocha",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "browserify": "^7.0.2",
     "eslint": "^0.10.1",
+    "glob": "^5.0.10",
     "mocha": "~1.21.5",
     "uglify-js": "^2.4.16"
   },
