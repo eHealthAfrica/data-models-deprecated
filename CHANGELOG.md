@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this
 file. This file is structured according to http://keepachangelog.com/
 
 ---
+## 1.20.0 - 2015-07-03
+### Added
+- FollowUp/Person: add neck rigidity as symptom
+
 ## 1.19.0 - 2015-06-11
 ### Changed
 - FollowUp: replace `/` with `:` as delimiter inside `_id` (fixes routing in

@@ -1,6 +1,6 @@
 {
   "name": "data-models",
-  "version": "1.19.0",
+  "version": "1.20.0",
   "description": "Validation for standard data models",
   "main": "index.js",
   "bin": "cli.js",
