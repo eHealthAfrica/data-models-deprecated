@@ -246,6 +246,7 @@
       "loss_of_appetite": { "type": "boolean" },
       "muscular_pain": { "type": "boolean" },
       "nausea_vomiting": { "type": "boolean" },
+      "neck_rigidity": { "type": "boolean" },
       "sore_throat": { "type": "boolean" },
       "thoracic_pain": { "type": "boolean" },
       "unexplained_bleedings": { "type": "boolean" },

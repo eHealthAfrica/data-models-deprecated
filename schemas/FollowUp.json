@@ -49,6 +49,7 @@
         "intense_fatigue": { "type": "boolean" },
         "loss_of_appetite": { "type": "boolean" },
         "muscular_pain": { "type": "boolean" },
+        "neck_rigidity": { "type": "boolean" },
         "nausea_vomiting": { "type": "boolean" },
         "sore_throat": { "type": "boolean" },
         "thoracic_pain": { "type": "boolean" },
