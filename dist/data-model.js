@@ -49214,7 +49214,7 @@ module.exports={
   "description": "A single follow up of a person",
   "type": "object",
   "properties": {
-    "_id": { "type": "string", "pattern": "^[^/]+/[^/]+$" },
+    "_id": { "type": "string", "pattern": "^[^/]+:[^:]+$" },
     "doc_type": { "type": "string", "pattern": "^followup$" },
     "version": { "type": "string", "format": "semver" },
     "status": { "enum": ["incomplete", "complete"] },
@@ -49259,6 +49259,7 @@ module.exports={
         "intense_fatigue": { "type": "boolean" },
         "loss_of_appetite": { "type": "boolean" },
         "muscular_pain": { "type": "boolean" },
+        "neck_rigidity": { "type": "boolean" },
         "nausea_vomiting": { "type": "boolean" },
         "sore_throat": { "type": "boolean" },
         "thoracic_pain": { "type": "boolean" },
@@ -49864,6 +49865,7 @@ module.exports={
       "loss_of_appetite": { "type": "boolean" },
       "muscular_pain": { "type": "boolean" },
       "nausea_vomiting": { "type": "boolean" },
+      "neck_rigidity": { "type": "boolean" },
       "sore_throat": { "type": "boolean" },
       "thoracic_pain": { "type": "boolean" },
       "unexplained_bleedings": { "type": "boolean" },
@@ -49888,7 +49890,6 @@ module.exports={
   "required": [
     "doc_type",
     "version",
-    "surname",
     "createdDate"
   ]
 }
