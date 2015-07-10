@@ -132,9 +132,8 @@
       "required": ["id", "name"]
     },
     "ward": {
-      "type": "integer",
-      "minimum": 0,
-      "maximum": 999
+      "type": "string",
+      "maxLength": 3
     }
   },
 
