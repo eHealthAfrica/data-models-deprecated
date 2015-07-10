@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this
 file. This file is structured according to http://keepachangelog.com/
 
 ---
+## Unreleased
+### Added
+- Person: add `ward` as property of an address
+- Case: add `ward` as property of a patient
+
 ## 1.20.0 - 2015-07-03
 ### Added
 - FollowUp/Person: add neck rigidity as symptom
