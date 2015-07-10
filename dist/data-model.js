@@ -48899,7 +48899,8 @@ module.exports={
         "phoneNo": { "type": "string" },
         "address": { "type": "string" },
         "location": { "$ref": "#/definitions/location" },
-        "preferredLanguages": { "type": "array" }
+        "preferredLanguages": { "type": "array" },
+        "ward": { "$ref": "#/definitions/ward" }
       },
       "required": [
         "phoneNo"
@@ -48933,7 +48934,8 @@ module.exports={
             "disabledPerson": { "type": "boolean" },
             "pregnantWoman":  { "type": "boolean" }
           }
-        }
+        },
+        "ward": { "$ref": "#/definitions/ward" }
       }
     },
     "response": {
@@ -48964,6 +48966,10 @@ module.exports={
         "name": { "type": "string" }
       },
       "required": ["id", "name"]
+    },
+    "ward": {
+      "type": "string",
+      "maxLength": 3
     }
   },
 
@@ -49708,6 +49714,11 @@ module.exports={
           "type": "string",
           "pattern": "^(gn|ml|lr|mg|sl)$",
           "description": "country code following ISO_3166-1_alpha-2 in lowercase"
+        },
+        "ward": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 999
         }
       },
       "additionalProperties": false
