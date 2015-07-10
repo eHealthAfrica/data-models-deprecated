@@ -97,6 +97,11 @@
             "disabledPerson": { "type": "boolean" },
             "pregnantWoman":  { "type": "boolean" }
           }
+        },
+        "ward": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 999
         }
       }
     },
