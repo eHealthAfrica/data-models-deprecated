@@ -63,7 +63,8 @@
         "phoneNo": { "type": "string" },
         "address": { "type": "string" },
         "location": { "$ref": "#/definitions/location" },
-        "preferredLanguages": { "type": "array" }
+        "preferredLanguages": { "type": "array" },
+        "ward": { "$ref": "#/definitions/ward" }
       },
       "required": [
         "phoneNo"
@@ -98,11 +99,7 @@
             "pregnantWoman":  { "type": "boolean" }
           }
         },
-        "ward": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 999
-        }
+        "ward": { "$ref": "#/definitions/ward" }
       }
     },
     "response": {
@@ -133,6 +130,11 @@
         "name": { "type": "string" }
       },
       "required": ["id", "name"]
+    },
+    "ward": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999
     }
   },
 
