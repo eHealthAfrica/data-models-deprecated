@@ -7,7 +7,7 @@ file. This file is structured according to http://keepachangelog.com/
 ## 1.21.0 - 2015-07-10
 ### Added
 - Person: add `ward` as property of an address
-- Case: add `ward` as property of a patient
+- Case: add `ward` as property of a patient and contact
 
 ## 1.20.0 - 2015-07-03
 ### Added
