@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this
 file. This file is structured according to http://keepachangelog.com/
 
 ---
-## unreleased -
+## 1.21.1 - 2015-08-25
 ### Added
 - Case: add `coordinates` as property of adminDivision
 
