@@ -127,7 +127,13 @@
       "type": "object",
       "properties": {
         "id": { "type": ["string", "number"] },
-        "name": { "type": "string" }
+        "name": { "type": "string" },
+        "coordinates": { "type": "object",
+            "properties": {
+              "lon":  { "type": "number" },
+              "lat": { "type": "number" }
+            }
+        }
       },
       "required": ["id", "name"]
     },

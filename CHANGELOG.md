@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this
 file. This file is structured according to http://keepachangelog.com/
 
 ---
+## unreleased -
+### Added
+- Case: add `coordinates` as property of adminDivision
+
 ## 1.21.0 - 2015-07-10
 ### Added
 - Person: add `ward` as property of an address
