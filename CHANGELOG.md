@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this
 file. This file is structured according to http://keepachangelog.com/
 
 ---
+## 1.21.2 - 2015-09-01
+### Added
+- Person: add `jaundice`, `bruises` and `back_pain` as possible symptoms.
+- FollowUp: add `jaundice`, `bruises` and `back_pain` as possible symptoms.
+
 ## 1.21.1 - 2015-08-25
 ### Added
 - Case: add `coordinates` as property of adminDivision

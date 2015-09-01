@@ -56,6 +56,9 @@
         "unexplained_bleedings": { "type": "boolean" },
         "rash": { "type": "boolean" },
         "red_eyes": { "type": "boolean" },
+        "jaundice": { "type": "boolean" },
+        "bruises": { "type": "boolean" },
+        "back_pain": { "type": "boolean" },
         "other_symptoms": { "type": "boolean" },
         "other": { "type": "string" }
       },
