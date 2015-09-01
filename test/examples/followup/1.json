@@ -7,7 +7,10 @@
     "headache": false,
     "temperature": 36.50,
     "other": "some other",
-    "loss_of_appetite": true
+    "loss_of_appetite": true,
+    "jaundice": true,
+    "bruises": true,
+    "back_pain": true
   },
   "dateOfVisit": "2014-08-22T13:36:25.263Z",
   "geoInfo": {
