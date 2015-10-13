@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this
 file. This file is structured according to http://keepachangelog.com/
 
 ---
+## unreleased
+### Added
+- Case: add `adminDivision4` and `adminDivision5` as possible admin divisions.
+
 ## 1.21.2 - 2015-09-01
 ### Added
 - Person: add `jaundice`, `bruises` and `back_pain` as possible symptoms.
