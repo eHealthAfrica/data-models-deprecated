@@ -120,7 +120,9 @@
       "properties": {
         "adminDivision1": { "$ref": "#/definitions/adminDivision" },
         "adminDivision2": { "$ref": "#/definitions/adminDivision" },
-        "adminDivision3": { "$ref": "#/definitions/adminDivision" }
+        "adminDivision3": { "$ref": "#/definitions/adminDivision" },
+        "adminDivision4": { "$ref": "#/definitions/adminDivision" },
+        "adminDivision5": { "$ref": "#/definitions/adminDivision" }
       }
     },
     "adminDivision": {
