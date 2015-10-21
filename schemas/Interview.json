@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Interview",
+  "description": "Google form driven interview",
+  "type": "object",
+  "properties": {
+    "doc_type": {
+      "type": "string",
+      "pattern": "^interview$"
+    },
+    "version": {
+      "type": "string",
+      "format": "semver"
+    }
+  },
+  "required": [
+    "doc_type",
+    "version"
+  ]
+}
