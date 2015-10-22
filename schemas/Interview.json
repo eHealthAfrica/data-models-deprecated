@@ -8,13 +8,16 @@
       "type": "string",
       "pattern": "^interview$"
     },
-    "version": {
-      "type": "string",
-      "format": "semver"
-    }
+    "callbackId": { "type": "string" },
+    "humanId": { "type": "string" },
+    "createdOn": { "type": "string", "format": "date-time" },
+    "reason": { "enum": [ "burial", "suspect" ] }
   },
   "required": [
     "doc_type",
-    "version"
-  ]
+    "createdOn",
+    "reason",
+    "humanId",
+    "callbackId"
+    ]
 }
