@@ -4,7 +4,7 @@
   "description": "A sort of reminder used in the call centre",
   "type": "object",
   "properties": {
-    "doc_type": "callback",
+    "doc_type": { "type": "string", "pattern": "^callback$" },
     "version": { "type": "string" },
     "callId": { "type": "string" },
     "reason": { "type": "string" },

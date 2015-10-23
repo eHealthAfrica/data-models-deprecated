@@ -3,7 +3,7 @@
 var assert = require('assert');
 var dataModel = require('../index');
 
-var example1 = require('./examples/product/1.json');
+var example1 = require('./examples/callback/1.json');
 
 describe('callback', function() {
   it('validates the first example', function() {
