@@ -1,6 +1,7 @@
-'use strict';
+'use strict'
 
 module.exports = {
+  'answer': require('./Answer.json'),
   'case': require('./Case.json'),
   'dailyDelivery': require('./DailyDelivery.json'),
   'deliveryRound': require('./DeliveryRound.json'),
@@ -14,6 +15,7 @@ module.exports = {
   'draft-04': require('./draft-04.json'),
   'ebolaCallCentreUser': require('./EbolaCallCentreUser.json'),
   'image': require('./Image.json'),
+  'interview': require('./Interview.json'),
   'vaccineTrialParticipant': require('./VaccineTrialParticipant.json'),
   'nutritionSurvey': require('./NutritionSurvey.json')
-};
+}
