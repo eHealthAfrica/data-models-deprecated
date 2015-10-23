@@ -3,6 +3,7 @@
 module.exports = {
   'answer': require('./Answer.json'),
   'case': require('./Case.json'),
+  'callback': require('./Callback.json'),
   'dailyDelivery': require('./DailyDelivery.json'),
   'deliveryRound': require('./DeliveryRound.json'),
   'driver': require('./Driver.json'),

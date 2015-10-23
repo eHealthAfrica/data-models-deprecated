@@ -4,7 +4,12 @@ All notable changes to this project will be documented in this
 file. This file is structured according to http://keepachangelog.com/
 
 ---
-## unreleased
+
+## Unreleased - Upcoming
+### Added
+- Callback data model
+
+## 1.22.0 - 2015-09-09
 ### Added
 - Case: add `adminDivision4` and `adminDivision5` as possible admin divisions.
 

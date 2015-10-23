@@ -20,6 +20,20 @@ can either forge them or generate them automatically with the command
 line tool (see below). Improving the generator is also a way to
 improve the data model.
 
+## How to add a data model
+
+Grab an example of your document and add it to `tests/examples`. Add
+its schema under `schemas`. Add the corresponding entry in
+`schemas/index.js`, and maybe, why not? Some documentation under
+`doc`.
+
+The lame, final part is to copy and adapt one of the `.js` files under
+`tests` in order to load your examples, at this point you should be
+able to succesfully run the tests!
+
+If you are planning to do a new release, have a look at [how to
+build](#for-client-side-code)
+
 ## Schema Domain
 
 Until such a time upon which we decide on something better, the current schema domain is `schema.ehealthafrica.org` and the current stable version is `1.0`. e.g:
