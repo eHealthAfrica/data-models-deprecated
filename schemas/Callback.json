@@ -12,7 +12,10 @@
       "username": { "type": "string" },
       "fullName": { "type": "string" }
     },
-    "status": { "enum": ["pending", "rescheduled", "done"] },
+    "status": { "enum": ["pending", "rescheduled", "done", "cancelled"] },
+    "cancelledDetails": {
+      "reason": { "type": "string" }
+    },
     "createdOn": {
       "type": "string",
       "format": "date-time"

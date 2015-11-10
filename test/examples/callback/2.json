@@ -1,0 +1,18 @@
+{
+   "_id": "05070a875cdb4d9a147e6f9dcea7cbb3:2015-09-23T13:19:01.161Z",
+   "_rev": "4-3938ad7b2d32dd72ce6b90e8605cebff",
+   "callId": "05070a875cdb4d9a147e6f9dcea7cbb3",
+   "reason": "Call Nature: undefined",
+   "author": {
+       "username": "analyst",
+       "fullName": "analyst"
+   },
+   "doc_type": "callback",
+   "status": "cancelled",
+   "cancelledDetails": {
+     "reason": "busy"
+   },
+   "createdOn": "2015-09-23T13:19:01.161Z",
+   "version": "1.21.3",
+   "scheduledAt": "2015-09-23T13:19:01.161Z"
+}
