@@ -9,9 +9,7 @@
    },
    "doc_type": "callback",
    "status": "cancelled",
-   "cancelledDetails": {
-     "reason": "busy"
-   },
+   "cancelledReason": "busy",
    "createdOn": "2015-09-23T13:19:01.161Z",
    "version": "1.21.3",
    "scheduledAt": "2015-09-23T13:19:01.161Z"
