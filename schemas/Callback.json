@@ -13,9 +13,7 @@
       "fullName": { "type": "string" }
     },
     "status": { "enum": ["pending", "rescheduled", "done", "cancelled"] },
-    "cancelledDetails": {
-      "reason": { "type": "string" }
-    },
+    "cancelledReason": { "type": "string" },
     "createdOn": {
       "type": "string",
       "format": "date-time"
