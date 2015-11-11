@@ -50,14 +50,17 @@
     "location": {
       "adminDivision1": {
         "id": "E",
+	"ochaId": "SL1",
         "name": "east"
       },
       "adminDivision2": {
         "id": "11",
+	"ochaId": "SL12",
         "name": "kailahun"
       },
       "adminDivision3": {
         "id": "11-04",
+	"ochaId": "SL123",
         "name": "kissi teng"
       }
     }
