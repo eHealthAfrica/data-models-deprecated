@@ -8,6 +8,7 @@ file. This file is structured according to http://keepachangelog.com/
 ## Unreleased - Upcoming
 ### Added
 - Callback data model
+- Case: ad `ochaId` (OCHA) as property of admindivision
 
 ## 1.22.0 - 2015-09-09
 ### Added
