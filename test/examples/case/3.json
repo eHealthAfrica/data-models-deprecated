@@ -1,0 +1,75 @@
+{
+  "_id": "yyy",
+  "_rev": "1-135cb8ae192b198575f9191869980052",
+  "doc_type": "case",
+  "version": "1.0.0",
+  "createdBy": {
+    "username": "gin_call_user",
+    "fullName": "fra"
+  },
+  "createdOn": "2015-01-05T11:45:59.670Z",
+  "callNature": "non ebola",
+  "sameCallPatients": ["xxx"],
+  "callId": "xxx",
+  "contact": {
+    "category": "Health Worker",
+    "doc_type": "contact",
+    "name": "someone",
+    "address": "test street, number 5",
+    "phoneNo": "123456",
+    "organisation": "Connaught Hospital",
+    "role": "Doctor"
+  },
+  "patient": {
+    "id": 1234,
+    "doc_type": "patient",
+    "status": "alive",
+    "gender": "F",
+    "phoneNo": "4132",
+    "address": "Some Place",
+    "age": {
+      "years": 44,
+      "months": 10,
+      "category": "adult"
+    },
+    "symptoms": {
+      "common": {
+        "fever": false,
+        "vomiting": false,
+        "diarrhea": false,
+        "weakness": false,
+        "muscleOrJointPain": false,
+        "bleeding": false,
+        "rash": false,
+        "abdominalPain": false,
+        "difficultySwallowing": false,
+        "headache": false,
+        "hiccup": false
+      },
+      "other": ""
+    },
+    "patientName": "unknown",
+    "location": {
+      "adminDivision1": {
+        "id": "E",
+	"ochaId": "SL1",
+        "name": "east"
+      },
+      "adminDivision2": {
+        "id": "11",
+	"ochaId": "SL12",
+        "name": "kailahun"
+      },
+      "adminDivision3": {
+        "id": "11-04",
+	"ochaId": "SL123",
+        "name": "kissi teng"
+      }
+    }
+  },
+  "response": {
+    "doc_type": "response",
+    "caseStatus": "open"
+  },
+  "dispatch": {}
+}
