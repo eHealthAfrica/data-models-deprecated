@@ -64,7 +64,9 @@
         "address": { "type": "string" },
         "location": { "$ref": "#/definitions/location" },
         "preferredLanguages": { "type": "array" },
-        "ward": { "$ref": "#/definitions/ward" }
+        "ward": { "$ref": "#/definitions/ward" },
+        "organisation": { "type": "string" },
+        "role": { "type": "string" }
       },
       "required": [
         "phoneNo"
