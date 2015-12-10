@@ -10,6 +10,7 @@ file. This file is structured according to http://keepachangelog.com/
 - Callback data model
 - Case: ad `ochaId` (OCHA) as property of admindivision
 - Case: `contact.organization`, `contact.role` issue #1084
+- Case: add info about `duplicateIDs` (already used in production)
 
 ## 1.22.0 - 2015-09-09
 ### Added

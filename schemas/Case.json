@@ -34,6 +34,12 @@
     "isFollowUpCall": { "type": "boolean" },
 
     "sameCallPatients": { "type": "array" },
+    "duplicateIDs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "callId": { "type": "string" },
 
     "changeLog": { "$ref": "#/definitions/changeLog" },
