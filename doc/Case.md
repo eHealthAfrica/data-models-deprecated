@@ -15,3 +15,7 @@ call of a set of duplicates, in chronological order. For example there
 is a functionality in the call centre for closing all duplicates in a
 set, leaving only the primary call open. Search for `primaryCall` in
 the call centre code base for more info
+
+#### Assumptions
+
+For a discussion about some assumptions in duplicate handling, have a look at [eHealthAfrica/sl-ebola-call-admin#1180](https://github.com/eHealthAfrica/sl-ebola-call-admin/issues/1180)
