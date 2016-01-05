@@ -5,16 +5,12 @@ file. This file is structured according to http://keepachangelog.com/
 
 ---
 
-## Unreleased - Upcoming
+## 1.22.0 - 2016-01-05
 ### Added
 - Callback data model
-- Case: ad `ochaId` (OCHA) as property of admindivision
-- Case: `contact.organization`, `contact.role` issue #1084
-- Case: add info about `duplicateIDs` (already used in production)
-
-## 1.22.0 - 2015-09-09
-### Added
-- Case: add `adminDivision4` and `adminDivision5` as possible admin divisions.
+- Case: `contact.organization`, `contact.role` issue #1084.
+- Case: info about `duplicateIDs` (already used in production).
+- Case: `location.adminDivision4` and `adminDivision.ochaId`
 
 ## 1.21.2 - 2015-09-01
 ### Added
