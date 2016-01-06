@@ -19,3 +19,8 @@ the call centre code base for more info
 #### Assumptions
 
 For a discussion about some assumptions in duplicate handling, have a look at [eHealthAfrica/sl-ebola-call-admin#1180](https://github.com/eHealthAfrica/sl-ebola-call-admin/issues/1180)
+
+### Deprecated locations
+
+Have a look at https://github.com/eHealthAfrica/data-models/issues/92
+for a short explanation
