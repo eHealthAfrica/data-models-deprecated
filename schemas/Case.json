@@ -65,6 +65,15 @@
     "contact": {
       "type": "object",
       "properties": {
+        "gender": { "enum": ["F", "M", "unknown"] },
+        "age": {
+          "type": "object",
+          "properties": {
+            "years": { "type": "number", "minimum": 0, "maximum": 121 },
+            "months": { "type": "number", "minimum": 0, "maximum": 11 },
+            "category": { "enum": ["child", "adult"] }
+          }
+        },
         "category": { "type": "string" },
         "phoneNo": { "type": "string" },
         "address": { "type": "string" },
