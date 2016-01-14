@@ -6,9 +6,11 @@ file. This file is structured according to http://keepachangelog.com/
 ---
 
 ## unreleased - upcoming
+
+## 1.23.0 - 2016-01-14
 ### Added
-- Case: `deprecated` property for locations
 - Case: `age` and `gender` properties to contact (demographics)
+- Case: `deprecated` property for locations
 
 ## 1.22.0 - 2016-01-05
 ### Added
