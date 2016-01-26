@@ -10,6 +10,7 @@ file. This file is structured according to http://keepachangelog.com/
 ## 1.23.0 - 2016-01-14
 ### Added
 - Case: `age` and `gender` properties to contact (demographics)
+- Lock data model
 - Case: `deprecated` property for locations
 
 ## 1.22.0 - 2016-01-05

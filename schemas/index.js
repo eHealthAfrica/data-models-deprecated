@@ -18,5 +18,6 @@ module.exports = {
   'image': require('./Image.json'),
   'interview': require('./Interview.json'),
   'vaccineTrialParticipant': require('./VaccineTrialParticipant.json'),
-  'nutritionSurvey': require('./NutritionSurvey.json')
+  'nutritionSurvey': require('./NutritionSurvey.json'),
+  'lock': require('./Lock.json')
 }
