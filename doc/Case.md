@@ -11,7 +11,7 @@ C: [aid, bid]
 
 Note that, although all duplicates seem to have the same value, in the
 call centre there is a notion of "primary call", that is the first
-call of a set of duplicates, in chronological order. For example there
+call of a set of duplicates, in chronological order, [using the `createdOn` property](https://github.com/eHealthAfrica/sl-ebola-call-admin/blob/57a2ba76d23003cda33d7971e27d192e8698bfa6/app/scripts/services/duplicate-calls.js#L108). For example there
 is a functionality in the call centre for closing all duplicates in a
 set, leaving only the primary call open. Search for `primaryCall` in
 the call centre code base for more info
