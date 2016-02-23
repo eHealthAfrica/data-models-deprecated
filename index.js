@@ -4,7 +4,14 @@ var semver = require('semver-regex');
 var ZSchema = require('z-schema');
 var jsf = require('json-schema-faker');
 
-var schemas = require('./schemas');
+var originalSchemas = require('./schemas')
+
+function deepCopy (json) { return JSON.parse(JSON.stringify(json)) }
+// this is an easy way to get immutable schemas and eschew
+// zaggino/z-schema#160 . I think that performance is not a problem
+// for us here
+function getSchemas () { return deepCopy(originalSchemas) }
+var schemas = getSchemas()
 
 var SCHEMA_DOMAIN = 'schema.ehealthafrica.org';
 var SCHEMA_VERSION = '1.0';
@@ -23,14 +30,13 @@ var draft = {
   schema: 'draft-04'
 };
 
-var image = {
-  url: SCHEMA_URI + '/Image.json',
-  schema: 'image'
-};
+var image = { url: SCHEMA_URI + '/Image.json', schema: 'image' };
+var lock = { url: SCHEMA_URI + '/Lock.json', schema: 'lock' };
 
 var validator = new ZSchema();
-validator.setRemoteReference(draft.url, schemas[draft.schema]);
-validator.setRemoteReference(image.url, schemas[image.schema]);
+validator.setRemoteReference(draft.url, getSchemas()[draft.schema]);
+validator.setRemoteReference(image.url, getSchemas()[image.schema]);
+validator.setRemoteReference(lock.url, getSchemas()[lock.schema]);
 
 /**
  * Thin wrapper to make validation more convenient
@@ -40,7 +46,7 @@ validator.setRemoteReference(image.url, schemas[image.schema]);
  */
 function validate(candidate) {
   if (candidate.doc_type) {
-    var schema = schemas[candidate.doc_type];
+    var schema = getSchemas()[candidate.doc_type];
     validator.validate(candidate, schema);
     var errors = validator.getLastErrors();
     return errors;

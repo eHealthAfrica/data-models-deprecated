@@ -18,6 +18,7 @@
       "type": "string",
       "format": "date-time"
     },
+    "lock": { "$ref": "https://schema.ehealthafrica.org/1.0/Lock.json#" },
     "scheduledAt": {
       "type": "string",
       "format": "date-time"
