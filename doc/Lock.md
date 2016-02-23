@@ -71,3 +71,15 @@ siblings. For example, consider the following object:
 
 Given that object, consider locked the properties `e`, `f`, `g`, `h`,
 and free the properties `a`, `b`, `c`.
+
+#### Owner id and name
+
+There are two fields related to the owner. The first, `owner` is for
+machine use and should hold the user id, which means the `name` from
+the Couch user document, check [the
+doc](http://docs.couchdb.org/en/1.6.1/intro/security.html#users-documents). The
+second, `ownerToShow`, is supposed to be shown in interaction with
+the users, for example when saying that `This document is already used
+by <ownerToShow>`. Thus `ownerToShow` should contain the
+clearest string identifying an user, her full name or something
+similar.
