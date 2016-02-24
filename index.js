@@ -10,8 +10,8 @@ function deepCopy (json) { return JSON.parse(JSON.stringify(json)) }
 // this is an easy way to get immutable schemas and eschew
 // zaggino/z-schema#160 . I think that performance is not a problem
 // for us here
-function getSchemas () { return deepCopy(originalSchemas) }
-var schemas = getSchemas()
+function schemasDeepCopy () { return deepCopy(originalSchemas) }
+var schemas = schemasDeepCopy()
 
 var SCHEMA_DOMAIN = 'schema.ehealthafrica.org';
 var SCHEMA_VERSION = '1.0';
@@ -34,9 +34,9 @@ var image = { url: SCHEMA_URI + '/Image.json', schema: 'image' };
 var lock = { url: SCHEMA_URI + '/Lock.json', schema: 'lock' };
 
 var validator = new ZSchema();
-validator.setRemoteReference(draft.url, getSchemas()[draft.schema]);
-validator.setRemoteReference(image.url, getSchemas()[image.schema]);
-validator.setRemoteReference(lock.url, getSchemas()[lock.schema]);
+validator.setRemoteReference(draft.url, schemasDeepCopy()[draft.schema]);
+validator.setRemoteReference(image.url, schemasDeepCopy()[image.schema]);
+validator.setRemoteReference(lock.url, schemasDeepCopy()[lock.schema]);
 
 /**
  * Thin wrapper to make validation more convenient
@@ -46,7 +46,7 @@ validator.setRemoteReference(lock.url, getSchemas()[lock.schema]);
  */
 function validate(candidate) {
   if (candidate.doc_type) {
-    var schema = getSchemas()[candidate.doc_type];
+    var schema = schemasDeepCopy()[candidate.doc_type];
     validator.validate(candidate, schema);
     var errors = validator.getLastErrors();
     return errors;
