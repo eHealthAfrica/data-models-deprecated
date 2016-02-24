@@ -1,6 +1,7 @@
 'use strict'
 
 module.exports = {
+  'lock': require('./Lock.json'),
   'answer': require('./Answer.json'),
   'case': require('./Case.json'),
   'callback': require('./Callback.json'),
@@ -18,6 +19,5 @@ module.exports = {
   'image': require('./Image.json'),
   'interview': require('./Interview.json'),
   'vaccineTrialParticipant': require('./VaccineTrialParticipant.json'),
-  'nutritionSurvey': require('./NutritionSurvey.json'),
-  'lock': require('./Lock.json')
+  'nutritionSurvey': require('./NutritionSurvey.json')
 }

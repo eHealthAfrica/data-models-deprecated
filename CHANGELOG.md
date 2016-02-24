@@ -7,6 +7,7 @@ file. This file is structured according to http://keepachangelog.com/
 
 ## unreleased - upcoming
 ### Added
+- Callback: add `lock` property
 - Lock: add property `ownerToShow`
 
 ## 1.23.0 - 2016-01-14

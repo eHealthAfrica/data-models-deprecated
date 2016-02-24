@@ -6,7 +6,7 @@ var dataModel = require('../index');
 var example1 = require('./examples/lock/1.json'),
     example2 = require('./examples/lock/2.json');
 
-describe('case', function() {
+describe('lock', function() {
   it('validates the first example', function() {
     var errors = dataModel.validate(example1);
     assert.equal(errors, null, JSON.stringify(errors));
