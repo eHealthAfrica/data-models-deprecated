@@ -10,6 +10,7 @@
     "ownerToShow": { "type": "string" }
   },
   "required": [
-    "currently"
+    "date",
+    "owner"
   ]
 }
