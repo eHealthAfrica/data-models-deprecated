@@ -38,11 +38,16 @@ We want a data model enabling the following interactions:
 Properties are designed to allow locking a document or part of it, and
 take it away from its current owner if they take too long:
 
-- `currently`: `true` if currently locked, `false` otherwise
-- `date`: when this lock was acquired the last time, in Universal Time (UTC)
-- `owner`: the last user acquiring this lock. This is a text meant to
+- `dateCreated`: the date the lock was acquired by the user (UTC). This is set once and not modified for the duration of a lock.
+- `date`: the date the lock was renewed (UTC). 
+- `owner`: the username of the user acquiring this lock.
+- `ownerToShow`: the display name of the user. This is a text meant to
   be shown via the user interface, in order to allow to identify the
   person locking a resource as easily as possible
+
+#### Lock timeouts
+
+Locks are active for a finite time, after which they must be renewed by the owner. This is done by updating the `date` property, and happens automatically via a polling mechanism. If a lock does not get renewed, other users will be able to acquire the lock on the resource. Locks can only be active for a finite period of time, after which they expire, and cannot be renewed - this is to prevent locks being held indefinitely. If a lock expires, the resource is free to be locked by another user. The `dateCreated` property is used when determining whether a lock has expired.
 
 #### Conventional meaning
 
@@ -59,7 +64,6 @@ siblings. For example, consider the following object:
  a: { b: 1, c: 2},
  d: {
   locked: {
-   currently: true,
    date: "2016-01-25T17:28",
    owner: "Francesco Occhipinti"
   },

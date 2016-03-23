@@ -6,6 +6,7 @@
   "properties": {
     "doc_type": { "type": "string", "pattern": "^lock$" },
     "date": { "type": "string", "format": "date-time" },
+	"dateCreated": { "type": "string", "format": "date-time" },
     "owner": { "type": "string" },
     "ownerToShow": { "type": "string" }
   },
