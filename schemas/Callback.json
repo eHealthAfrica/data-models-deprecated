@@ -24,7 +24,7 @@
       "format": "date-time"
     },
     "completedAt": {
-      "type": "String",
+      "type": "string",
       "format": "date-time"
     }
   },
