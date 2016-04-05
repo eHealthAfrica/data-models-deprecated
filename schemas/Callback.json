@@ -22,6 +22,10 @@
     "scheduledAt": {
       "type": "string",
       "format": "date-time"
+    },
+    "completedAt": {
+      "type": "string",
+      "format": "date-time"
     }
   },
   "required": [
