@@ -95,6 +95,7 @@
           "dead",
           "alive"
         ]},
+        "dateOfDeath": { "type": "string", "format": "date-time" },
         "gender": { "enum": ["F", "M", "unknown"] },
         "age": {
           "type": "object",
