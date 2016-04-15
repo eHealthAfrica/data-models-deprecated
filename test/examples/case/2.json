@@ -21,6 +21,7 @@
   "patient": {
     "id": 1234,
     "doc_type": "patient",
+    "dateOfDeath": "2015-01-05T11:45:59.670Z",
     "status": "alive",
     "gender": "F",
     "phoneNo": "4132",
