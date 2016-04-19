@@ -10,6 +10,7 @@ file. This file is structured according to http://keepachangelog.com/
 - Callback: add `lock` property
 - Lock: add property `ownerToShow`
 - Case: add property `dateOfDeath`
+- Case: add property `symptomsOn`
 
 ## 1.23.0 - 2016-01-14
 ### Added
