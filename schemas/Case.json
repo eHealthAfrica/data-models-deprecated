@@ -47,7 +47,8 @@
     "patient": { "$ref": "#/definitions/patient" },
     "response": { "$ref": "#/definitions/response" },
     "dispatch": { "$ref": "#/definitions/dispatch" },
-    "quarantine": { "$ref": "#/definitions/quarantine" }
+    "quarantine": { "$ref": "#/definitions/quarantine" },
+    "swabbing": { "$ref": "#/definitions/swabbing" }
   },
 
   "definitions": {
@@ -142,6 +143,16 @@
         "adminDivision2": { "$ref": "#/definitions/adminDivision" },
         "adminDivision3": { "$ref": "#/definitions/adminDivision" },
         "adminDivision4": { "$ref": "#/definitions/adminDivision" }
+      }
+    },
+    "swabbing": {
+      "type": "object",
+      "properties": {
+      "serialNumber": { "type": "string" },
+      "epidId-swabId": { "type": "string" },
+      "swabCollectorName": { "type": "string" },
+      "swabLocation": { "type": "string" },
+      "swabDate": { "type": "string", "format": "date-time" }
       }
     },
     "quarantine": {
