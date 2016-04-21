@@ -8,6 +8,7 @@ file. This file is structured according to http://keepachangelog.com/
 ## unreleased - upcoming
 ### Added
 - Callback: add `lock` property
+- Callback: add `quarantine` property
 - Lock: add property `ownerToShow`
 - Case: add property `dateOfDeath`
 - Case: add property `symptomsOn`

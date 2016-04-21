@@ -46,7 +46,8 @@
     "contact": { "$ref": "#/definitions/contact" },
     "patient": { "$ref": "#/definitions/patient" },
     "response": { "$ref": "#/definitions/response" },
-    "dispatch": { "$ref": "#/definitions/dispatch" }
+    "dispatch": { "$ref": "#/definitions/dispatch" },
+    "quarantine": { "$ref": "#/definitions/quarantine" }
   },
 
   "definitions": {
@@ -142,6 +143,25 @@
         "adminDivision3": { "$ref": "#/definitions/adminDivision" },
         "adminDivision4": { "$ref": "#/definitions/adminDivision" }
       }
+    },
+    "quarantine": {
+      "type": "object",
+      "properties": {
+        "actionTaken": {
+          "enum": [
+            "falseSecurityPresent",
+            "nutritionNotified",
+            "securityNotified",
+            "personTransferred",
+            "collectedByBurialTeam",
+            "falseFoodDelivered"
+          ]}
+          ,
+        "officer": { "type": "string" },
+        "phoneNo": { "type": "string" },
+        "dateResponded": { "type": "string", "format": "date-time" }
+      }
+
     },
     "adminDivision": {
       "type": "object",
