@@ -9,6 +9,7 @@ file. This file is structured according to http://keepachangelog.com/
 ### Added
 - Callback: add `lock` property
 - Callback: add `quarantine` property
+- Callback: add `swabbing` property
 - Lock: add property `ownerToShow`
 - Case: add property `dateOfDeath`
 - Case: add property `symptomsOn`
