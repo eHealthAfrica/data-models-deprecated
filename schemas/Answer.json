@@ -15,7 +15,7 @@
     "title": {
       "type": "string"
       },
-    "response": { "type": "string" },
+    "result": { "type": "string" },
     "reason": { "enum": [ "burial", "suspect" ] },
     "createdOn": { "type": "string", "format": "date-time" },
     "itemType": {
@@ -39,7 +39,7 @@
     "interviewId",
     "title",
     "reason",
-    "response",
+    "result",
     "itemType"
   ]
 }
