@@ -147,12 +147,24 @@
     },
     "swabbing": {
       "type": "object",
+      "description": "sample taken from patient",
       "properties": {
-      "serialNumber": { "type": "string" },
-      "epidId-swabId": { "type": "string" },
-      "swabCollectorName": { "type": "string" },
-      "swabLocation": { "type": "string" },
-      "swabDate": { "type": "string", "format": "date-time" }
+        "suggestedOn": {
+          "type": "string",
+          "format": "date-time",
+          "description": "when the swabbing was suggested to be performed"
+        },
+        "serialNumber": { "type": "string" },
+        "epidIdswabId": { "type": "string" },
+        "collectorName": {
+          "type": "string",
+          "description": "swabbing collector's name"
+        },
+        "location": {
+          "type": "string",
+          "description": "location where the swabbing has taken place"
+        },
+        "date": { "type": "string", "format": "date-time" }
       }
     },
     "quarantine": {
