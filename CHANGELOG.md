@@ -10,6 +10,7 @@ file. This file is structured according to http://keepachangelog.com/
 - Callback: add `lock` property
 - Callback: add `quarantine` property
 - Callback: add `swabbing` property
+- Callback: rename field 'response' to 'result' in the answer model
 - Lock: add property `ownerToShow`
 - Case: add property `dateOfDeath`
 - Case: add property `symptomsOn`
