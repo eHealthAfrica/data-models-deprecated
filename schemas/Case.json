@@ -125,7 +125,7 @@
     },
     "response": {
       "type": "object",
-        "swabId": { "type": "string" }
+      "swabId": { "type": "string" }
     },
     "dispatch": {
       "type": "object"
