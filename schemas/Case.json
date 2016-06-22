@@ -124,7 +124,8 @@
       }
     },
     "response": {
-      "type": "object"
+      "type": "object",
+      "swabId": { "type": "string" }
     },
     "dispatch": {
       "type": "object"
@@ -155,7 +156,6 @@
           "description": "when the swabbing was suggested to be performed"
         },
         "serialNumber": { "type": "string" },
-        "epidIdswabId": { "type": "string" },
         "collectorName": {
           "type": "string",
           "description": "swabbing collector's name"

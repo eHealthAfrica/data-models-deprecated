@@ -14,6 +14,8 @@ file. This file is structured according to http://keepachangelog.com/
 - Lock: add property `ownerToShow`
 - Case: add property `dateOfDeath`
 - Case: add property `symptomsOn`
+- Case: add property `swabId`
+- Case: removed property `epidIdswabId`
 
 ## 1.23.0 - 2016-01-14
 ### Added
