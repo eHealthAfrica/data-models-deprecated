@@ -20,6 +20,8 @@
       "pregnantWoman": true,
       "child": true
     },
+    "age": {},
+    "location": {},
     "status": "dead",
     "symptoms": {
       "common": {
@@ -41,6 +43,7 @@
   },
   "contact": {
     "phoneNo": "123",
+    "doc_type": "contact",
     "location": {
       "adminDivision1": {
         "id": "E",
@@ -63,7 +66,11 @@
       }
     }
   },
+  "responseLine": "117",
+  "transfer": {
+  },
   "response": {
     "doc_type": "response"
-  }
+  },
+  "dispatch": {}
 }

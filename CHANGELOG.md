@@ -6,6 +6,14 @@ file. This file is structured according to http://keepachangelog.com/
 ---
 
 ## unreleased - upcoming
+
+## 1.25.0 - 2016-06-28
+### Added
+- Case: add property causeOfDeath to patient
+### Changed
+- Case: reflect required fields
+
+##  1.24.0 - 2016-01-19
 ### Added
 - Callback: add `lock` property
 - Callback: add `quarantine` property

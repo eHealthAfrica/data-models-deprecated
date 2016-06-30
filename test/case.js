@@ -8,6 +8,9 @@ var example1 = require('./examples/case/1.json'),
     example3 = require('./examples/case/3.json');
 
 describe('case', function() {
+  it('generates a valid model', function() {
+    assert.ok(dataModel.generate('case'))
+  });
   it('validates the first example', function() {
     var errors = dataModel.validate(example1);
     assert.equal(errors, null, JSON.stringify(errors));

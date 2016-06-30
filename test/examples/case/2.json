@@ -27,11 +27,13 @@
     "gender": "F",
     "phoneNo": "4132",
     "address": "Some Place",
+    "household": {},
     "age": {
       "years": 44,
       "months": 10,
       "category": "adult"
     },
+    "location": {},
     "symptoms": {
       "common": {
         "fever": false,
@@ -66,6 +68,9 @@
         "name": "kissi teng"
       }
     }
+  },
+  "responseLine": "117",
+  "transfer": {
   },
   "response": {
     "doc_type": "response",

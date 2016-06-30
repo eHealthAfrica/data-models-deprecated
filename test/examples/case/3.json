@@ -27,6 +27,7 @@
     "gender": "F",
     "phoneNo": "4132",
     "address": "Some Place",
+    "household": {},
     "age": {
       "years": 44,
       "months": 10,
@@ -67,9 +68,12 @@
       }
     }
   },
+  "responseLine": "117",
   "response": {
     "doc_type": "response",
     "caseStatus": "open"
+  },
+  "transfer": {
   },
   "dispatch": {}
 }
