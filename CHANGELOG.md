@@ -6,6 +6,8 @@ file. This file is structured according to http://keepachangelog.com/
 ---
 
 ## unreleased - upcoming
+### Added
+- Case: add 'callback.required' and 'callback.requiredAt' properties
 
 ## 1.25.0 - 2016-06-28
 ### Added
