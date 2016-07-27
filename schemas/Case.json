@@ -10,6 +10,13 @@
     "version": { "type": "string", "format": "semver" },
 
     "caseStatus": { "type": "string" },
+    "callback": {
+      "type": "object",
+      "properties": {
+        "required": {"type": "boolean"},
+        "requiredAt": {"type": "string", "format": "date-time"}
+        }
+      },
     "responseLine": {  "type": "string" ,  "enum": ["117"] },
     "callNature": {
       "enum": [
