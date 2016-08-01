@@ -14,7 +14,8 @@
       "type": "object",
       "properties": {
         "required": {"type": "boolean"},
-        "requiredAt": {"type": "string", "format": "date-time"}
+        "requiredAt": {"type": "string", "format": "date-time"},
+        "completedAt": {"type": "string", "format": "date-time"}
         }
       },
     "responseLine": {  "type": "string" ,  "enum": ["117"] },
