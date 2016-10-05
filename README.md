@@ -1,3 +1,11 @@
+# DEPRECATED
+
+This repo is deprecated.
+It should not be removed since for Call Center the data model module is currently used in integration tests.
+
+---
+
+
 # Data Models
 
 [![Build Status][travis-image]][travis-url]
