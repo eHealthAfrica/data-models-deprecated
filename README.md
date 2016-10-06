@@ -1,3 +1,16 @@
+# DEPRECATED
+
+This repo is deprecated.
+
+It should not be removed since for Call Center the data model module is currently used in integration tests.
+
+There have been discussions around keeping a shared data-models module and have leave models external (e.g. in the call center repo) and to make them extendable. For now it was decided against since in most parts the data models are not up to date and hardly used.
+
+For more information see https://jira.ehealthafrica.org/browse/CCSL-1583
+
+---
+
+
 # Data Models
 
 [![Build Status][travis-image]][travis-url]

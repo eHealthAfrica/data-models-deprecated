@@ -7,6 +7,7 @@ file. This file is structured according to http://keepachangelog.com/
 
 ## unreleased - upcoming
 ### Added
+- Deprecation note
 - Case: add 'callback.required' and 'callback.requiredAt' properties
 - Case: add 'callback.completedAt' properties (CCSL-1733)
 
