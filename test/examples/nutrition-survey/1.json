@@ -8,7 +8,11 @@
   "_rev": "5-ca06629e1b7879f9642ee4791cc623ae",
   "modified": "2015-02-02T12:14:08.916Z",
   "householdID": 11,
-  "cluster": 22,
+  "cluster": {
+    "id": 22,
+    "population": 1000,
+    "segmentPopulation": 200
+  },
   "endTime": "2015-02-02T10:18:40.270Z",
   "location": [
     1.2222222,

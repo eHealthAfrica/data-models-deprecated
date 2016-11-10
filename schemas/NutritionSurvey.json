@@ -47,7 +47,7 @@
       "type": "integer"
     },
     "cluster": {
-      "type": "integer"
+      "$ref": "#/definitions/cluster"
     },
     "endTime": {
       "type": "string",
@@ -243,6 +243,20 @@
         },
         "members": {
           "type": "object"
+        }
+      }
+    },
+    "cluster": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "population": {
+          "type": "integer"
+        },
+        "segmentPopulation": {
+          "type": "integer"
         }
       }
     }
